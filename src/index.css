@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply min-h-screen bg-deep text-white antialiased;
+  font-family: 'Poppins', system-ui, sans-serif;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201, 163, 78, 0.7) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(201, 163, 78, 0.7);
+  border-radius: 9999px;
+}
+
+::selection {
+  @apply bg-gold text-deep;
+}
+
+.hero-bg {
+  background: linear-gradient(180deg, rgba(10, 31, 68, 0.88) 0%, rgba(10, 31, 68, 0.96) 100%);
+}
+
+button,
+a {
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+button:hover,
+a:hover {
+  transform: translateY(-1px);
+}
