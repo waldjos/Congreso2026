@@ -24,6 +24,16 @@ Para generar el sitio listo para deploy:
 npm run build
 ```
 
+## Despliegue en Vercel
+
+1. Conecta el repositorio `https://github.com/waldjos/Congreso2026` en Vercel.
+2. Selecciona la rama `main`.
+3. Vercel detectará automáticamente el framework y usará `npm run build`.
+4. Si prefieres deploy manual, puedes usar:
+   ```bash
+   npx vercel --prod
+   ```
+
 ## Estructura principal
 
 - `src/App.tsx` — Página principal y todas las secciones del micrositio
