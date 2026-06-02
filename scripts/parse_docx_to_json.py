@@ -4,22 +4,48 @@ import json
 from pathlib import Path
 
 
+def normalize_text(text: str):
+    text = text.replace('\u00a0', ' ')
+    text = re.sub(r'\s+', ' ', text)
+    return text.strip()
+
+
 def is_day_header(text: str):
     # Detect lines like 'JUEVES 09 JULIO' or 'Jueves 09 Julio'
     return bool(re.match(r'^[A-Za-zÁÉÍÓÚÑáéíóúñ]+\s+\d{1,2}\s+[A-Za-z]+', text.strip()))
 
 
+def parse_time(text: str):
+    m = re.search(r'\b(\d{1,2}:\d{2})(?:\s*(am|pm|AM|PM|a\.m\.|p\.m\.))?\b', text)
+    if not m:
+        return None
+
+    hour = int(m.group(1).split(':')[0])
+    minute = int(m.group(1).split(':')[1])
+    suffix = m.group(2)
+    if suffix:
+        suffix = suffix.lower().replace('.', '')
+        if suffix == 'pm' and hour < 12:
+            hour += 12
+        if suffix == 'am' and hour == 12:
+            hour = 0
+    return f'{hour:02d}:{minute:02d}'
+
+
 def is_time_line(text: str):
-    return bool(re.search(r'\b\d{1,2}:\d{2}\b', text))
+    return parse_time(text) is not None
 
 
 def extract_time_and_title(text: str):
-    m = re.search(r'\b(\d{1,2}:\d{2})\b', text)
-    if not m:
-        return None, text.strip()
-    time = m.group(1)
-    # remove time from text
-    title = text.replace(m.group(0), '').strip(' -–—:')
+    text = normalize_text(text)
+    time = parse_time(text)
+    if not time:
+        return None, normalize_text(text)
+
+    title = re.sub(r'\b\d{1,2}:\d{2}(?:\s*(?:am|pm|AM|PM|a\.m\.|p\.m\.))?\b', '', text)
+    title = re.sub(r'^[\s\-–—:]+', '', title)
+    title = re.sub(r'^(am|pm|AM|PM)\s*[-–—:\s]+', '', title)
+    title = normalize_text(title)
     return time, title
 
 
@@ -75,6 +101,21 @@ def main():
 
     if current_day:
         days.append(current_day)
+
+    def dedupe_and_sort(day: dict):
+        seen = set()
+        timeline = []
+        for item in day.get('timeline', []):
+            key = (item.get('time', ''), item.get('title', '').strip())
+            if key in seen:
+                continue
+            seen.add(key)
+            timeline.append(item)
+        day['timeline'] = sorted(timeline, key=lambda item: item.get('time') or '99:99')
+
+    for day in days:
+        if 'timeline' in day:
+            dedupe_and_sort(day)
 
     out_path = Path(__file__).parent.parent / 'public' / 'program.json'
     with out_path.open('w', encoding='utf-8') as f:

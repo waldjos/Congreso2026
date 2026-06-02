@@ -3,404 +3,424 @@
     "day": "Programa",
     "timeline": [
       {
-        "time": "11:00",
-        "title": "Sede: Hospital de Clinicas del Este  am",
-        "details": "Valor: 100 $\nManejo de la Disfunción Sexual del Varón. Hablando con los Expertos\nCoordinador: Dr. Eliecer Melean (VEN)\nPonentes: Dr. Gabrielle Antonini (ITA), Dr. Alejandro Carvajal (COL), Dr. Edwin Reyes (PER)\nSede: Hotel Tibisay\nValor: 100 $\nXXXVI CONGRESO NACIONAL DE UROLOGIA\nDr. Nelson Medero\nSede: Hotel Tibisay\nPROGRAMA CIENTIFICO\nJUEVES 09/07/2026"
+        "time": "01:10",
+        "title": "Tratamiento de la urolitiasis en pediatría: experiencia del servicio de Urología Pediátrica del Hospital de Niños Dr. José Manuel de los Rios",
+        "details": "Dr. Jesús Fernández"
       },
       {
-        "time": "7:00",
-        "title": "am – 8:45 am\tPresentación de Trabajos de Incorporación ,Trabajos Libres, Poster y Videos (Salones:)",
+        "time": "07:00",
+        "title": "Presentación de Trabajos de Incorporación ,Trabajos Libres, Poster y Videos (Salones:)",
         "details": ""
       },
       {
-        "time": "8:45",
-        "title": "am -  9:00 am\tConferencia para optar a Miembro Emerito Dr.  Antonio León",
+        "time": "07:00",
+        "title": "Presentación de Trabajos de Incorporación, Trabajos Libres, Poster, Videos (Salones:)",
         "details": ""
       },
       {
-        "time": "9:00",
-        "title": "am – 10:00 am\tSimposio de la Sociedad Venezolana De Urología UROLOGIA GENERAL",
+        "time": "07:00",
+        "title": "Presentación de Trabajos de Incorporación Trabajos Libres, Poster Videos (Salones:)",
+        "details": ""
+      },
+      {
+        "time": "08:45",
+        "title": "Conferencia para optar a Miembro Emerito Dr. Antonio León",
+        "details": ""
+      },
+      {
+        "time": "08:45",
+        "title": "Conferencia para optar a Miembro Emerito Dr. Fernando Giordano",
+        "details": ""
+      },
+      {
+        "time": "08:45",
+        "title": "Cómo estudio urológicamente al paciente pediátrico?",
+        "details": "Dra. Marling Brito"
+      },
+      {
+        "time": "08:45",
+        "title": "Conferencia para optar a Miembro Emerito Dr. Ricardo Montiel",
+        "details": ""
+      },
+      {
+        "time": "09:00",
+        "title": "Simposio de la Sociedad Venezolana De Urología UROLOGIA GENERAL",
         "details": "Coordinador: Dr. Luis Alvarez (VEN)\nModerador: Dr Carlos Martinez (VEN)"
       },
       {
-        "time": "9:00",
-        "title": "am– 9:12 am \tInfecciones Urinarias en Pacientes Complejos",
-        "details": "Dr: Hector Villaroel (VEN)\n9:15am – 9:27am.         \tUrología de Transición: Del pediatrico al adulto\nDr. Wendy Serrano (VEN)"
+        "time": "09:00",
+        "title": "Infecciones Urinarias en Pacientes Complejos",
+        "details": "Dr: Hector Villaroel (VEN)"
       },
       {
-        "time": "9:30",
-        "title": "am – 9:42 am.\tProstatitis Dos Visiones, una misma enfermedad",
-        "details": "Moderador: Dr. Luis Alvarez  (VEN)\nParticipantes:Dr. Villaroel (Infectologo) (VEN)\nDr. Leonardo Borregales (Urologo)\t(VEN)"
+        "time": "09:00",
+        "title": "SIMPOSIO de PATOLOGIA BENIGNA DE PROSTATA",
+        "details": "SOCIEDAD COLOMBIANA DE UROLOGIA\nCoordinador y Moderador Dr. Jackson Briones"
       },
       {
-        "time": "9:45",
-        "title": "am – 9:57 am.             Enfermedad de Peyronie: Técnica de Scratch.",
-        "details": "Dr. Gabriele Antonini (ITA)"
-      },
-      {
-        "time": "10:00",
-        "title": "am – 10:30\t am\t\tRECESO: Inauguración del Area Comercial",
+        "time": "09:00",
+        "title": "BIENVENIDA",
         "details": ""
       },
       {
+        "time": "09:05",
+        "title": "Neoadyuvancia en Cancer de Pstata: Resultados del Estudio PROTEUS",
+        "details": "Dr. Gustavo Villoldo (ARG)"
+      },
+      {
+        "time": "09:05",
+        "title": "La era de la Enucleación: HoLEP, ThuLEP y Thulium Fiber Laser ¿Nuevo estándar en HPB?",
+        "details": "Dr. Andrés Diaz (COL)"
+      },
+      {
+        "time": "09:10",
+        "title": "¿Qué debo saber de nefrología en Urología Pediátrica?",
+        "details": "Dr. Andrés Casanova"
+      },
+      {
+        "time": "09:15",
+        "title": ". Urología de Transición: Del pediatrico al adulto",
+        "details": "Dr. Wendy Serrano (VEN)"
+      },
+      {
+        "time": "09:15",
+        "title": "No solo el volumen importa. Toma de decisiones en el manejo quirurgico de la HPB",
+        "details": "Dra. Verónica Tobar (COL)"
+      },
+      {
+        "time": "09:25",
+        "title": "Linfadenectomía extendida en Cáncer de Próstata de Alto riesgo: Indicaciones, límites anatómicos y estandarización quirúrgica.",
+        "details": "Dr Leonardo Borregales (HIJO) (USA – VEN)"
+      },
+      {
+        "time": "09:30",
+        "title": ". Prostatitis Dos Visiones, una misma enfermedad",
+        "details": "Moderador: Dr. Luis Alvarez  (VEN)\nParticipantes:Dr. Villaroel (Infectologo) (VEN)\nDr. Leonardo Borregales (Urologo)\t(VEN)"
+      },
+      {
+        "time": "09:30",
+        "title": "Un portal en Urología Pediátrica: Infección Urinaria",
+        "details": "Dra. Jenny Coa"
+      },
+      {
+        "time": "09:30",
+        "title": "DEBATE: Tratamiento médico vs intervención temprana en HPB: ¿Estamos llegando tarde?",
+        "details": "Moderador: Dr.  Carlos Andrade  (COL)\nParticipantes: Dra. Veronica Tovar (COL) Dr. Andres Diáz (COL)"
+      },
+      {
+        "time": "09:45",
+        "title": ". Enfermedad de Peyronie: Técnica de Scratch.",
+        "details": "Dr. Gabriele Antonini (ITA)"
+      },
+      {
+        "time": "09:45",
+        "title": "Cirugia Robotica para complicaciones postradioterapia y cirugia de rescate",
+        "details": "Dr. René Sotelo (USA – VEN)."
+      },
+      {
+        "time": "09:50",
+        "title": "¿Qué tenemos nuevo en Reflujo Vesico Renal?",
+        "details": "Dra. Wendy Serrano"
+      },
+      {
+        "time": "09:50",
+        "title": ". En la era de la Enucleación: ¿Tiene aún espacio las terapias minimamente invasivas (Rezum, Urolift, ITIND)",
+        "details": "Dr. Carlos Andrade (COL)"
+      },
+      {
+        "time": "10:00",
+        "title": "RECESO: Inauguración del Area Comercial",
+        "details": ""
+      },
+      {
+        "time": "10:05",
+        "title": "RTUP vs Enucleación: ¿Sigue vigente el estándar clásico?",
+        "details": "Dra. Verónica Tobar (COL)"
+      },
+      {
+        "time": "10:10",
+        "title": "Manejo de la recidiva bioquímica: ¿Cuándo y cómo rescatar al paciente tras fallo del tratamiento primario?",
+        "details": "Dr. Carlos Sucre (VEN)."
+      },
+      {
+        "time": "10:10",
+        "title": "Sección de Preguntas y respuestas",
+        "details": "Moderador: Dr. Hermes Pérez"
+      },
+      {
+        "time": "10:20",
+        "title": "Cirugía de la HPB con preservación de la eyaculación: ¿Hasta donde podemos llegar sin comprometer resultados?",
+        "details": "Dr. Luis Wadskier (COL- VEN)"
+      },
+      {
         "time": "10:30",
-        "title": "am – 12:30 pm\tSIMPOSIO DE ANDROLOGIA Y ESTETICA GENITAL MASCULINA SLAMS-SOVEURO-AVEMERE",
+        "title": "SIMPOSIO DE ANDROLOGIA Y ESTETICA GENITAL MASCULINA SLAMS-SOVEURO-AVEMERE",
         "details": "Coordinador: Dr. Eliecer Melean (VEN)\nModeradora: Dra. Victoria de los Rios (VEN)"
       },
       {
         "time": "10:35",
-        "title": "am - 10: 50 am  \tDisfunción de Piso Pelvico y Función Sexual el eslabon olvidado de la Andrología",
+        "title": "10: 50 am Disfunción de Piso Pelvico y Función Sexual el eslabon olvidado de la Andrología",
         "details": "Dra. Jhorbelis Rojas (VEN)"
       },
       {
-        "time": "10:55",
-        "title": "am- 11:10 am    \tTerapia de reemplazo hormonal ¿Visibilidad o moda? ¿Qué dice la evidencia?",
-        "details": "Dr. Edwin Reyes (PER)"
-      },
-      {
-        "time": "11:15",
-        "title": "am - 11:30 am \tFertilidad Masculino: ¿Biomarcador integral de Salud? Cambios de Paradigma",
-        "details": "Dr. Eliecer Melean (VEN)"
-      },
-      {
-        "time": "11:35",
-        "title": "am- 11:50 am.  \tImplantes peneanos: abordaje suprapúbico vs penoescrotal",
-        "details": "Dr. Gabriele Antonini (ITA)"
-      },
-      {
-        "time": "11:55",
-        "title": "pm - 12:10 pm   \tCirugía de la enfermedad de Peyronie: plicatura, injertos e implantes ¿Cuándo cada uno?",
-        "details": "Dr. Alejandro Carvajal  (COL)"
-      },
-      {
-        "time": "12:10",
-        "title": "pm - 12:30 pm \tEscenarios complejos en ANDROLOGIA",
-        "details": "Moderador: Dr. Eliecer Melean\nDra. Jhorbelis Rojas, Dr Edwin Reyes, Dr. Eliecer Melean, Dr. Alejandro Carvajal, Dr. Gabriele Antonini\nXXXVI CONGRESO NACIONAL DE UROLOGIA\nDr. Nelson Medero\nPROGRAMA CIENTIFICO\nJUEVES 09/07/2026"
-      },
-      {
-        "time": "12:30",
-        "title": "pm – 1:30 pm\t\tALMUERZO CONFERENCIA: Terapia de Reemplazo Hormonal",
-        "details": "Dr. Edwin Reyes (PER)\nPatrocinadono por Nirvalab"
-      },
-      {
-        "time": "1:30",
-        "title": "pm – 2:00pm\t\tRECESO",
-        "details": ""
-      },
-      {
-        "time": "2:00",
-        "title": "pm – 3:30 pm\t\tSIMPOSIO DE UROLOGIA FUNCIONAL Fundación Puigvert",
-        "details": "Coordinador: Dr. Julian Azuero (COL)\nModeradora: Dr. Josemar Jimenez (VEN)"
-      },
-      {
-        "time": "2:45",
-        "title": "2:00pm –  pm\tMás Alla del Esfínter Artificial: Opciones quirúrgicas reales en la incontinencia post-prostectomia",
-        "details": "Dr. Carlos Errando (ESP), Dr. Julian Azuero (COL), Dra. Carmen Gonzalez (ESP)"
-      },
-      {
-        "time": "2:45",
-        "title": "pm – 3:30 pm\t¿Qué Harias tú? Casos Desafiantes de Vejiga Hiperactiva",
-        "details": "Dr. Carlos Errando (ESP), Dr. Julian Azuero (COL), Dra. Carmen Gonzalez (ESP)"
-      },
-      {
-        "time": "3:30",
-        "title": "pm – 4:00 pm\t\tRECESO",
-        "details": ""
-      },
-      {
-        "time": "4:00",
-        "title": "pm – 5:30 pm\t\tSIMPOSIO DE PISO PELVICO \tALAPP",
-        "details": "Coordinador: Dr. Luis Caricote (VEN)\nModerador: Dr Luis Caricote (VEN)\nPonentes: Drs. Paulo Palma (BRA), Dr. Alvaro Ochoa (MEX) Lic. Angela    Gómez (MEX)"
-      },
-      {
-        "time": "7:00",
-        "title": "PM\t\t\t\tACTO INAUGURAL y BRINDIS DE BIENVENIDA",
-        "details": "XXXVI CONGRESO NACIONAL DE UROLOGIA\nDr. Nelson Medero\nPROGRAMA CIENTIFICO\nVIERNES 10/07/2026"
-      },
-      {
-        "time": "7:00",
-        "title": "am – 8:45 am\tPresentación de Trabajos de Incorporación, Trabajos Libres, Poster, Videos (Salones:)",
-        "details": ""
-      },
-      {
-        "time": "8:45",
-        "title": "am -  9:00 am\tConferencia para optar a Miembro Emerito Dr. Fernando Giordano",
-        "details": ""
-      },
-      {
-        "time": "11:00",
-        "title": "9.00 am –  am\t\tSIMPOSIO DE ONCOLOGIA: Cancer de Próstata",
-        "details": "Sociedad Venezolana de Urologia\nSeccion de Uroconcología de la Sociedad Venezolana de Oncologia\nCoordinador – Moderador: Dr. Simón Paz (VEN)"
-      },
-      {
-        "time": "09:20",
-        "title": "09:05am -  am  \tNeoadyuvancia en Cancer de Pstata: Resultados del Estudio PROTEUS",
-        "details": "Dr. Gustavo Villoldo (ARG)"
-      },
-      {
-        "time": "09:25",
-        "title": "am - 09:40 am \tLinfadenectomía extendida en Cáncer de Próstata de Alto riesgo: Indicaciones, límites anatómicos y estandarización quirúrgica.",
-        "details": "Dr Leonardo Borregales (HIJO) (USA – VEN)"
-      },
-      {
-        "time": "09:45",
-        "title": "am - 10:00 am \tCirugia Robotica para complicaciones postradioterapia y cirugia de rescate",
-        "details": "Dr. René Sotelo (USA – VEN)."
-      },
-      {
-        "time": "10:10",
-        "title": "am - 10:25 am \tManejo de la recidiva bioquímica: ¿Cuándo y cómo rescatar al paciente tras fallo del tratamiento primario?",
-        "details": "Dr. Carlos Sucre (VEN)."
-      },
-      {
         "time": "10:35",
-        "title": "am -  11:00 am\t\tMesa Redonda: Controversias en el Cáncer de Próstata de Alto Riesgo",
+        "title": "Mesa Redonda: Controversias en el Cáncer de Próstata de Alto Riesgo",
         "details": "Participan: Dres. Sucre,  Sotelo,  Borregales, Vera"
       },
       {
+        "time": "10:35",
+        "title": ". Cirugia de HPB en Latinoamerica: Enucleación vs Abierta vs laparoscopica vs Robotica: ¿Qué debemos defender hoy ¿",
+        "details": "Moderador: Dr. Luis Wadskier\nPanelistas: Dr. Carlos Andrade Dr. Andres Diaz Dr. Veronica Tobar"
+      },
+      {
+        "time": "10:40",
+        "title": "11am Vejiga Neurogénica no neurogénica",
+        "details": "Dra. Florangélica González"
+      },
+      {
+        "time": "10:55",
+        "title": "Terapia de reemplazo hormonal ¿Visibilidad o moda? ¿Qué dice la evidencia?",
+        "details": "Dr. Edwin Reyes (PER)"
+      },
+      {
         "time": "11:00",
-        "title": "am – 11:30  am\t\tRECESO",
+        "title": "Sede: Hospital de Clinicas del Este",
+        "details": "Valor: 100 $\nManejo de la Disfunción Sexual del Varón. Hablando con los Expertos\nCoordinador: Dr. Eliecer Melean (VEN)\nPonentes: Dr. Gabrielle Antonini (ITA), Dr. Alejandro Carvajal (COL), Dr. Edwin Reyes (PER)\nSede: Hotel Tibisay\nValor: 100 $\nXXXVI CONGRESO NACIONAL DE UROLOGIA\nDr. Nelson Medero\nSede: Hotel Tibisay\nPROGRAMA CIENTIFICO\nJUEVES 09/07/2026"
+      },
+      {
+        "time": "11:00",
+        "title": "9.00 am – SIMPOSIO DE ONCOLOGIA: Cancer de Próstata",
+        "details": "Sociedad Venezolana de Urologia\nSeccion de Uroconcología de la Sociedad Venezolana de Oncologia\nCoordinador – Moderador: Dr. Simón Paz (VEN)"
+      },
+      {
+        "time": "11:00",
+        "title": "RECESO",
         "details": ""
       },
       {
+        "time": "11:00",
+        "title": "Lesiones congénitas del uréter: doble lesión",
+        "details": "Dra. Shileyne Daló"
+      },
+      {
+        "time": "11:15",
+        "title": "Fertilidad Masculino: ¿Biomarcador integral de Salud? Cambios de Paradigma",
+        "details": "Dr. Eliecer Melean (VEN)"
+      },
+      {
+        "time": "11:20",
+        "title": "Dilatación endoscópica del tracto urinario: retos, mitos y experiencia",
+        "details": "Dr. Abelardo Yepez"
+      },
+      {
         "time": "11:30",
-        "title": "am – 1:00 pm\t\tSIMPOSIO CANCER DE VEJIGA Estamos viviendo un cambio de paradigmas",
+        "title": "SIMPOSIO CANCER DE VEJIGA Estamos viviendo un cambio de paradigmas",
         "details": "Sociedad Venezolana de Urología\nSección de Uroconcología de la Sociedad Venezolana de Oncología\nCoordinador – Moderador: Dr. Erick Moreira"
       },
       {
         "time": "11:30",
-        "title": "am  - 11:45 am: \tNMIBC resistente a BCG: Manejo Actual y perspectivas futuras",
+        "title": "NMIBC resistente a BCG: Manejo Actual y perspectivas futuras",
         "details": "Ponente: Dr Joan Palou  (ESP – Fundación Puigvert)"
       },
       {
-        "time": "11:50",
-        "title": "am - 12:05 pm \t MIBC: Respuesta Completa post tratamiento Neoadyuvante: ¿Es Necesaria la Cistectomia?",
-        "details": "Ponente: Dr. Gustavo Villoldo (ARG)."
-      },
-      {
-        "time": "12:10",
-        "title": "pm - 12:25 pm \tTerapia Trimodal en Cancer Vejiga: Como y a Quien?",
-        "details": "Ponente: Dr. Javier Hernandez (ESP-IVO)"
-      },
-      {
-        "time": "12:30",
-        "title": "1:00 pm \t\tMesa Redonda: Cancer Vejiga MIBC",
-        "details": "Drs.Palou Villodo, Hernandez, Sucre\nXXXVI CONGRESO NACIONAL DE UROLOGIA\nDr. Nelson Medero\nPROGRAMA CIENTIFICO\nVIERNES 10/07/2026"
-      },
-      {
-        "time": "1:00",
-        "title": "pm – 2: 00 pm\t\tALMUERZO CONFERENCIA: Deprivación Androgénica en la era actual",
-        "details": "Patrocinado por  Laboratorios ADIUM"
-      },
-      {
-        "time": "2:00",
-        "title": "pm -  2:30 pm\t\tRECESO",
+        "time": "11:30",
+        "title": "Conferencia para optar a Miembro Emérito Dr. Pedro Armando González",
         "details": ""
       },
       {
-        "time": "2:30",
-        "title": "pm – 4:30 pm\t\tSIMPOSIO DE CIRUGIA LAPAROSCOPICA Y ROBOTICA",
-        "details": "Asociación Española de Urología\nCoordinadora: Dra Carmen Gonzalez (ESP)\nModerador: Dr Alberto Budia (ESP)"
-      },
-      {
-        "time": "2:50",
-        "title": "2:30pm – pm            \tIntroducción.  Dra. Carmen Gonzalez",
-        "details": ""
-      },
-      {
-        "time": "3:10",
-        "title": "2-50 pm- pm.            \tNefrectomia Parcial ¿Hemos llegado al limite?",
-        "details": "Dr. José Luis Alvarez Ossorio (ESP)"
-      },
-      {
-        "time": "3:10",
-        "title": "pm – 3:30 pm.         \tProstatectomia radical en 2025 ¿Técnica unica o cirugía a la medida",
-        "details": "Dr. Mario Alvarez Maestro (ESP)"
-      },
-      {
-        "time": "3:30",
-        "title": "pm – 3:50 pm.          \tCistectomia radical minimamente invasiva ¿Realidad o Promesa?",
-        "details": "Dr. Joan Palou (ESP)"
-      },
-      {
-        "time": "3:50",
-        "title": "pm – 4:10 pm          \tDe Cirujanos a Estrategas: La Cirugia Urologica del Futuro",
-        "details": "Dr. Joan Palao (ESP)"
-      },
-      {
-        "time": "4:10",
-        "title": "pm -  4:30 pm            Debate Cruzado y Conclusiones",
-        "details": ""
-      },
-      {
-        "time": "5:00",
-        "title": "PM\t\t\t\tASAMBLEA GENERAL SOCIEDAD VENEZOLANA DE UROLOGIA",
-        "details": "XXXVI CONGRESO NACIONAL DE UROLOGIA\nDr. Nelson Medero\nPROGRAMA CIENTIFICO\nVIERNES 10/07/2026\nPrograma de Urología Pediátrica Congreso 2026\nSEDE: Hospital de Clinicas del Este\n8: 30 am \t\tPalabras de bienvenida y apertura\nDr. Mazen El Eysami Makled\n8:45am \t\t\tCómo estudio urológicamente al paciente pediátrico?\nDra. Marling Brito\n9:10am \t\t\t¿Qué debo saber de nefrología en Urología Pediátrica?\nDr. Andrés Casanova\n9:30am \t\t\tUn portal en Urología Pediátrica: Infección Urinaria\nDra. Jenny Coa\n9:50am \t\t\t¿Qué tenemos nuevo en Reflujo Vesico Renal?\nDra. Wendy Serrano"
-      },
-      {
-        "time": "10:10",
-        "title": "10:40 am \t\tSección de Preguntas y respuestas",
-        "details": "Moderador: Dr. Hermes Pérez"
-      },
-      {
-        "time": "10:40",
-        "title": "11am \t\tVejiga Neurogénica no neurogénica",
-        "details": "Dra. Florangélica González"
-      },
-      {
-        "time": "11:00",
-        "title": "11:20am \t\tLesiones congénitas del uréter: doble lesión",
-        "details": "Dra. Shileyne Daló"
-      },
-      {
-        "time": "11:20",
-        "title": "11:40am \t\tDilatación endoscópica del tracto urinario: retos, mitos y experiencia",
-        "details": "Dr. Abelardo Yepez"
+        "time": "11:35",
+        "title": ". Implantes peneanos: abordaje suprapúbico vs penoescrotal",
+        "details": "Dr. Gabriele Antonini (ITA)"
       },
       {
         "time": "11:40",
-        "title": "12m \t\tAusencia de testículos: conducta ¿Cómo descarto un DDS?",
+        "title": "12m Ausencia de testículos: conducta ¿Cómo descarto un DDS?",
         "details": "Dra. Robersy Pérez"
       },
       {
-        "time": "12:20",
-        "title": "12-  pm \t\tTratamiento quirúrgico del hipospadias: novedades",
-        "details": "Dr. Servio Tulio Rivero"
-      },
-      {
-        "time": "12:40",
-        "title": "12: 20-  pm \tUretroplastia en Hipospadias: ¿Cómo derivo? ¿Cuál derivación uso?",
-        "details": "Dr. Carlos De La Fuente"
-      },
-      {
-        "time": "12:40",
-        "title": "1:10pm \t\tSesión de Preguntas y respuestas",
-        "details": "Moderador: Dr. Francisco Chang"
-      },
-      {
-        "time": "1:10",
-        "title": "1:30 pm \tTratamiento de la urolitiasis en pediatría: experiencia del servicio de Urología Pediátrica del Hospital de Niños Dr. José Manuel de los Rios",
-        "details": "Dr. Jesús Fernández"
-      },
-      {
-        "time": "1:30",
-        "title": "pm \tPresentación de casos de Malformaciones Congénitas en Urología Pediátrica",
-        "details": "Litiasis uretral migrada a escroto: a propósito de un caso\nDr. Jesús Fernández\nAfalia congénita: reporte de 4 casos\nDra. Grecia Lara\nSíndrome de Prunne Belly: revisión de la literatura y serie de casos\nDr. Jesús Fernández\nSíndrome de Himman\nDra. Melissa Méndez\nSíndrome de Zinner: reporte de un caso\nDra. Grecia Lara\nExtrofia Vesical\nDra. Yufrancis Caraballo\nXXXVI CONGRESO NACIONAL DE UROLOGIA\nDr. Nelson Medero\nPROGRAMA CIENTIFICO\nSABADO  11/07/2026"
-      },
-      {
-        "time": "7:00",
-        "title": "am – 8:45 am\tPresentación de Trabajos de Incorporación Trabajos Libres, Poster Videos (Salones:)",
-        "details": ""
-      },
-      {
-        "time": "8:45",
-        "title": "am -  9:00 am\tConferencia para optar a Miembro Emerito Dr. Ricardo Montiel",
-        "details": ""
-      },
-      {
-        "time": "9:00",
-        "title": "am – 11:00 am\t\tSIMPOSIO de PATOLOGIA BENIGNA DE PROSTATA",
-        "details": "SOCIEDAD COLOMBIANA DE UROLOGIA\nCoordinador y Moderador Dr. Jackson Briones"
-      },
-      {
-        "time": "9:00",
-        "title": "AM – 9:05 AM           BIENVENIDA",
-        "details": ""
-      },
-      {
-        "time": "9:05",
-        "title": "AM -  9:15 AM       \tLa era de la Enucleación: HoLEP, ThuLEP y Thulium Fiber Laser ¿Nuevo estándar en HPB?",
-        "details": "Dr. Andrés Diaz (COL)"
-      },
-      {
-        "time": "9:15",
-        "title": "am -  9:30 am          \tNo solo el volumen importa. Toma de decisiones en el manejo quirurgico de la HPB",
-        "details": "Dra. Verónica Tobar (COL)"
-      },
-      {
-        "time": "9:30",
-        "title": "am -  9:50 am         \tDEBATE: Tratamiento médico vs intervención temprana en HPB: ¿Estamos llegando tarde?",
-        "details": "Moderador: Dr.  Carlos Andrade  (COL)\nParticipantes: Dra. Veronica Tovar (COL) Dr. Andres Diáz (COL)"
-      },
-      {
-        "time": "9:50",
-        "title": "am -  10:05 am.         \tEn la era de la Enucleación: ¿Tiene aún espacio las terapias minimamente invasivas (Rezum, Urolift, ITIND)",
-        "details": "Dr. Carlos Andrade (COL)"
-      },
-      {
-        "time": "10:05",
-        "title": "am – 10:20 am     \t RTUP vs Enucleación: ¿Sigue vigente el estándar clásico?",
-        "details": "Dra. Verónica Tobar (COL)"
-      },
-      {
-        "time": "10:20",
-        "title": "am – 10:35 am\tCirugía de la HPB con preservación de la eyaculación: ¿Hasta donde              podemos llegar sin comprometer resultados?",
-        "details": "Dr. Luis Wadskier (COL- VEN)"
-      },
-      {
-        "time": "10:35",
-        "title": "am -  11:00 am.      Cirugia de HPB en Latinoamerica: Enucleación vs Abierta vs laparoscopica\t\t\t\tvs Robotica: ¿Qué debemos defender hoy ¿",
-        "details": "Moderador: Dr. Luis Wadskier\nPanelistas: Dr. Carlos Andrade Dr. Andres Diaz Dr. Veronica Tobar"
-      },
-      {
-        "time": "11:00",
-        "title": "am – 11:30 am\tRECESO",
-        "details": ""
-      },
-      {
-        "time": "11:30",
-        "title": "am – 11:45 am \tConferencia para optar a Miembro Emérito Dr. Pedro Armando González",
-        "details": ""
-      },
-      {
         "time": "11:45",
-        "title": "am – 2:00 pm\tSIMPOSIO DE ENDOUROLOGIA Y LITIASIS",
+        "title": "SIMPOSIO DE ENDOUROLOGIA Y LITIASIS",
         "details": "Confederación Americana de Urología\nEuropean Association of Urology (EAU)\nCoordinador – Moderador: Dr. Víctor Gomez"
       },
       {
         "time": "11:45",
-        "title": "am– 12:00  m             Introducción",
+        "title": "m Introducción",
         "details": ""
+      },
+      {
+        "time": "11:50",
+        "title": "MIBC: Respuesta Completa post tratamiento Neoadyuvante: ¿Es Necesaria la Cistectomia?",
+        "details": "Ponente: Dr. Gustavo Villoldo (ARG)."
       },
       {
         "time": "12:00",
-        "title": "m – 12:15 pm            Acceso Percútaneo: ¿Ecografía, Fluoroscopía, Ambas?",
+        "title": "m – Acceso Percútaneo: ¿Ecografía, Fluoroscopía, Ambas?",
         "details": "Dr. Edgar Beltran (MEX)"
       },
       {
+        "time": "12:10",
+        "title": "Escenarios complejos en ANDROLOGIA",
+        "details": "Moderador: Dr. Eliecer Melean\nDra. Jhorbelis Rojas, Dr Edwin Reyes, Dr. Eliecer Melean, Dr. Alejandro Carvajal, Dr. Gabriele Antonini\nXXXVI CONGRESO NACIONAL DE UROLOGIA\nDr. Nelson Medero\nPROGRAMA CIENTIFICO\nJUEVES 09/07/2026"
+      },
+      {
+        "time": "12:10",
+        "title": "Terapia Trimodal en Cancer Vejiga: Como y a Quien?",
+        "details": "Ponente: Dr. Javier Hernandez (ESP-IVO)"
+      },
+      {
         "time": "12:20",
-        "title": "pm  12:35  pm          Miniaturización en 2026 ¿Tiene Algún espacio  la NLPC Estandar?",
+        "title": "12- Tratamiento quirúrgico del hipospadias: novedades",
+        "details": "Dr. Servio Tulio Rivero"
+      },
+      {
+        "time": "12:20",
+        "title": "Miniaturización en 2026 ¿Tiene Algún espacio la NLPC Estandar?",
         "details": "Dra. Begoña Balletas (ESP)"
       },
       {
+        "time": "12:30",
+        "title": "ALMUERZO CONFERENCIA: Terapia de Reemplazo Hormonal",
+        "details": "Dr. Edwin Reyes (PER)\nPatrocinadono por Nirvalab"
+      },
+      {
+        "time": "12:30",
+        "title": "Mesa Redonda: Cancer Vejiga MIBC",
+        "details": "Drs.Palou Villodo, Hernandez, Sucre\nXXXVI CONGRESO NACIONAL DE UROLOGIA\nDr. Nelson Medero\nPROGRAMA CIENTIFICO\nVIERNES 10/07/2026"
+      },
+      {
         "time": "12:40",
-        "title": "pm – 12:55. Pm\tTFL vs Holmio de Alta Potencia ¿Cuál y para qué?",
+        "title": "12: 20- Uretroplastia en Hipospadias: ¿Cómo derivo? ¿Cuál derivación uso?",
+        "details": "Dr. Carlos De La Fuente"
+      },
+      {
+        "time": "12:40",
+        "title": "Sesión de Preguntas y respuestas",
+        "details": "Moderador: Dr. Francisco Chang"
+      },
+      {
+        "time": "12:40",
+        "title": ". Pm TFL vs Holmio de Alta Potencia ¿Cuál y para qué?",
         "details": "Dr. Giovanni Scala Marchini (BRA)"
       },
       {
-        "time": "1:00",
-        "title": "pm – 1:15 pm              RIRS: Tips & Tricks, para manejo litiasis en el caliz  inferior",
+        "time": "13:00",
+        "title": "2: 00 pm ALMUERZO CONFERENCIA: Deprivación Androgénica en la era actual",
+        "details": "Patrocinado por  Laboratorios ADIUM"
+      },
+      {
+        "time": "13:00",
+        "title": "RIRS: Tips & Tricks, para manejo litiasis en el caliz inferior",
         "details": "Dr. Miguel Cancini (ESP – VEN)"
       },
       {
-        "time": "1:20",
-        "title": "pm – 2:00 pm               Debate: Litiasis de 2 cm RIRS vs Miniperc",
+        "time": "13:20",
+        "title": "Debate: Litiasis de 2 cm RIRS vs Miniperc",
         "details": ""
       },
       {
-        "time": "2:00",
-        "title": "pm -  3:00 pm\tALMUERZO CONFERENCIA: El Cambio de Paradigma en la estenosis uretral masculina.   Dr. Miguel Cancini (ESP – VEN)",
+        "time": "13:30",
+        "title": "RECESO",
+        "details": ""
+      },
+      {
+        "time": "13:30",
+        "title": "Presentación de casos de Malformaciones Congénitas en Urología Pediátrica",
+        "details": "Litiasis uretral migrada a escroto: a propósito de un caso\nDr. Jesús Fernández\nAfalia congénita: reporte de 4 casos\nDra. Grecia Lara\nSíndrome de Prunne Belly: revisión de la literatura y serie de casos\nDr. Jesús Fernández\nSíndrome de Himman\nDra. Melissa Méndez\nSíndrome de Zinner: reporte de un caso\nDra. Grecia Lara\nExtrofia Vesical\nDra. Yufrancis Caraballo\nXXXVI CONGRESO NACIONAL DE UROLOGIA\nDr. Nelson Medero\nPROGRAMA CIENTIFICO\nSABADO  11/07/2026"
+      },
+      {
+        "time": "14:00",
+        "title": "SIMPOSIO DE UROLOGIA FUNCIONAL Fundación Puigvert",
+        "details": "Coordinador: Dr. Julian Azuero (COL)\nModeradora: Dr. Josemar Jimenez (VEN)"
+      },
+      {
+        "time": "14:00",
+        "title": "Más Alla del Esfínter Artificial: Opciones quirúrgicas reales en la incontinencia post-prostectomia",
+        "details": "Dr. Carlos Errando (ESP), Dr. Julian Azuero (COL), Dra. Carmen Gonzalez (ESP)"
+      },
+      {
+        "time": "14:00",
+        "title": "RECESO",
+        "details": ""
+      },
+      {
+        "time": "14:00",
+        "title": "ALMUERZO CONFERENCIA: El Cambio de Paradigma en la estenosis uretral masculina. Dr. Miguel Cancini (ESP – VEN)",
         "details": "Patrocinado por ELUTAX"
       },
       {
-        "time": "4:00",
-        "title": "pm\tACTO DE PREMIACION Y JURAMENTACIÓN",
+        "time": "14:30",
+        "title": "SIMPOSIO DE CIRUGIA LAPAROSCOPICA Y ROBOTICA",
+        "details": "Asociación Española de Urología\nCoordinadora: Dra Carmen Gonzalez (ESP)\nModerador: Dr Alberto Budia (ESP)"
+      },
+      {
+        "time": "14:30",
+        "title": "Introducción. Dra. Carmen Gonzalez",
         "details": ""
       },
       {
-        "time": "8:00",
-        "title": "PM\tFIESTA DE CLAUSURA White Party\t\tDowntown Beach",
+        "time": "14:45",
+        "title": "¿Qué Harias tú? Casos Desafiantes de Vejiga Hiperactiva",
+        "details": "Dr. Carlos Errando (ESP), Dr. Julian Azuero (COL), Dra. Carmen Gonzalez (ESP)"
+      },
+      {
+        "time": "15:10",
+        "title": "2-50 pm-. Nefrectomia Parcial ¿Hemos llegado al limite?",
+        "details": "Dr. José Luis Alvarez Ossorio (ESP)"
+      },
+      {
+        "time": "15:10",
+        "title": ". Prostatectomia radical en 2025 ¿Técnica unica o cirugía a la medida",
+        "details": "Dr. Mario Alvarez Maestro (ESP)"
+      },
+      {
+        "time": "15:30",
+        "title": "RECESO",
         "details": ""
+      },
+      {
+        "time": "15:30",
+        "title": ". Cistectomia radical minimamente invasiva ¿Realidad o Promesa?",
+        "details": "Dr. Joan Palou (ESP)"
+      },
+      {
+        "time": "15:50",
+        "title": "De Cirujanos a Estrategas: La Cirugia Urologica del Futuro",
+        "details": "Dr. Joan Palao (ESP)"
+      },
+      {
+        "time": "16:00",
+        "title": "SIMPOSIO DE PISO PELVICO ALAPP",
+        "details": "Coordinador: Dr. Luis Caricote (VEN)\nModerador: Dr Luis Caricote (VEN)\nPonentes: Drs. Paulo Palma (BRA), Dr. Alvaro Ochoa (MEX) Lic. Angela    Gómez (MEX)"
+      },
+      {
+        "time": "16:00",
+        "title": "ACTO DE PREMIACION Y JURAMENTACIÓN",
+        "details": ""
+      },
+      {
+        "time": "16:10",
+        "title": "Debate Cruzado y Conclusiones",
+        "details": ""
+      },
+      {
+        "time": "17:00",
+        "title": "ASAMBLEA GENERAL SOCIEDAD VENEZOLANA DE UROLOGIA",
+        "details": "XXXVI CONGRESO NACIONAL DE UROLOGIA\nDr. Nelson Medero\nPROGRAMA CIENTIFICO\nVIERNES 10/07/2026\nPrograma de Urología Pediátrica Congreso 2026\nSEDE: Hospital de Clinicas del Este\n8: 30 am \t\tPalabras de bienvenida y apertura\nDr. Mazen El Eysami Makled"
+      },
+      {
+        "time": "19:00",
+        "title": "ACTO INAUGURAL y BRINDIS DE BIENVENIDA",
+        "details": "XXXVI CONGRESO NACIONAL DE UROLOGIA\nDr. Nelson Medero\nPROGRAMA CIENTIFICO\nVIERNES 10/07/2026"
+      },
+      {
+        "time": "20:00",
+        "title": "FIESTA DE CLAUSURA White Party Downtown Beach",
+        "details": ""
+      },
+      {
+        "time": "23:55",
+        "title": "Cirugía de la enfermedad de Peyronie: plicatura, injertos e implantes ¿Cuándo cada uno?",
+        "details": "Dr. Alejandro Carvajal  (COL)"
       }
     ],
     "description": "XXXVI CONGRESO NACIONAL DE UROLOGIA\nDr. Nelson Medero\nPROGRAMA CIENTIFICO\nMIERCOLES 08/07/2026\nCURSOS PRECONGRESO\nCurso Internacional Master en HoLEP: Ciencia, Técnica y Cirugia en Vivo\nCoordinador: Dr Carlos Pedron (VEN)\nPonente: Dr. Hugo de La Rosa (Mex)\nSede Hospital de Clinicas del Este\nValor 150$\nTaller Interactivo de Urodinamia y Urologia Funcional\nCoordinadores: Dra. Vanda Lopez (VEN)  Dr. Julian Azuero (COL)\nSede Hotel Tibisay\nValor: 50$\nTaller de Instrumentación Quirúrgica: EL Rol de  Enfermería como pilar del proceso quirúrgico en urología.\nCoordinadora: Dra. Maria Beatriz Prieto (VEN)\nSede: Hospital de Clinicas Del Este\nValor: 30$\nMASTERCLASS CANCER DE VEJIGA Lo que el urologo debe saber, decidir y dominar\nCoordinador: Dr. Javier Hernández (ESP – VEN)"
