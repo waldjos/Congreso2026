@@ -42,7 +42,7 @@ const speakers = [
     country: 'Colombia',
     specialty: 'Endourología',
     sessions: ['Litiasis y Tecnología Láser'],
-    image: 'https://spu.org.pe/wp-content/uploads/2021/06/FOTO01.png',
+    image: 'https://web-auna-backend-prd-images.s3.amazonaws.com/07618347_mobile_27c67ecffd.png',
   },
   {
     name: 'Dr. Julián Azuero',
@@ -264,7 +264,7 @@ function App() {
                       src={speaker.image}
                       alt={`Foto de ${speaker.name}`}
                       loading="lazy"
-                      className="h-44 w-full object-cover object-top transition duration-500 hover:scale-105"
+                      className="h-44 w-full object-cover object-center transition duration-500 hover:scale-105"
                     />
                   ) : (
                     <div className="h-44" />
@@ -408,18 +408,28 @@ function App() {
             <p className="text-sm uppercase tracking-[0.35em] text-gold">Contacto</p>
             <h2 className="text-3xl font-semibold text-white sm:text-4xl">Estamos listos para ayudarte</h2>
           </div>
-          <div className="grid gap-6 lg:grid-cols-4">
-            {[
-              { label: 'WhatsApp', value: '+58 412 000 0000' },
-              { label: 'Correo', value: 'info@congresourologia2026.com' },
-              { label: 'Instagram', value: '@svu2026' },
-              { label: 'Facebook', value: 'SVU Congreso 2026' },
-            ].map((contact) => (
-              <div key={contact.label} className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-xl shadow-black/10 transition duration-300 hover:-translate-y-1 hover:border-gold/40">
-                <p className="text-sm uppercase tracking-[0.35em] text-gold">{contact.label}</p>
-                <p className="mt-4 text-lg font-semibold text-white">{contact.value}</p>
-              </div>
-            ))}
+          <div className="grid gap-6 lg:grid-cols-3">
+            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-xl shadow-black/10 transition duration-300 hover:-translate-y-1 hover:border-gold/40">
+              <p className="text-sm uppercase tracking-[0.35em] text-gold">Página Web</p>
+              <p className="mt-4 text-lg font-semibold text-white">https://soveuro.org</p>
+              <a href="https://soveuro.org" target="_blank" rel="noreferrer" className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-gold px-5 py-3 text-sm font-semibold text-deep transition hover:-translate-y-0.5">
+                Visitar sitio
+              </a>
+            </div>
+            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-xl shadow-black/10 transition duration-300 hover:-translate-y-1 hover:border-gold/40">
+              <p className="text-sm uppercase tracking-[0.35em] text-gold">WhatsApp</p>
+              <p className="mt-4 text-lg font-semibold text-white">0412 706 5848</p>
+              <a href="https://wa.me/584127065848" target="_blank" rel="noreferrer" className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-gold px-5 py-3 text-sm font-semibold text-deep transition hover:-translate-y-0.5">
+                Contactar por WhatsApp
+              </a>
+            </div>
+            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-xl shadow-black/10 transition duration-300 hover:-translate-y-1 hover:border-gold/40">
+              <p className="text-sm uppercase tracking-[0.35em] text-gold">Instagram</p>
+              <p className="mt-4 text-lg font-semibold text-white">@sovzlauro</p>
+              <a href="https://www.instagram.com/sovzlauro" target="_blank" rel="noreferrer" className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-gold px-5 py-3 text-sm font-semibold text-deep transition hover:-translate-y-0.5">
+                Ver Instagram
+              </a>
+            </div>
           </div>
         </section>
       </main>
