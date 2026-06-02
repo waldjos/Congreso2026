@@ -218,7 +218,7 @@ function App() {
               <a href="#inscripciones" className="inline-flex items-center justify-center rounded-full bg-gold px-8 py-3 text-sm font-semibold uppercase text-deep shadow-lg shadow-gold/20 transition hover:-translate-y-0.5">
                 Inscríbete
               </a>
-              <a href="#programa" className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-8 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+              <a href="#programa" className="inline-flex items-center justify-center rounded-full bg-gold/90 px-8 py-3 text-sm font-semibold uppercase text-deep shadow-lg shadow-gold/25 transition hover:scale-105">
                 Ver Programa
               </a>
               <a href="/Programa-Congreso-2026.pdf" download className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-8 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
@@ -317,73 +317,53 @@ function App() {
             <p className="text-sm uppercase tracking-[0.35em] text-gold">Programa Científico</p>
             <h2 className="text-3xl font-semibold text-white sm:text-4xl">Agenda interactiva por día</h2>
           </div>
-          <div className="space-y-4">
+          <div className="space-y-6">
             {(fetchedProgram && fetchedProgram.length ? fetchedProgram : program).map((day: any) => (
-              <details key={day.day} className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 transition duration-300 hover:border-gold/40">
-                <summary className="flex cursor-pointer flex-col gap-3 text-left md:flex-row md:items-center md:justify-between">
+              <div key={day.day} className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10">
+                <div className="flex items-center justify-between">
                   <div>
                     <p className="text-sm uppercase tracking-[0.35em] text-gold">{day.day}</p>
-                    <p className="mt-2 text-xl font-semibold text-white">Revisa el contenido y horarios planeados</p>
+                    <h3 className="mt-2 text-2xl font-semibold text-white">Programa por segmentos</h3>
+                    {day.description && <p className="mt-2 max-w-3xl text-sm text-slate-300 whitespace-pre-line">{day.description}</p>}
                   </div>
-                  <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200 transition duration-300 group-open:bg-gold/10">
-                    Ver detalles
-                  </span>
-                </summary>
-                  <div className="mt-6 space-y-4">
-                  {/* Items genéricos (precongreso, talleres) */}
-                  {day.items && (
-                    <div className="grid gap-4 md:grid-cols-2">
-                      {day.items.map((item: any) => (
-                        <div key={typeof item === 'string' ? item : item.title} className="rounded-3xl bg-deep/85 p-5 ring-1 ring-white/10">
-                          {typeof item === 'string' ? (
-                            <p className="font-semibold text-white">{item}</p>
-                          ) : (
-                            <>
-                              <p className="font-semibold text-white">{item.title}</p>
-                              <p className="mt-2 text-sm text-slate-300">{item.location}</p>
-                              <p className="mt-1 text-sm text-slate-400">{item.price}</p>
-                            </>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  )}
-
-                  {/* Timeline extraída del DOCX: mostrar hora, título y detalles (enfatizados) */}
-                  {day.timeline && (
-                    <div className="space-y-3">
-                      {day.timeline.map((event: any) => (
-                        <div key={event.time + event.title} className="flex flex-col gap-3 rounded-3xl bg-deep/85 p-5 ring-1 ring-white/10 sm:flex-row sm:items-start sm:justify-between">
-                          <div className="flex items-center gap-4">
-                            <span className="inline-flex items-center rounded-full bg-white/5 px-4 py-2 text-sm uppercase tracking-[0.25em] text-gold">{event.time}</span>
-                            <div>
-                              <p className="text-base font-semibold text-white">{event.title}</p>
-                              {event.details && (
-                                <p className="mt-2 whitespace-pre-line text-sm text-slate-300">{event.details}</p>
-                              )}
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-
-                  {day.sections && (
-                    <div className="space-y-4">
-                      {day.sections.map((section: any) => (
-                        <div key={section.title} className="rounded-3xl bg-deep/85 p-5 ring-1 ring-white/10">
-                          <p className="font-semibold text-white">{section.title}</p>
-                          <div className="mt-3 grid gap-2 sm:grid-cols-2">
-                            {section.items.map((topic: any) => (
-                              <span key={topic} className="rounded-full bg-white/5 px-3 py-2 text-sm text-slate-300">{topic}</span>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
+                  <a href="/Programa-Congreso-2026.pdf" download className="ml-4 inline-flex items-center rounded-full bg-gold px-4 py-2 text-sm font-semibold text-deep shadow-md shadow-gold/20">
+                    Descargar Programa (PDF)
+                  </a>
                 </div>
-              </details>
+
+                {/* Grid de segmentos: adaptativo, cards por hora/segmento */}
+                <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {/* Si hay elementos generales */}
+                  {day.items && day.items.map((item: any, idx: number) => (
+                    <div key={`item-${idx}`} className="rounded-3xl bg-deep/85 p-5 ring-1 ring-white/10">
+                      {typeof item === 'string' ? (
+                        <p className="font-semibold text-white">{item}</p>
+                      ) : (
+                        <>
+                          <p className="font-semibold text-white">{item.title}</p>
+                          {item.location && <p className="mt-2 text-sm text-slate-300">{item.location}</p>}
+                          {item.price && <p className="mt-1 text-sm text-slate-400">{item.price}</p>}
+                        </>
+                      )}
+                    </div>
+                  ))}
+
+                  {/* Si el día tiene timeline, mostrar cada segmento como card con hora, título y detalles */}
+                  {day.timeline && day.timeline.map((ev: any, idx: number) => (
+                    <article key={`t-${idx}`} className="rounded-3xl bg-deep/85 p-5 ring-1 ring-white/10">
+                      <div className="flex items-start gap-4">
+                        <div className="shrink-0">
+                          <span className="inline-flex min-w-[72px] items-center justify-center rounded-full bg-white/5 px-3 py-2 text-sm uppercase tracking-[0.25em] text-gold">{ev.time}</span>
+                        </div>
+                        <div className="min-w-0">
+                          <p className="text-base font-semibold text-white break-words">{(ev.title || ev.label || ev.name || '').toString().trim()}</p>
+                          {ev.details && <p className="mt-2 text-sm text-slate-300 whitespace-pre-line break-words">{ev.details}</p>}
+                        </div>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </section>
