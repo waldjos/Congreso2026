@@ -251,11 +251,11 @@ function App() {
                   />
                 </div>
                 <div>
-                  <p className="font-semibold text-white">Dr. Nelson Medero</p>
+                  <p className="font-semibold text-white">Dr. Nelson Medero Parrilla</p>
                   <p className="text-sm text-slate-400">Presidente del XXXVI Congreso Venezolano de Urología</p>
                 </div>
                 <p className="text-slate-300">
-                  Acompáñanos en una experiencia científica premium con ponentes internacionales, sesiones prácticas y una agenda diseñada para el avance de la urología latinoamericana.
+                  Conocido como Eponimo, el Dr. Nelson Medero Parrilla encabeza este congreso con una visión renovada para la urología venezolana.
                 </p>
               </div>
             </div>
