@@ -1,13 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
-  <defs>
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#F1C40F" />
-      <stop offset="100%" stop-color="#D4AC0D" />
-    </linearGradient>
-  </defs>
-  <rect width="400" height="400" rx="40" fill="#172033" />
-  <circle cx="200" cy="140" r="95" fill="url(#grad)" />
-  <text x="50%" y="170" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="92" font-weight="700" fill="#0F172A">SVU</text>
-  <text x="50%" y="235" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="26" fill="#F8F9FA">Sociedad Venezolana</text>
-  <text x="50%" y="265" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="26" fill="#F8F9FA">de Urología</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 130" role="img" aria-labelledby="title">
+  <title id="title">Logo de la Sociedad Venezolana de Urología</title>
+  <rect width="430" height="130" rx="20" fill="#0F172A" />
+  <path d="M46 31C30 31 19 42 19 58c0 16 11 27 27 27 15 0 26-11 26-27 0-16-11-27-26-27Zm0 42c-8 0-14-6-14-15 0-8 6-14 14-14 9 0 15 6 15 14 0 9-6 15-15 15Z" fill="#fff" opacity="0.92" />
+  <path d="M46 31s8-2 18 4c8 4 20 14 25 37 4 16 2 29-5 35-6 5-18 8-28 8-10 0-18-3-24-10-5-6-8-18-7-32 1-27 14-42 21-42Z" fill="#fff" opacity="0.65" />
+  <text x="140" y="84" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="900">SVU</text>
+  <text x="140" y="106" fill="#F8F9FA" font-family="Inter, Arial, sans-serif" font-size="18">Sociedad Venezolana</text>
+  <text x="140" y="125" fill="#F8F9FA" font-family="Inter, Arial, sans-serif" font-size="18">de Urología</text>
 </svg>

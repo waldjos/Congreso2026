@@ -149,6 +149,40 @@ function App() {
       .catch(() => setFetchedProgram(null));
   }, []);
 
+  const renderProgramCard = (item: any, idx: number) => {
+    if (typeof item === 'string') {
+      return (
+        <div key={`item-${idx}`} className="rounded-3xl border border-gold/15 bg-slate-950/80 p-5 shadow-[0_20px_60px_-30px_rgba(250,204,21,0.45)]">
+          <p className="font-semibold text-white">{item}</p>
+        </div>
+      );
+    }
+
+    return (
+      <motion.article
+        key={`item-${idx}`}
+        initial={{ opacity: 0, y: 14 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.25, delay: Math.min(idx * 0.03, 0.6) }}
+        className="rounded-3xl border border-gold/15 bg-slate-950/80 p-5 shadow-[0_20px_60px_-30px_rgba(250,204,21,0.45)] transition-all duration-300 hover:-translate-y-1 hover:border-gold/30"
+      >
+        <div className="flex flex-col gap-4">
+          <div className="flex items-start justify-between gap-4">
+            {item.time && (
+              <span className="inline-flex min-w-[96px] items-center justify-center rounded-full bg-gold/10 px-3 py-2 text-xs uppercase tracking-[0.25em] text-gold">
+                {item.time}
+              </span>
+            )}
+            <p className="text-base font-semibold text-white break-words">{(item.title || item.label || item.name || '').toString().trim()}</p>
+          </div>
+          {item.details && <p className="text-sm leading-6 text-slate-300 whitespace-pre-line">{item.details}</p>}
+          {item.price && <p className="text-sm text-slate-300">{item.price}</p>}
+          {item.venue && <p className="text-sm uppercase tracking-[0.15em] text-gold">{item.venue}</p>}
+        </div>
+      </motion.article>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-deep text-white">
       <nav className="sticky top-0 z-50 border-b border-white/10 bg-deep/95 backdrop-blur-xl">
@@ -318,63 +352,91 @@ function App() {
             <h2 className="text-3xl font-semibold text-white sm:text-4xl">Agenda interactiva por día</h2>
           </div>
           <div className="space-y-6">
-            {(fetchedProgram && fetchedProgram.length ? fetchedProgram : program).map((day: any) => (
-              <div key={day.day} className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm uppercase tracking-[0.35em] text-gold">{day.day}</p>
-                    <h3 className="mt-2 text-2xl font-semibold text-white">Programa por segmentos</h3>
-                    {day.description && (
-                      <details className="mt-2">
-                        <summary className="cursor-pointer text-sm font-medium text-gold">Resumen del día</summary>
-                        <p className="mt-2 max-w-3xl text-sm text-slate-300 whitespace-pre-line">{day.description}</p>
-                      </details>
-                    )}
-                  </div>
-                  <a href="/Programa-Congreso-2026.pdf" download className="ml-4 inline-flex items-center rounded-full bg-gold px-4 py-2 text-sm font-semibold text-deep shadow-md shadow-gold/20">
-                    Descargar Programa (PDF)
-                  </a>
-                </div>
-
-                {/* Grid de segmentos: adaptativo, cards por hora/segmento */}
-                <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                  {/* Si hay elementos generales */}
-                  {day.items && day.items.map((item: any, idx: number) => (
-                    <div key={`item-${idx}`} className="rounded-3xl bg-deep/85 p-5 ring-1 ring-white/10">
-                      {typeof item === 'string' ? (
-                        <p className="font-semibold text-white">{item}</p>
-                      ) : (
-                        <>
-                          <p className="font-semibold text-white">{item.title}</p>
-                          {item.location && <p className="mt-2 text-sm text-slate-300">{item.location}</p>}
-                          {item.price && <p className="mt-1 text-sm text-slate-400">{item.price}</p>}
-                        </>
+            {(fetchedProgram && fetchedProgram.length ? fetchedProgram : program).map((day: any) => {
+              const hasVenues = day.venues && day.venues.length > 0;
+              return (
+                <div key={day.day} className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm uppercase tracking-[0.35em] text-gold">{day.day}</p>
+                      <h3 className="mt-2 text-2xl font-semibold text-white">Programa por segmentos</h3>
+                      {day.description && (
+                        <details className="mt-2">
+                          <summary className="cursor-pointer text-sm font-medium text-gold">Resumen del día</summary>
+                          <p className="mt-2 max-w-3xl text-sm text-slate-300 whitespace-pre-line">{day.description}</p>
+                        </details>
                       )}
                     </div>
-                  ))}
+                    <a href="/Programa-Congreso-2026.pdf" download className="ml-4 inline-flex items-center rounded-full bg-gold px-4 py-2 text-sm font-semibold text-deep shadow-md shadow-gold/20">
+                      Descargar Programa (PDF)
+                    </a>
+                  </div>
 
-                  {/* Si el día tiene timeline, mostrar cada segmento como card con hora, título y detalles */}
-                  {day.timeline && day.timeline.map((ev: any, idx: number) => (
-                    <article key={`t-${idx}`} className="rounded-3xl bg-deep/85 p-4 sm:p-5 ring-1 ring-white/10">
-                      <div className="flex flex-col sm:flex-row items-start gap-4">
-                        <div className="shrink-0">
-                          <span className="inline-flex min-w-[64px] items-center justify-center rounded-full bg-white/5 px-3 py-2 text-sm uppercase tracking-[0.25em] text-gold">{ev.time}</span>
-                        </div>
-                        <div className="min-w-0 w-full">
-                          <details className="group">
-                            <summary className="flex items-center justify-between cursor-pointer">
-                              <p className="text-base font-semibold text-white break-words">{(ev.title || ev.label || ev.name || '').toString().trim()}</p>
-                              <span className="ml-4 text-sm text-slate-400 transition-transform group-open:rotate-180">▾</span>
-                            </summary>
-                            {ev.details && <div className="mt-2 text-sm text-slate-300 whitespace-pre-line break-words">{ev.details}</div>}
-                          </details>
-                        </div>
+                  {hasVenues ? (
+                    day.venues.length === 1 ? (
+                      <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                        {day.venues[0].items.map(renderProgramCard)}
                       </div>
-                    </article>
-                  ))}
+                    ) : (
+                      <div className="mt-6 space-y-6">
+                        {day.venues.map((venue: any, venueIdx: number) => (
+                          <div key={`${venue.name}-${venueIdx}`} className="rounded-3xl border border-white/10 bg-slate-950/80 p-5">
+                            <p className="text-sm uppercase tracking-[0.25em] text-gold">{venue.name}</p>
+                            <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                              {venue.items.map(renderProgramCard)}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )
+                  ) : (
+                    <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                      {day.items && day.items.map((item: any, idx: number) => (
+                        <div key={`item-${idx}`} className="rounded-3xl border border-gold/15 bg-slate-950/80 p-5 shadow-[0_20px_60px_-30px_rgba(250,204,21,0.45)] transition-all duration-300 hover:-translate-y-1 hover:border-gold/30">
+                          {typeof item === 'string' ? (
+                            <p className="font-semibold text-white">{item}</p>
+                          ) : (
+                            <>
+                              <p className="font-semibold text-white">{item.title}</p>
+                              {item.location && <p className="mt-2 text-sm text-slate-300">{item.location}</p>}
+                              {item.price && <p className="mt-1 text-sm text-slate-400">{item.price}</p>}
+                            </>
+                          )}
+                        </div>
+                      ))}
+
+                      {day.timeline && day.timeline.map((ev: any, idx: number) => (
+                        <motion.article
+                          key={`t-${idx}`}
+                          initial={{ opacity: 0, y: 14 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.25, delay: Math.min(idx * 0.03, 0.6) }}
+                          className="rounded-3xl border border-gold/15 bg-slate-950/80 p-4 sm:p-5 shadow-[0_20px_60px_-30px_rgba(250,204,21,0.45)] transition-all duration-300 hover:-translate-y-1 hover:border-gold/30"
+                        >
+                          <div className="flex flex-col gap-4">
+                            <div className="flex items-center justify-between gap-4">
+                              <span className="inline-flex min-w-[64px] items-center justify-center rounded-full bg-gold/10 px-3 py-2 text-sm uppercase tracking-[0.25em] text-gold">{ev.time || '—'}</span>
+                              <p className="text-base font-semibold text-white break-words">{(ev.title || ev.label || ev.name || '').toString().trim()}</p>
+                            </div>
+                            <details className="group">
+                              <summary className="flex cursor-pointer items-center justify-between rounded-2xl bg-white/5 px-4 py-3 text-sm text-slate-200 transition hover:bg-white/10 focus:outline-none">
+                                <span>Ver contenido</span>
+                                <span className="text-sm text-slate-400 transition-transform duration-300 group-open:rotate-180">▾</span>
+                              </summary>
+                              {ev.details && (
+                                <div className="mt-3 overflow-hidden transition-all duration-300 ease-out max-h-0 group-open:max-h-[1000px]">
+                                  <p className="text-sm leading-6 text-slate-300 whitespace-pre-line">{ev.details}</p>
+                                </div>
+                              )}
+                            </details>
+                          </div>
+                        </motion.article>
+                      ))}
+                    </div>
+                  )}
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
 
