@@ -2,13 +2,55 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 const speakers = [
-  { name: 'Dr. René Sotelo', country: 'USA', specialty: 'Cirugía Robótica', sessions: ['Taller Robótico', 'Panel Oncológico'] },
-  { name: 'Dr. Joan Palou', country: 'España', specialty: 'Oncología Urológica', sessions: ['Prostatectomía de Vanguardia'] },
-  { name: 'Dr. Gabriele Antonini', country: 'Italia', specialty: 'Andrología', sessions: ['Estética Genital y Función Sexual'] },
-  { name: 'Dr. Carlos Errando', country: 'España', specialty: 'Urología Funcional', sessions: ['Innovación en Piso Pélvico'] },
-  { name: 'Dr. Gustavo Villoldo', country: 'Argentina', specialty: 'Uro-Oncología', sessions: ['Cáncer de Vejiga'] },
-  { name: 'Dr. Edwin Reyes', country: 'Colombia', specialty: 'Endourología', sessions: ['Litiasis y Tecnología Láser'] },
-  { name: 'Dr. Julián Azuero', country: 'Colombia', specialty: 'Urología Funcional', sessions: ['Avances en Disfunción Urinaria'] },
+  {
+    name: 'Dr. René Sotelo',
+    country: 'USA',
+    specialty: 'Cirugía Robótica',
+    sessions: ['Taller Robótico', 'Panel Oncológico'],
+    image: 'https://doctorsotelo.com/profile/dr-rene-sotelo.jpg',
+  },
+  {
+    name: 'Dr. Joan Palou',
+    country: 'España',
+    specialty: 'Oncología Urológica',
+    sessions: ['Prostatectomía de Vanguardia'],
+    image: 'https://static.emedevents.com/uploads/speakers/200/79282bf1f8c7a312e8d6b838b607e4cc.png',
+  },
+  {
+    name: 'Dr. Gabriele Antonini',
+    country: 'Italia',
+    specialty: 'Andrología',
+    sessions: ['Estética Genital y Función Sexual'],
+    image: 'https://www.duam.it/assets/img/avatar/gabriele-antonini-urologo-andrologo.jpg',
+  },
+  {
+    name: 'Dr. Carlos Errando',
+    country: 'España',
+    specialty: 'Urología Funcional',
+    sessions: ['Innovación en Piso Pélvico'],
+    image: 'https://objects-es.cdn-topdoctors.com/provider/1084885/image/profile/medium/prof_10221_20210719162910.png?width=648&format=png',
+  },
+  {
+    name: 'Dr. Gustavo Villoldo',
+    country: 'Argentina',
+    specialty: 'Uro-Oncología',
+    sessions: ['Cáncer de Vejiga'],
+    image: 'https://alexanderfleming.org/wp-content/uploads/2020/11/VILLOLDO-FOTO.jpeg',
+  },
+  {
+    name: 'Dr. Edwin Reyes',
+    country: 'Colombia',
+    specialty: 'Endourología',
+    sessions: ['Litiasis y Tecnología Láser'],
+    image: 'https://spu.org.pe/wp-content/uploads/2021/06/FOTO01.png',
+  },
+  {
+    name: 'Dr. Julián Azuero',
+    country: 'Colombia',
+    specialty: 'Urología Funcional',
+    sessions: ['Avances en Disfunción Urinaria'],
+    image: 'https://www.ama.com.co/wp-content/uploads/2022/02/julian-6-Julian-Azuero-768x1024.jpeg',
+  },
 ];
 
 const program = [
@@ -216,7 +258,18 @@ function App() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {speakers.map((speaker) => (
               <article key={speaker.name} className="rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 transition duration-300 hover:-translate-y-1 hover:border-gold/40">
-                <div className="h-40 rounded-3xl bg-slate-800" />
+                <div className="overflow-hidden rounded-3xl bg-slate-800">
+                  {speaker.image ? (
+                    <img
+                      src={speaker.image}
+                      alt={`Foto de ${speaker.name}`}
+                      loading="lazy"
+                      className="h-44 w-full object-cover object-top transition duration-500 hover:scale-105"
+                    />
+                  ) : (
+                    <div className="h-44" />
+                  )}
+                </div>
                 <div className="mt-5 space-y-3">
                   <p className="text-sm uppercase tracking-[0.35em] text-gold">{speaker.country}</p>
                   <h3 className="text-xl font-semibold text-white">{speaker.name}</h3>
