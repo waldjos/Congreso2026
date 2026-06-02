@@ -288,12 +288,12 @@ function App() {
             </div>
             <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 backdrop-blur-xl sm:max-w-md">
               <div className="space-y-4">
-                <div className="overflow-hidden rounded-3xl bg-slate-800 p-6">
+                <div className="flex items-center justify-center overflow-hidden rounded-3xl bg-slate-800 p-6">
                   <img
                     src="/logo-svu.png"
                     alt="Logo de la Sociedad Venezolana de Urología"
                     loading="lazy"
-                    className="h-44 w-full object-contain object-center"
+                    className="mx-auto h-44 w-auto max-w-full object-contain object-center sm:h-56"
                   />
                 </div>
                 <div>
