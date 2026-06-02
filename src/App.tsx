@@ -324,7 +324,12 @@ function App() {
                   <div>
                     <p className="text-sm uppercase tracking-[0.35em] text-gold">{day.day}</p>
                     <h3 className="mt-2 text-2xl font-semibold text-white">Programa por segmentos</h3>
-                    {day.description && <p className="mt-2 max-w-3xl text-sm text-slate-300 whitespace-pre-line">{day.description}</p>}
+                    {day.description && (
+                      <details className="mt-2">
+                        <summary className="cursor-pointer text-sm font-medium text-gold">Resumen del día</summary>
+                        <p className="mt-2 max-w-3xl text-sm text-slate-300 whitespace-pre-line">{day.description}</p>
+                      </details>
+                    )}
                   </div>
                   <a href="/Programa-Congreso-2026.pdf" download className="ml-4 inline-flex items-center rounded-full bg-gold px-4 py-2 text-sm font-semibold text-deep shadow-md shadow-gold/20">
                     Descargar Programa (PDF)
@@ -350,14 +355,19 @@ function App() {
 
                   {/* Si el día tiene timeline, mostrar cada segmento como card con hora, título y detalles */}
                   {day.timeline && day.timeline.map((ev: any, idx: number) => (
-                    <article key={`t-${idx}`} className="rounded-3xl bg-deep/85 p-5 ring-1 ring-white/10">
-                      <div className="flex items-start gap-4">
+                    <article key={`t-${idx}`} className="rounded-3xl bg-deep/85 p-4 sm:p-5 ring-1 ring-white/10">
+                      <div className="flex flex-col sm:flex-row items-start gap-4">
                         <div className="shrink-0">
-                          <span className="inline-flex min-w-[72px] items-center justify-center rounded-full bg-white/5 px-3 py-2 text-sm uppercase tracking-[0.25em] text-gold">{ev.time}</span>
+                          <span className="inline-flex min-w-[64px] items-center justify-center rounded-full bg-white/5 px-3 py-2 text-sm uppercase tracking-[0.25em] text-gold">{ev.time}</span>
                         </div>
-                        <div className="min-w-0">
-                          <p className="text-base font-semibold text-white break-words">{(ev.title || ev.label || ev.name || '').toString().trim()}</p>
-                          {ev.details && <p className="mt-2 text-sm text-slate-300 whitespace-pre-line break-words">{ev.details}</p>}
+                        <div className="min-w-0 w-full">
+                          <details className="group">
+                            <summary className="flex items-center justify-between cursor-pointer">
+                              <p className="text-base font-semibold text-white break-words">{(ev.title || ev.label || ev.name || '').toString().trim()}</p>
+                              <span className="ml-4 text-sm text-slate-400 transition-transform group-open:rotate-180">▾</span>
+                            </summary>
+                            {ev.details && <div className="mt-2 text-sm text-slate-300 whitespace-pre-line break-words">{ev.details}</div>}
+                          </details>
                         </div>
                       </div>
                     </article>
