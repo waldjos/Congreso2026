@@ -131,10 +131,22 @@ const getCountdown = () => {
 function App() {
   const [countdown, setCountdown] = useState(getCountdown());
   const [menuOpen, setMenuOpen] = useState(false);
+  const [fetchedProgram, setFetchedProgram] = useState<any | null>(null);
 
   useEffect(() => {
     const timer = window.setInterval(() => setCountdown(getCountdown()), 1000);
     return () => window.clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    // Cargar program.json generado desde el DOCX si existe
+    fetch('/program.json')
+      .then((res) => {
+        if (!res.ok) throw new Error('No program.json');
+        return res.json();
+      })
+      .then((data) => setFetchedProgram(data))
+      .catch(() => setFetchedProgram(null));
   }, []);
 
   return (
@@ -306,7 +318,7 @@ function App() {
             <h2 className="text-3xl font-semibold text-white sm:text-4xl">Agenda interactiva por día</h2>
           </div>
           <div className="space-y-4">
-            {program.map((day) => (
+            {(fetchedProgram && fetchedProgram.length ? fetchedProgram : program).map((day: any) => (
               <details key={day.day} className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 transition duration-300 hover:border-gold/40">
                 <summary className="flex cursor-pointer flex-col gap-3 text-left md:flex-row md:items-center md:justify-between">
                   <div>
@@ -317,10 +329,11 @@ function App() {
                     Ver detalles
                   </span>
                 </summary>
-                <div className="mt-6 space-y-4">
+                  <div className="mt-6 space-y-4">
+                  {/* Items genéricos (precongreso, talleres) */}
                   {day.items && (
                     <div className="grid gap-4 md:grid-cols-2">
-                      {day.items.map((item) => (
+                      {day.items.map((item: any) => (
                         <div key={typeof item === 'string' ? item : item.title} className="rounded-3xl bg-deep/85 p-5 ring-1 ring-white/10">
                           {typeof item === 'string' ? (
                             <p className="font-semibold text-white">{item}</p>
@@ -335,23 +348,33 @@ function App() {
                       ))}
                     </div>
                   )}
+
+                  {/* Timeline extraída del DOCX: mostrar hora, título y detalles (enfatizados) */}
                   {day.timeline && (
                     <div className="space-y-3">
-                      {day.timeline.map((event) => (
-                        <div key={event.time} className="flex flex-col gap-3 rounded-3xl bg-deep/85 p-5 ring-1 ring-white/10 sm:flex-row sm:items-center sm:justify-between">
-                          <span className="inline-flex items-center rounded-full bg-white/5 px-4 py-2 text-sm uppercase tracking-[0.25em] text-gold">{event.time}</span>
-                          <p className="text-base font-medium text-slate-100">{event.label}</p>
+                      {day.timeline.map((event: any) => (
+                        <div key={event.time + event.title} className="flex flex-col gap-3 rounded-3xl bg-deep/85 p-5 ring-1 ring-white/10 sm:flex-row sm:items-start sm:justify-between">
+                          <div className="flex items-center gap-4">
+                            <span className="inline-flex items-center rounded-full bg-white/5 px-4 py-2 text-sm uppercase tracking-[0.25em] text-gold">{event.time}</span>
+                            <div>
+                              <p className="text-base font-semibold text-white">{event.title}</p>
+                              {event.details && (
+                                <p className="mt-2 whitespace-pre-line text-sm text-slate-300">{event.details}</p>
+                              )}
+                            </div>
+                          </div>
                         </div>
                       ))}
                     </div>
                   )}
+
                   {day.sections && (
                     <div className="space-y-4">
-                      {day.sections.map((section) => (
+                      {day.sections.map((section: any) => (
                         <div key={section.title} className="rounded-3xl bg-deep/85 p-5 ring-1 ring-white/10">
                           <p className="font-semibold text-white">{section.title}</p>
                           <div className="mt-3 grid gap-2 sm:grid-cols-2">
-                            {section.items.map((topic) => (
+                            {section.items.map((topic: any) => (
                               <span key={topic} className="rounded-full bg-white/5 px-3 py-2 text-sm text-slate-300">{topic}</span>
                             ))}
                           </div>
