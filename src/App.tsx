@@ -95,8 +95,16 @@ const sponsors = [
 ];
 
 const locations = [
-  { name: 'Hotel Tibisay', description: 'Sede de acreditación, cursos y eventos sociales.' },
-  { name: 'Hospital de Clínicas del Este', description: 'Sede principal para sesiones científicas y talleres prácticos.' },
+  {
+    name: 'Hotel Tibisay',
+    description: 'Sede de acreditación, cursos y eventos sociales.',
+    mapUrl: 'https://www.google.com/maps/search/?api=1&query=Hotel+Tibisay,+Margarita+Venezuela',
+  },
+  {
+    name: 'Hospital de Clínicas del Este',
+    description: 'Sede principal para sesiones científicas y talleres prácticos.',
+    mapUrl: 'https://www.google.com/maps/search/?api=1&query=Hospital+de+Cl%C3%ADnicas+del+Este,+Margarita+Venezuela',
+  },
 ];
 
 const eventDate = new Date('2026-07-08T09:00:00');
@@ -201,7 +209,7 @@ function App() {
               <a href="#programa" className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-8 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
                 Ver Programa
               </a>
-              <a href="#" className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-8 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+              <a href="/Programa-Congreso-2026.pdf" download className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-8 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
                 Descargar PDF
               </a>
             </div>
@@ -234,7 +242,14 @@ function App() {
             </div>
             <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 backdrop-blur-xl sm:max-w-md">
               <div className="space-y-4">
-                <div className="h-44 rounded-3xl bg-slate-800" />
+                <div className="overflow-hidden rounded-3xl bg-slate-800">
+                  <img
+                    src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=4872911999442897"
+                    alt="Dr. Nelson Medero"
+                    loading="lazy"
+                    className="h-44 w-full object-cover object-center"
+                  />
+                </div>
                 <div>
                   <p className="font-semibold text-white">Dr. Nelson Medero</p>
                   <p className="text-sm text-slate-400">Presidente del XXXVI Congreso Venezolano de Urología</p>
@@ -375,9 +390,14 @@ function App() {
               <div key={location.name} className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-xl shadow-black/10 transition duration-300 hover:-translate-y-1 hover:border-gold/40">
                 <h3 className="text-2xl font-semibold text-white">{location.name}</h3>
                 <p className="mt-4 text-slate-300">{location.description}</p>
-                <button className="mt-6 inline-flex items-center rounded-full border border-white/20 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+                <a
+                  href={location.mapUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-6 inline-flex items-center rounded-full border border-white/20 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+                >
                   Cómo llegar
-                </button>
+                </a>
               </div>
             ))}
           </div>
@@ -394,9 +414,14 @@ function App() {
                 <p className="text-lg font-semibold text-white">{plan}</p>
                 <p className="mt-4 text-slate-300">Tarifas y acceso especial según categoría.</p>
                 <div className="mt-6">
-                  <button className="inline-flex w-full items-center justify-center rounded-full bg-gold px-5 py-3 text-sm font-semibold text-deep transition hover:-translate-y-0.5">
+                  <a
+                    href="https://www.soveuroapp.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex w-full items-center justify-center rounded-full bg-gold px-5 py-3 text-sm font-semibold text-deep transition hover:-translate-y-0.5"
+                  >
                     Pagar Ahora
-                  </button>
+                  </a>
                 </div>
               </div>
             ))}
@@ -411,9 +436,9 @@ function App() {
           <div className="grid gap-6 lg:grid-cols-3">
             <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-xl shadow-black/10 transition duration-300 hover:-translate-y-1 hover:border-gold/40">
               <p className="text-sm uppercase tracking-[0.35em] text-gold">Página Web</p>
-              <p className="mt-4 text-lg font-semibold text-white">https://soveuro.org</p>
-              <a href="https://soveuro.org" target="_blank" rel="noreferrer" className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-gold px-5 py-3 text-sm font-semibold text-deep transition hover:-translate-y-0.5">
-                Visitar sitio
+              <p className="mt-4 text-lg font-semibold text-white">https://www.soveuroapp.com/</p>
+              <a href="https://www.soveuroapp.com/" target="_blank" rel="noreferrer" className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-gold px-5 py-3 text-sm font-semibold text-deep transition hover:-translate-y-0.5">
+                Visitar app
               </a>
             </div>
             <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-xl shadow-black/10 transition duration-300 hover:-translate-y-1 hover:border-gold/40">
