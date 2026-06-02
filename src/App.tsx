@@ -244,7 +244,7 @@ function App() {
               <div className="space-y-4">
                 <div className="overflow-hidden rounded-3xl bg-slate-800 p-6">
                   <img
-                    src="/logo-svu.svg"
+                    src="/logo-svu.png"
                     alt="Logo de la Sociedad Venezolana de Urología"
                     loading="lazy"
                     className="h-44 w-full object-contain object-center"
