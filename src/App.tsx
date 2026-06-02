@@ -244,7 +244,7 @@ function App() {
               <div className="space-y-4">
                 <div className="overflow-hidden rounded-3xl bg-slate-800">
                   <img
-                    src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=4872911999442897"
+                    src="https://sdu.org.do/wp-content/uploads/2024/11/medero.webp"
                     alt="Dr. Nelson Medero"
                     loading="lazy"
                     className="h-44 w-full object-cover object-center"
