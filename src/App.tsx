@@ -242,12 +242,12 @@ function App() {
             </div>
             <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 backdrop-blur-xl sm:max-w-md">
               <div className="space-y-4">
-                <div className="overflow-hidden rounded-3xl bg-slate-800">
+                <div className="overflow-hidden rounded-3xl bg-slate-800 p-6">
                   <img
-                    src="https://sdu.org.do/wp-content/uploads/2024/11/medero.webp"
-                    alt="Dr. Nelson Medero"
+                    src="/logo-svu.svg"
+                    alt="Logo de la Sociedad Venezolana de Urología"
                     loading="lazy"
-                    className="h-44 w-full object-cover object-center"
+                    className="h-44 w-full object-contain object-center"
                   />
                 </div>
                 <div>

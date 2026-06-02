@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F1C40F" />
+      <stop offset="100%" stop-color="#D4AC0D" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="40" fill="#172033" />
+  <circle cx="200" cy="140" r="95" fill="url(#grad)" />
+  <text x="50%" y="170" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="92" font-weight="700" fill="#0F172A">SVU</text>
+  <text x="50%" y="235" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="26" fill="#F8F9FA">Sociedad Venezolana</text>
+  <text x="50%" y="265" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="26" fill="#F8F9FA">de Urología</text>
+</svg>
