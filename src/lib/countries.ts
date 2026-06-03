@@ -11,20 +11,25 @@ export const COUNTRY_NAMES: Record<string, string> = {
   BRA: 'Brasil',
 };
 
-export const COUNTRY_FLAGS: Record<string, string> = {
-  'Estados Unidos': '🇺🇸',
-  España: '🇪🇸',
-  Italia: '🇮🇹',
-  Colombia: '🇨🇴',
-  Perú: '🇵🇪',
-  Argentina: '🇦🇷',
-  México: '🇲🇽',
-  Brasil: '🇧🇷',
+/** Nombre en español → código ISO 3166-1 alpha-2 (minúsculas) */
+export const COUNTRY_ISO: Record<string, string> = {
+  'Estados Unidos': 'us',
+  España: 'es',
+  Italia: 'it',
+  Colombia: 'co',
+  Perú: 'pe',
+  Argentina: 'ar',
+  México: 'mx',
+  Brasil: 'br',
 };
 
-export function getCountryWithFlag(country: string): string {
-  const flag = COUNTRY_FLAGS[country] ?? '';
-  return flag ? `${flag} ${country}` : country;
+export function getCountryFlagUrl(country: string, width = 40): string {
+  const iso = COUNTRY_ISO[country];
+  return iso ? `https://flagcdn.com/w${width}/${iso}.png` : '';
+}
+
+export function getCountryName(country: string): string {
+  return country;
 }
 
 export function countryFromCode(code: string): string {

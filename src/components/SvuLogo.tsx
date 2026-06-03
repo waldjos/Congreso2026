@@ -1,5 +1,5 @@
-/** Logo oficial horizontal SVU (fondo negro). Versión en query para evitar caché antigua en deploy. */
-export const SVU_LOGO_SRC = '/logo-svu.png?v=official';
+/** Logo oficial horizontal SVU (fondo transparente). Query para evitar caché antigua en deploy. */
+export const SVU_LOGO_SRC = '/logo-svu.png?v=transparent';
 
 type SvuLogoProps = {
   className?: string;

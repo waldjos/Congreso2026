@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
+import { CountryFlag } from './CountryFlag';
 import { featuredSpeakers, internationalFaculty } from '../data/speakers';
-import { getCountryWithFlag } from '../lib/countries';
 
 function initials(name: string): string {
   const parts = name.replace(/^(Dr\.|Dra\.)\s*/i, '').split(/\s+/);
@@ -12,14 +12,13 @@ function initials(name: string): string {
 }
 
 function CountryBadge({ country, size = 'sm' }: { country: string; size?: 'sm' | 'md' }) {
-  const text = getCountryWithFlag(country);
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 font-medium text-gold ${
-        size === 'md' ? 'px-3 py-1.5 text-sm tracking-wide' : 'px-2.5 py-1 text-xs uppercase tracking-[0.2em]'
+      className={`inline-flex items-center rounded-full border border-white/10 bg-white/5 font-medium text-gold ${
+        size === 'md' ? 'px-3 py-1.5 text-sm tracking-wide' : 'px-2.5 py-1 text-xs tracking-wide'
       }`}
     >
-      {text}
+      <CountryFlag country={country} size={size} />
     </span>
   );
 }
@@ -105,7 +104,13 @@ export function SpeakersSection() {
         <h2 className="text-3xl font-semibold text-white sm:text-4xl">Expertos que lideran la agenda</h2>
         <p className="max-w-3xl text-slate-300">
           Además del comité venezolano, el programa oficial reúne especialistas de{' '}
-          {countriesRepresented.map((c) => getCountryWithFlag(c)).join(', ')} en simposios, cursos precongreso,
+          {countriesRepresented.map((c, index) => (
+            <span key={c}>
+              {index > 0 ? ', ' : null}
+              <CountryFlag country={c} size="sm" className="align-middle" />
+            </span>
+          ))}{' '}
+          en simposios, cursos precongreso,
           mesas redondas y conferencias magistrales.
         </p>
         <div className="flex flex-wrap gap-2 pt-2">

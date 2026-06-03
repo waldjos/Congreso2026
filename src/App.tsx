@@ -75,7 +75,7 @@ function App() {
       <nav className="sticky top-0 z-50 border-b border-white/10 bg-deep/95 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-10 lg:px-12">
           <a href="#" className="flex items-center gap-3 text-white">
-            <div className="flex shrink-0 items-center rounded-xl bg-black px-2.5 py-1.5 ring-1 ring-white/10">
+            <div className="flex shrink-0 items-center rounded-xl px-1 py-0.5">
               <SvuLogo variant="nav" />
             </div>
             <div className="hidden min-w-0 sm:block">
@@ -132,7 +132,7 @@ function App() {
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581092337525-3abfbb8b13a1?auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center opacity-30" />
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:px-10 lg:px-12">
           <motion.div initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9 }}>
-            <div className="mb-8 inline-flex rounded-2xl border border-white/10 bg-black px-4 py-3 ring-1 ring-gold/20">
+            <div className="mb-8 inline-flex rounded-2xl border border-white/10 bg-white/5 px-4 py-3 ring-1 ring-gold/20">
               <SvuLogo variant="hero" />
             </div>
             <p className="inline-flex rounded-full border border-gold bg-white/5 px-4 py-1 text-sm uppercase tracking-[0.35em] text-gold">
@@ -197,11 +197,6 @@ function App() {
                     loading="lazy"
                     className="relative z-10 aspect-[4/5] w-full object-cover object-top mix-blend-lighten brightness-110 contrast-[1.08]"
                   />
-                </div>
-                <div className="absolute -bottom-3 left-0 right-0 flex justify-center px-2 sm:justify-end">
-                  <div className="rounded-2xl border border-white/10 bg-black px-3 py-2 shadow-xl">
-                    <SvuLogo variant="card" />
-                  </div>
                 </div>
               </div>
               <div className="space-y-6">
@@ -438,7 +433,7 @@ function App() {
               <p className="text-sm uppercase tracking-[0.35em] text-gold">Inscripciones</p>
               <h2 className="text-3xl font-semibold text-white sm:text-4xl">Planes y acceso</h2>
             </div>
-            <div className="inline-flex rounded-2xl border border-white/10 bg-black px-4 py-3 ring-1 ring-white/10">
+            <div className="inline-flex rounded-2xl border border-white/10 bg-white/5 px-4 py-3 ring-1 ring-white/10">
               <SvuLogo variant="card" />
             </div>
           </div>
@@ -468,7 +463,7 @@ function App() {
               <p className="text-sm uppercase tracking-[0.35em] text-gold">Contacto</p>
               <h2 className="text-3xl font-semibold text-white sm:text-4xl">Estamos listos para ayudarte</h2>
             </div>
-            <div className="inline-flex rounded-2xl border border-white/10 bg-black px-5 py-3 ring-1 ring-gold/15">
+            <div className="inline-flex rounded-2xl border border-white/10 bg-white/5 px-5 py-3 ring-1 ring-gold/15">
               <SvuLogo variant="footer" />
             </div>
           </div>
