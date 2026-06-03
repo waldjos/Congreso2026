@@ -94,6 +94,19 @@ const sponsors = [
   { tier: 'Bronce', name: 'Soluciones Médicas 360' },
 ];
 
+const countryFlags: Record<string, string> = {
+  USA: '🇺🇸',
+  España: '🇪🇸',
+  Italia: '🇮🇹',
+  Argentina: '🇦🇷',
+  Colombia: '🇨🇴',
+};
+
+const getCountryLabel = (country: string) => {
+  const flag = countryFlags[country] || '';
+  return flag ? `${flag} ${country}` : country;
+};
+
 const locations = [
   {
     name: 'Hotel Tibisay',
@@ -196,8 +209,9 @@ function App() {
           </a>
           <div className="hidden items-center gap-8 md:flex">
             <a href="#bienvenida" className="text-sm font-medium text-slate-200 transition hover:text-white">Bienvenida</a>
-            <a href="#ponentes" className="text-sm font-medium text-slate-200 transition hover:text-white">Ponentes</a>
+<a href="#ponentes" className="text-sm font-medium text-slate-200 transition hover:text-white">Ponentes</a>
             <a href="#programa" className="text-sm font-medium text-slate-200 transition hover:text-white">Programa</a>
+            <a href="#evento-social" className="text-sm font-medium text-slate-200 transition hover:text-white">White Party</a>
             <a href="#inscripciones" className="text-sm font-medium text-slate-200 transition hover:text-white">Inscripciones</a>
           </div>
           <div className="flex items-center gap-3">
@@ -223,8 +237,11 @@ function App() {
               <a href="#ponentes" onClick={() => setMenuOpen(false)} className="rounded-3xl bg-white/5 px-4 py-3 text-sm font-medium text-slate-200 transition hover:bg-white/10 hover:text-white">
                 Ponentes
               </a>
-              <a href="#programa" onClick={() => setMenuOpen(false)} className="rounded-3xl bg-white/5 px-4 py-3 text-sm font-medium text-slate-200 transition hover:bg-white/10 hover:text-white">
+<a href="#programa" onClick={() => setMenuOpen(false)} className="rounded-3xl bg-white/5 px-4 py-3 text-sm font-medium text-slate-200 transition hover:bg-white/10 hover:text-white">
                 Programa
+              </a>
+              <a href="#evento-social" onClick={() => setMenuOpen(false)} className="rounded-3xl bg-white/5 px-4 py-3 text-sm font-medium text-slate-200 transition hover:bg-white/10 hover:text-white">
+                White Party
               </a>
               <a href="#inscripciones" onClick={() => setMenuOpen(false)} className="rounded-3xl bg-gold px-4 py-3 text-sm font-semibold text-deep transition hover:-translate-y-0.5">
                 Inscríbete
@@ -437,6 +454,93 @@ function App() {
                 </div>
               );
             })}
+          </div>
+        </section>
+
+<section id="evento-social" className="space-y-8 border-t border-white/10 py-16">
+          <div className="space-y-4">
+            <p className="text-sm uppercase tracking-[0.35em] text-gold">Evento Social</p>
+            <h2 className="text-3xl font-semibold text-white sm:text-4xl">White Party - Fiesta de Clausura</h2>
+          </div>
+          <div className="grid gap-8 lg:grid-cols-2">
+            <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-xl shadow-black/10">
+              <div className="aspect-[4/3] overflow-hidden rounded-t-[2rem]">
+                <img
+                  src="/fiesta.png.png"
+                  alt="White Party - Fiesta de Clausura del XXXVI Congreso Venezolano de Urología"
+                  className="h-full w-full object-cover transition duration-500 hover:scale-105"
+                />
+              </div>
+              <div className="p-8">
+                <p className="text-sm uppercase tracking-[0.35em] text-gold">Sábado 11 de Julio · 8:00 PM</p>
+                <h3 className="mt-2 text-2xl font-semibold text-white">White Party Downtown Beach</h3>
+                <p className="mt-4 text-slate-300">
+                  Cierra el congreso con una noche unforgettable en nuestra fiesta de clausura. 
+                  Vive la elegancia en blanco mientras celebramos los logros de la urología venezolana 
+                  en un ambiente exclusivo con música, cócteles y networking entre colegas.
+                </p>
+                <div className="mt-6 flex flex-wrap gap-4">
+                  <a
+                    href="#inscripciones"
+                    className="inline-flex items-center rounded-full bg-gold px-6 py-3 text-sm font-semibold text-deep shadow-lg shadow-gold/20 transition hover:-translate-y-0.5"
+                  >
+                    Reserve su Lugar
+                  </a>
+                  <span className="inline-flex items-center rounded-full border border-white/20 bg-white/5 px-4 py-3 text-sm text-slate-300">
+                    Dress Code: White
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col justify-center gap-6 rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-xl shadow-black/10">
+              <div className="space-y-4">
+                <div className="flex items-center gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gold/20 text-gold">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-white">Horario</p>
+                    <p className="text-sm text-slate-400">8:00 PM - 2:00 AM</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gold/20 text-gold">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-white">Ubicación</p>
+                    <p className="text-sm text-slate-400">Downtown Beach, Margarita</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gold/20 text-gold">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-white">Dress Code</p>
+                    <p className="text-sm text-slate-400">Vestido Blanco Obligatorio</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gold/20 text-gold">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-white">Incluye</p>
+                    <p className="text-sm text-slate-400">Cócteles, Cena y Noche de Baile</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
