@@ -113,11 +113,6 @@ export function SpeakersSection() {
           en simposios, cursos precongreso,
           mesas redondas y conferencias magistrales.
         </p>
-        <div className="flex flex-wrap gap-2 pt-2">
-          {countriesRepresented.map((country) => (
-            <CountryBadge key={country} country={country} size="md" />
-          ))}
-        </div>
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
