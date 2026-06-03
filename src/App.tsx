@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { ProgramSchedule } from './components/ProgramSchedule';
 import { SpeakersSection } from './components/SpeakersSection';
+import { SvuLogo } from './components/SvuLogo';
 import type { ProgramDay } from './lib/programUtils';
 
 const sponsors = [
@@ -74,10 +75,12 @@ function App() {
       <nav className="sticky top-0 z-50 border-b border-white/10 bg-deep/95 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-10 lg:px-12">
           <a href="#" className="flex items-center gap-3 text-white">
-            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gold text-sm font-bold text-deep">SVU</div>
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.35em]">SVU 2026</p>
-              <p className="text-[11px] uppercase tracking-[0.35em] text-slate-300">Congreso Internacional</p>
+            <div className="flex shrink-0 items-center rounded-xl bg-black/40 px-2 py-1.5 ring-1 ring-white/10">
+              <SvuLogo variant="nav" />
+            </div>
+            <div className="hidden min-w-0 sm:block">
+              <p className="text-sm font-semibold uppercase tracking-[0.28em]">XXXVI Congreso</p>
+              <p className="text-[11px] tracking-wide text-slate-300">Sociedad Venezolana de Urología</p>
             </div>
           </a>
           <div className="hidden items-center gap-8 md:flex">
@@ -129,6 +132,9 @@ function App() {
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581092337525-3abfbb8b13a1?auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center opacity-30" />
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:px-10 lg:px-12">
           <motion.div initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9 }}>
+            <div className="mb-8 inline-flex rounded-2xl border border-white/10 bg-black/30 px-4 py-3 ring-1 ring-gold/20 backdrop-blur-sm">
+              <SvuLogo variant="hero" />
+            </div>
             <p className="inline-flex rounded-full border border-gold bg-white/5 px-4 py-1 text-sm uppercase tracking-[0.35em] text-gold">
               XXXVI Congreso Venezolano de Urología
             </p>
@@ -178,41 +184,48 @@ function App() {
             <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-gold/10 blur-3xl" />
             <div className="relative grid gap-10 lg:grid-cols-[minmax(260px,340px)_1fr] lg:items-center lg:gap-14">
               <div className="relative mx-auto w-full max-w-sm lg:mx-0 lg:max-w-none">
-                <div className="absolute -inset-1 rounded-[1.75rem] bg-gradient-to-br from-gold/40 via-gold/10 to-transparent opacity-80" />
-                <div className="relative overflow-hidden rounded-[1.65rem] bg-black ring-1 ring-white/10">
+                <div className="pointer-events-none absolute -inset-4 rounded-[2rem] border border-gold/15" />
+                <div className="pointer-events-none absolute -inset-8 rounded-[2.25rem] border border-white/5" />
+                <div className="relative overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-[#1e4a7a] via-deep to-[#0d2847] p-2 shadow-2xl shadow-gold/15 ring-1 ring-gold/25">
+                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_25%_0%,rgba(201,163,78,0.5),transparent_55%)]" />
+                  <div className="absolute -right-10 top-1/3 h-36 w-36 rounded-full bg-sky-500/25 blur-3xl" />
+                  <div className="absolute -left-6 bottom-0 h-28 w-28 rounded-full bg-gold/20 blur-2xl" />
+                  <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-deep via-deep/60 to-transparent" />
                   <img
                     src="/dr-mazen-presidente.png"
-                    alt="Dr. Mazen El Eysami Makled, Presidente del XXXVI Congreso Venezolano de Urología"
+                    alt="Dr. Mazen El Eysami Makled, Presidente de la Sociedad Venezolana de Urología"
                     loading="lazy"
-                    className="aspect-[4/5] w-full object-cover object-top"
+                    className="relative z-10 aspect-[4/5] w-full object-cover object-top mix-blend-lighten brightness-110 contrast-[1.08]"
                   />
                 </div>
-                <div className="absolute -bottom-4 -right-2 hidden rounded-2xl border border-white/10 bg-deep/95 px-4 py-3 shadow-xl backdrop-blur-md sm:block">
-                  <img src="/logo-svu.svg" alt="" aria-hidden className="h-10 w-auto opacity-90" />
+                <div className="absolute -bottom-3 left-0 right-0 flex justify-center px-2 sm:justify-end">
+                  <div className="rounded-2xl border border-white/10 bg-deep/90 px-3 py-2 shadow-xl backdrop-blur-md">
+                    <SvuLogo variant="card" />
+                  </div>
                 </div>
               </div>
               <div className="space-y-6">
                 <div>
                   <p className="text-sm uppercase tracking-[0.35em] text-gold">Bienvenida</p>
                   <h2 className="mt-3 text-3xl font-semibold leading-tight text-white sm:text-4xl">
-                    Mensaje del Presidente del Congreso
+                    Mensaje del Presidente de la SVU
                   </h2>
                 </div>
                 <div className="space-y-1 border-l-2 border-gold/50 pl-5">
                   <p className="text-xl font-semibold text-white">Dr. Mazen El Eysami Makled</p>
-                  <p className="text-sm text-gold">Cirujano Urólogo · Presidente del XXXVI Congreso Venezolano de Urología</p>
+                  <p className="text-sm text-gold">Cirujano Urólogo · Presidente de la Sociedad Venezolana de Urología</p>
                 </div>
                 <div className="space-y-4 text-lg leading-8 text-slate-200">
                   <p>
-                    Bienvenidos al <span className="font-medium text-white">XXXVI Congreso Venezolano de Urología</span>, un
-                    encuentro pensado para la actualización científica, el intercambio entre colegas y el fortalecimiento de
-                    nuestra especialidad en Venezuela y Latinoamérica.
+                    En mi calidad de Presidente de la <span className="font-medium text-white">Sociedad Venezolana de Urología</span>,
+                    es un honor darles la bienvenida al <span className="font-medium text-white">XXXVI Congreso Venezolano de Urología</span>:
+                    un encuentro de la especialidad pensado para la actualización científica, el intercambio entre colegas y el
+                    fortalecimiento de la urología en Venezuela y Latinoamérica.
                   </p>
                   <p>
-                    Durante estos días en Margarita reuniremos a expertos nacionales e internacionales en un programa que
-                    abarca oncología, cirugía mínimamente invasiva, andrología, urología funcional, pediatría y
-                    endourología. Les invito a participar activamente, compartir experiencia y construir juntos el futuro de
-                    la urología venezolana.
+                    Durante estos días en Margarita contaremos con un programa que abarca oncología, cirugía mínimamente invasiva,
+                    andrología, urología funcional, pediatría y endourología, con la participación de expertos nacionales e
+                    internacionales. Les invito a sumarse activamente a esta experiencia académica organizada por nuestra sociedad.
                   </p>
                 </div>
               </div>
@@ -235,8 +248,8 @@ function App() {
                 <h3 className="text-2xl font-semibold text-white sm:text-3xl">Dr. Nelson Argenis Medero Parrilla</h3>
                 <p className="text-sm leading-relaxed text-slate-400">
                   El epónimo es el médico al que la Sociedad Venezolana de Urología dedica el nombre de una edición del
-                  congreso, como reconocimiento a su trayectoria. No ejerce la presidencia del evento; su figura honra la
-                  memoria profesional que inspira este encuentro.
+                  congreso, como reconocimiento a su trayectoria. No dirige la organización del evento; su figura honra el
+                  legado profesional que inspira esta edición.
                 </p>
                 <div className="space-y-4 text-base leading-7 text-slate-300">
                   <p>
@@ -246,8 +259,8 @@ function App() {
                   </p>
                   <p>
                     Al distinguirlo como epónimo del XXXVI Congreso, la SVU rinde homenaje a quien ha contribuido de forma
-                    sostenida al desarrollo de la especialidad en el país. Su nombre identifica esta edición; la dirección del
-                    congreso está a cargo del presidente y su comité organizador.
+                    sostenida al desarrollo de la especialidad en el país. Su nombre identifica esta edición; la organización
+                    académica y logística del congreso está a cargo del comité organizador de la sociedad.
                   </p>
                 </div>
               </div>
@@ -420,9 +433,14 @@ function App() {
         </section>
 
         <section id="inscripciones" className="space-y-8 border-t border-white/10 py-16">
-          <div className="space-y-4">
-            <p className="text-sm uppercase tracking-[0.35em] text-gold">Inscripciones</p>
-            <h2 className="text-3xl font-semibold text-white sm:text-4xl">Planes y acceso</h2>
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <div className="space-y-4">
+              <p className="text-sm uppercase tracking-[0.35em] text-gold">Inscripciones</p>
+              <h2 className="text-3xl font-semibold text-white sm:text-4xl">Planes y acceso</h2>
+            </div>
+            <div className="inline-flex rounded-2xl border border-white/10 bg-black/30 px-4 py-3 ring-1 ring-white/10">
+              <SvuLogo variant="card" />
+            </div>
           </div>
           <div className="grid gap-6 lg:grid-cols-4">
             {['Médicos Especialistas', 'Residentes', 'Estudiantes', 'Cursos Precongreso'].map((plan) => (
@@ -445,9 +463,14 @@ function App() {
         </section>
 
         <section id="contacto" className="space-y-8 border-t border-white/10 py-16">
-          <div className="space-y-4">
-            <p className="text-sm uppercase tracking-[0.35em] text-gold">Contacto</p>
-            <h2 className="text-3xl font-semibold text-white sm:text-4xl">Estamos listos para ayudarte</h2>
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div className="space-y-4">
+              <p className="text-sm uppercase tracking-[0.35em] text-gold">Contacto</p>
+              <h2 className="text-3xl font-semibold text-white sm:text-4xl">Estamos listos para ayudarte</h2>
+            </div>
+            <div className="inline-flex rounded-2xl border border-white/10 bg-black/30 px-5 py-3 ring-1 ring-gold/15">
+              <SvuLogo variant="footer" />
+            </div>
           </div>
           <div className="grid gap-6 lg:grid-cols-3">
             <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-xl shadow-black/10 transition duration-300 hover:-translate-y-1 hover:border-gold/40">
@@ -473,6 +496,17 @@ function App() {
             </div>
           </div>
         </section>
+
+        <footer className="border-t border-white/10 py-10">
+          <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
+            <SvuLogo variant="footer" className="mx-auto sm:mx-0" />
+            <p className="max-w-md text-sm text-slate-400">
+              XXXVI Congreso Venezolano de Urología · 8–11 de julio de 2026 · Margarita, Venezuela
+              <br />
+              <span className="text-slate-500">Organizado por la Sociedad Venezolana de Urología</span>
+            </p>
+          </div>
+        </footer>
       </main>
     </div>
   );
