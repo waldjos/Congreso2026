@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { ProgramSchedule } from './components/ProgramSchedule';
+import type { ProgramDay } from './lib/programUtils';
 
 const speakers = [
   {
@@ -53,40 +55,6 @@ const speakers = [
   },
 ];
 
-const program = [
-  {
-    day: 'Miércoles 08 Julio',
-    items: [
-      { title: 'Master Internacional HoLEP', location: 'Hospital de Clínicas del Este', price: 'USD 150' },
-      { title: 'Taller de Urodinamia', location: 'Hotel Tibisay', price: 'USD 50' },
-      { title: 'Instrumentación Quirúrgica', location: 'Hotel Tibisay', price: 'USD 30' },
-      { title: 'Masterclass Cáncer de Vejiga', location: 'Hotel Tibisay', price: 'USD 100' },
-      { title: 'Disfunción Sexual Masculina', location: 'Hotel Tibisay', price: 'USD 100' },
-    ],
-  },
-  {
-    day: 'Jueves 09 Julio',
-    timeline: [
-      { time: '09:00', label: 'Urología General' },
-      { time: '10:30', label: 'Andrología y Estética Genital' },
-      { time: '14:00', label: 'Urología Funcional' },
-      { time: '16:00', label: 'Piso Pélvico' },
-      { time: '19:00', label: 'Acto Inaugural' },
-    ],
-  },
-  {
-    day: 'Viernes 10 Julio',
-    sections: [
-      { title: 'Sala Principal', items: ['Oncología Urológica', 'Cáncer de Próstata', 'Cáncer de Vejiga', 'Cirugía Robótica'] },
-      { title: 'Sala Paralela', items: ['Urología Pediátrica'] },
-    ],
-  },
-  {
-    day: 'Sábado 11 Julio',
-    items: ['HPB y Láser', 'HoLEP', 'ThuLEP', 'TFL', 'Endourología y Litiasis', 'MiniPerc', 'RIRS', 'TFL vs Holmio', 'White Party'],
-  },
-];
-
 const sponsors = [
   { tier: 'Diamante', name: 'Instituto Médico Avanzado' },
   { tier: 'Oro', name: 'Laboratorios UroCare' },
@@ -120,6 +88,8 @@ const locations = [
   },
 ];
 
+const PROGRAM_PDF = '/PROGRAMA CIENTIFICO 2026. UROLOGIA.pdf';
+
 const eventDate = new Date('2026-07-08T09:00:00');
 
 const formatValue = (value: number) => String(value).padStart(2, '0');
@@ -144,7 +114,8 @@ const getCountdown = () => {
 function App() {
   const [countdown, setCountdown] = useState(getCountdown());
   const [menuOpen, setMenuOpen] = useState(false);
-  const [fetchedProgram, setFetchedProgram] = useState<any | null>(null);
+  const [program, setProgram] = useState<ProgramDay[] | null>(null);
+  const [programLoading, setProgramLoading] = useState(true);
 
   useEffect(() => {
     const timer = window.setInterval(() => setCountdown(getCountdown()), 1000);
@@ -152,49 +123,15 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // Cargar program.json generado desde el DOCX si existe
     fetch('/program.json')
       .then((res) => {
         if (!res.ok) throw new Error('No program.json');
         return res.json();
       })
-      .then((data) => setFetchedProgram(data))
-      .catch(() => setFetchedProgram(null));
+      .then((data: ProgramDay[]) => setProgram(data))
+      .catch(() => setProgram([]))
+      .finally(() => setProgramLoading(false));
   }, []);
-
-  const renderProgramCard = (item: any, idx: number) => {
-    if (typeof item === 'string') {
-      return (
-        <div key={`item-${idx}`} className="rounded-3xl border border-gold/15 bg-slate-950/80 p-5 shadow-[0_20px_60px_-30px_rgba(250,204,21,0.45)]">
-          <p className="font-semibold text-white">{item}</p>
-        </div>
-      );
-    }
-
-    return (
-      <motion.article
-        key={`item-${idx}`}
-        initial={{ opacity: 0, y: 14 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.25, delay: Math.min(idx * 0.03, 0.6) }}
-        className="rounded-3xl border border-gold/15 bg-slate-950/80 p-5 shadow-[0_20px_60px_-30px_rgba(250,204,21,0.45)] transition-all duration-300 hover:-translate-y-1 hover:border-gold/30"
-      >
-        <div className="flex flex-col gap-4">
-          <div className="flex items-start justify-between gap-4">
-            {item.time && (
-              <span className="inline-flex min-w-[96px] items-center justify-center rounded-full bg-gold/10 px-3 py-2 text-xs uppercase tracking-[0.25em] text-gold">
-                {item.time}
-              </span>
-            )}
-            <p className="text-base font-semibold text-white break-words">{(item.title || item.label || item.name || '').toString().trim()}</p>
-          </div>
-          {item.details && <p className="text-sm leading-6 text-slate-300 whitespace-pre-line">{item.details}</p>}
-          {item.price && <p className="text-sm text-slate-300">{item.price}</p>}
-          {item.venue && <p className="text-sm uppercase tracking-[0.15em] text-gold">{item.venue}</p>}
-        </div>
-      </motion.article>
-    );
-  };
 
   return (
     <div className="min-h-screen bg-deep text-white">
@@ -272,7 +209,7 @@ function App() {
               <a href="#programa" className="inline-flex items-center justify-center rounded-full bg-gold/90 px-8 py-3 text-sm font-semibold uppercase text-deep shadow-lg shadow-gold/25 transition hover:scale-105">
                 Ver Programa
               </a>
-              <a href="/Programa-Congreso-2026.pdf" download className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-8 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+              <a href={encodeURI(PROGRAM_PDF)} download className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-8 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
                 Descargar PDF
               </a>
             </div>
@@ -363,99 +300,29 @@ function App() {
           </div>
         </section>
 
-        <section id="programa" className="space-y-8 border-t border-white/10 py-16">
-          <div className="space-y-4">
-            <p className="text-sm uppercase tracking-[0.35em] text-gold">Programa Científico</p>
-            <h2 className="text-3xl font-semibold text-white sm:text-4xl">Agenda interactiva por día</h2>
-          </div>
-          <div className="space-y-6">
-            {(fetchedProgram && fetchedProgram.length ? fetchedProgram : program).map((day: any) => {
-              const hasVenues = day.venues && day.venues.length > 0;
-              return (
-                <div key={day.day} className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-sm uppercase tracking-[0.35em] text-gold">{day.day}</p>
-                      <h3 className="mt-2 text-2xl font-semibold text-white">Programa por segmentos</h3>
-                      {day.description && (
-                        <details className="mt-2">
-                          <summary className="cursor-pointer text-sm font-medium text-gold">Resumen del día</summary>
-                          <p className="mt-2 max-w-3xl text-sm text-slate-300 whitespace-pre-line">{day.description}</p>
-                        </details>
-                      )}
-                    </div>
-                    <a href="/Programa-Congreso-2026.pdf" download className="ml-4 inline-flex items-center rounded-full bg-gold px-4 py-2 text-sm font-semibold text-deep shadow-md shadow-gold/20">
-                      Descargar Programa (PDF)
-                    </a>
-                  </div>
-
-                  {hasVenues ? (
-                    day.venues.length === 1 ? (
-                      <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-                        {day.venues[0].items.map(renderProgramCard)}
-                      </div>
-                    ) : (
-                      <div className="mt-6 space-y-6">
-                        {day.venues.map((venue: any, venueIdx: number) => (
-                          <div key={`${venue.name}-${venueIdx}`} className="rounded-3xl border border-white/10 bg-slate-950/80 p-5">
-                            <p className="text-sm uppercase tracking-[0.25em] text-gold">{venue.name}</p>
-                            <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-                              {venue.items.map(renderProgramCard)}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    )
-                  ) : (
-                    <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-                      {day.items && day.items.map((item: any, idx: number) => (
-                        <div key={`item-${idx}`} className="rounded-3xl border border-gold/15 bg-slate-950/80 p-5 shadow-[0_20px_60px_-30px_rgba(250,204,21,0.45)] transition-all duration-300 hover:-translate-y-1 hover:border-gold/30">
-                          {typeof item === 'string' ? (
-                            <p className="font-semibold text-white">{item}</p>
-                          ) : (
-                            <>
-                              <p className="font-semibold text-white">{item.title}</p>
-                              {item.location && <p className="mt-2 text-sm text-slate-300">{item.location}</p>}
-                              {item.price && <p className="mt-1 text-sm text-slate-400">{item.price}</p>}
-                            </>
-                          )}
-                        </div>
-                      ))}
-
-                      {day.timeline && day.timeline.map((ev: any, idx: number) => (
-                        <motion.article
-                          key={`t-${idx}`}
-                          initial={{ opacity: 0, y: 14 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.25, delay: Math.min(idx * 0.03, 0.6) }}
-                          className="rounded-3xl border border-gold/15 bg-slate-950/80 p-4 sm:p-5 shadow-[0_20px_60px_-30px_rgba(250,204,21,0.45)] transition-all duration-300 hover:-translate-y-1 hover:border-gold/30"
-                        >
-                          <div className="flex flex-col gap-4">
-                            <div className="flex items-center justify-between gap-4">
-                              <span className="inline-flex min-w-[64px] items-center justify-center rounded-full bg-gold/10 px-3 py-2 text-sm uppercase tracking-[0.25em] text-gold">{ev.time || '—'}</span>
-                              <p className="text-base font-semibold text-white break-words">{(ev.title || ev.label || ev.name || '').toString().trim()}</p>
-                            </div>
-                            <details className="group">
-                              <summary className="flex cursor-pointer items-center justify-between rounded-2xl bg-white/5 px-4 py-3 text-sm text-slate-200 transition hover:bg-white/10 focus:outline-none">
-                                <span>Ver contenido</span>
-                                <span className="text-sm text-slate-400 transition-transform duration-300 group-open:rotate-180">▾</span>
-                              </summary>
-                              {ev.details && (
-                                <div className="mt-3 overflow-hidden transition-all duration-300 ease-out max-h-0 group-open:max-h-[1000px]">
-                                  <p className="text-sm leading-6 text-slate-300 whitespace-pre-line">{ev.details}</p>
-                                </div>
-                              )}
-                            </details>
-                          </div>
-                        </motion.article>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </section>
+        {programLoading ? (
+          <section id="programa" className="scroll-mt-24 border-t border-white/10 py-16">
+            <div className="animate-pulse space-y-4">
+              <div className="h-8 w-64 rounded-xl bg-white/10" />
+              <div className="h-4 w-96 max-w-full rounded-lg bg-white/5" />
+              <div className="mt-8 flex gap-2">
+                {[1, 2, 3, 4].map((i) => (
+                  <div key={i} className="h-14 w-28 rounded-2xl bg-white/10" />
+                ))}
+              </div>
+              <div className="mt-6 h-96 rounded-[1.75rem] bg-white/5" />
+            </div>
+          </section>
+        ) : program && program.length > 0 ? (
+          <ProgramSchedule program={program} pdfUrl={PROGRAM_PDF} />
+        ) : (
+          <section id="programa" className="scroll-mt-24 border-t border-white/10 py-16 text-center text-slate-400">
+            <p>No se pudo cargar el programa. Descarga el PDF oficial desde el inicio.</p>
+            <a href={encodeURI(PROGRAM_PDF)} download className="mt-4 inline-flex rounded-full bg-gold px-6 py-3 text-sm font-semibold text-deep">
+              Descargar PDF
+            </a>
+          </section>
+        )}
 
 <section id="evento-social" className="space-y-8 border-t border-white/10 py-16">
           <div className="space-y-4">

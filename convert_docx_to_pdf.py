@@ -8,7 +8,7 @@ from xml.sax.saxutils import escape
 import os
 
 DOCX_FILENAME = os.path.join('public', 'XXXVI CONGRESO NACIONAL DE UROLOGIA-1.docx')
-PDF_FILENAME = os.path.join('public', 'Programa-Congreso-2026.pdf')
+PDF_FILENAME = os.path.join('public', 'PROGRAMA CIENTIFICO 2026. UROLOGIA.pdf')
 
 def text_for_paragraph(paragraph):
     text = paragraph.text.strip()
