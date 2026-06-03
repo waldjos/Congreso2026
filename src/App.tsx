@@ -1,59 +1,8 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { ProgramSchedule } from './components/ProgramSchedule';
+import { SpeakersSection } from './components/SpeakersSection';
 import type { ProgramDay } from './lib/programUtils';
-
-const speakers = [
-  {
-    name: 'Dr. René Sotelo',
-    country: 'USA',
-    specialty: 'Cirugía Robótica',
-    sessions: ['Taller Robótico', 'Panel Oncológico'],
-    image: 'https://doctorsotelo.com/profile/dr-rene-sotelo.jpg',
-  },
-  {
-    name: 'Dr. Joan Palou',
-    country: 'España',
-    specialty: 'Oncología Urológica',
-    sessions: ['Prostatectomía de Vanguardia'],
-    image: 'https://static.emedevents.com/uploads/speakers/200/79282bf1f8c7a312e8d6b838b607e4cc.png',
-  },
-  {
-    name: 'Dr. Gabriele Antonini',
-    country: 'Italia',
-    specialty: 'Andrología',
-    sessions: ['Estética Genital y Función Sexual'],
-    image: 'https://www.duam.it/assets/img/avatar/gabriele-antonini-urologo-andrologo.jpg',
-  },
-  {
-    name: 'Dr. Carlos Errando',
-    country: 'España',
-    specialty: 'Urología Funcional',
-    sessions: ['Innovación en Piso Pélvico'],
-    image: 'https://objects-es.cdn-topdoctors.com/provider/1084885/image/profile/medium/prof_10221_20210719162910.png?width=648&format=png',
-  },
-  {
-    name: 'Dr. Gustavo Villoldo',
-    country: 'Argentina',
-    specialty: 'Uro-Oncología',
-    sessions: ['Cáncer de Vejiga'],
-    image: 'https://alexanderfleming.org/wp-content/uploads/2020/11/VILLOLDO-FOTO.jpeg',
-  },
-  {
-    name: 'Dr. Edwin Reyes',
-    country: 'Colombia',
-    specialty: 'Endourología',
-    sessions: ['Litiasis y Tecnología Láser'],
-    image: 'https://web-auna-backend-prd-images.s3.amazonaws.com/07618347_mobile_27c67ecffd.png',
-  },
-  {
-    name: 'Dr. Julián Azuero',
-    country: 'Colombia',
-    specialty: 'Urología Funcional',
-    sessions: ['Avances en Disfunción Urinaria'],
-    image: 'https://www.ama.com.co/wp-content/uploads/2022/02/julian-6-Julian-Azuero-768x1024.jpeg',
-  },
-];
 
 const sponsors = [
   { tier: 'Diamante', name: 'Instituto Médico Avanzado' },
@@ -61,19 +10,6 @@ const sponsors = [
   { tier: 'Plata', name: 'Equipos Quirúrgicos Plus' },
   { tier: 'Bronce', name: 'Soluciones Médicas 360' },
 ];
-
-const countryFlags: Record<string, string> = {
-  USA: '🇺🇸',
-  España: '🇪🇸',
-  Italia: '🇮🇹',
-  Argentina: '🇦🇷',
-  Colombia: '🇨🇴',
-};
-
-const getCountryLabel = (country: string) => {
-  const flag = countryFlags[country] || '';
-  return flag ? `${flag} ${country}` : country;
-};
 
 const locations = [
   {
@@ -231,74 +167,108 @@ function App() {
       </header>
 
       <main className="mx-auto max-w-7xl px-6 py-16 sm:px-10 lg:px-12">
-        <section id="bienvenida" className="space-y-8 pb-16">
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-            <div className="max-w-2xl">
-              <p className="text-sm uppercase tracking-[0.35em] text-gold">Bienvenida</p>
-              <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">Mensaje del Presidente</h2>
-              <p className="mt-6 text-lg leading-8 text-slate-200">
-                Bienvenidos al XXXVI Congreso Venezolano de Urología, un espacio diseñado para la actualización científica, el intercambio académico y el fortalecimiento de nuestra especialidad en Venezuela y Latinoamérica.
-              </p>
-            </div>
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 backdrop-blur-xl sm:max-w-md">
-              <div className="space-y-4">
-                <div className="flex items-center justify-center overflow-hidden rounded-3xl bg-slate-800 p-6">
+        <section id="bienvenida" className="space-y-16 pb-16">
+          <motion.article
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6 }}
+            className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/[0.08] via-white/[0.03] to-transparent p-6 shadow-2xl shadow-black/20 sm:p-10 lg:p-12"
+          >
+            <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-gold/10 blur-3xl" />
+            <div className="relative grid gap-10 lg:grid-cols-[minmax(260px,340px)_1fr] lg:items-center lg:gap-14">
+              <div className="relative mx-auto w-full max-w-sm lg:mx-0 lg:max-w-none">
+                <div className="absolute -inset-1 rounded-[1.75rem] bg-gradient-to-br from-gold/40 via-gold/10 to-transparent opacity-80" />
+                <div className="relative overflow-hidden rounded-[1.65rem] bg-black ring-1 ring-white/10">
                   <img
-                    src="/logo-svu.png"
-                    alt="Logo de la Sociedad Venezolana de Urología"
+                    src="/dr-mazen-presidente.png"
+                    alt="Dr. Mazen El Eysami Makled, Presidente del XXXVI Congreso Venezolano de Urología"
                     loading="lazy"
-                    className="mx-auto h-44 w-auto max-w-full object-contain object-center sm:h-56"
+                    className="aspect-[4/5] w-full object-cover object-top"
                   />
                 </div>
-                <div>
-                  <p className="font-semibold text-white">Dr. Nelson Medero Parrilla</p>
-                  <p className="text-sm text-slate-400">Presidente del XXXVI Congreso Venezolano de Urología</p>
+                <div className="absolute -bottom-4 -right-2 hidden rounded-2xl border border-white/10 bg-deep/95 px-4 py-3 shadow-xl backdrop-blur-md sm:block">
+                  <img src="/logo-svu.svg" alt="" aria-hidden className="h-10 w-auto opacity-90" />
                 </div>
-                <p className="text-slate-300">
-                  Conocido como Eponimo, el Dr. Nelson Medero Parrilla encabeza este congreso con una visión renovada para la urología venezolana.
+              </div>
+              <div className="space-y-6">
+                <div>
+                  <p className="text-sm uppercase tracking-[0.35em] text-gold">Bienvenida</p>
+                  <h2 className="mt-3 text-3xl font-semibold leading-tight text-white sm:text-4xl">
+                    Mensaje del Presidente del Congreso
+                  </h2>
+                </div>
+                <div className="space-y-1 border-l-2 border-gold/50 pl-5">
+                  <p className="text-xl font-semibold text-white">Dr. Mazen El Eysami Makled</p>
+                  <p className="text-sm text-gold">Cirujano Urólogo · Presidente del XXXVI Congreso Venezolano de Urología</p>
+                </div>
+                <div className="space-y-4 text-lg leading-8 text-slate-200">
+                  <p>
+                    Bienvenidos al <span className="font-medium text-white">XXXVI Congreso Venezolano de Urología</span>, un
+                    encuentro pensado para la actualización científica, el intercambio entre colegas y el fortalecimiento de
+                    nuestra especialidad en Venezuela y Latinoamérica.
+                  </p>
+                  <p>
+                    Durante estos días en Margarita reuniremos a expertos nacionales e internacionales en un programa que
+                    abarca oncología, cirugía mínimamente invasiva, andrología, urología funcional, pediatría y
+                    endourología. Les invito a participar activamente, compartir experiencia y construir juntos el futuro de
+                    la urología venezolana.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.article>
+
+          <motion.article
+            id="eponimo"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="rounded-[2rem] border border-gold/20 bg-slate-950/50 p-6 sm:p-8 lg:p-10"
+          >
+            <div className="grid gap-8 lg:grid-cols-[1fr_minmax(220px,280px)] lg:items-start lg:gap-12">
+              <div className="order-2 space-y-5 lg:order-1">
+                <div className="inline-flex items-center gap-2 rounded-full border border-gold/25 bg-gold/10 px-4 py-1.5">
+                  <span className="text-xs font-semibold uppercase tracking-[0.3em] text-gold">Epónimo 2026</span>
+                </div>
+                <h3 className="text-2xl font-semibold text-white sm:text-3xl">Dr. Nelson Argenis Medero Parrilla</h3>
+                <p className="text-sm leading-relaxed text-slate-400">
+                  El epónimo es el médico al que la Sociedad Venezolana de Urología dedica el nombre de una edición del
+                  congreso, como reconocimiento a su trayectoria. No ejerce la presidencia del evento; su figura honra la
+                  memoria profesional que inspira este encuentro.
+                </p>
+                <div className="space-y-4 text-base leading-7 text-slate-300">
+                  <p>
+                    El Dr. Medero Parrilla es cirujano urólogo venezolano con amplia labor académica y publicaciones en la{' '}
+                    <em className="text-slate-200 not-italic">Revista Venezolana de Urología</em>, entre ellas trabajos sobre
+                    patología prostática, trauma renal, amiloidosis vesical y casos clínicos de alta complejidad.
+                  </p>
+                  <p>
+                    Al distinguirlo como epónimo del XXXVI Congreso, la SVU rinde homenaje a quien ha contribuido de forma
+                    sostenida al desarrollo de la especialidad en el país. Su nombre identifica esta edición; la dirección del
+                    congreso está a cargo del presidente y su comité organizador.
+                  </p>
+                </div>
+              </div>
+              <div className="order-1 lg:order-2">
+                <div className="overflow-hidden rounded-3xl border border-white/10 bg-slate-800/80 shadow-lg shadow-black/20">
+                  <img
+                    src="/dr-medero-eponimo.png"
+                    alt="Dr. Nelson Argenis Medero Parrilla, epónimo del XXXVI Congreso Venezolano de Urología"
+                    loading="lazy"
+                    className="aspect-[4/5] w-full object-cover object-[center_15%]"
+                  />
+                </div>
+                <p className="mt-4 text-center text-xs uppercase tracking-[0.25em] text-slate-500">
+                  Epónimo · XXXVI Congreso Venezolano de Urología
                 </p>
               </div>
             </div>
-          </div>
+          </motion.article>
         </section>
 
-        <section id="ponentes" className="space-y-8 border-t border-white/10 py-16">
-          <div className="space-y-4">
-            <p className="text-sm uppercase tracking-[0.35em] text-gold">Ponentes Internacionales</p>
-            <h2 className="text-3xl font-semibold text-white sm:text-4xl">Expertos que lideran la agenda</h2>
-            <p className="max-w-2xl text-slate-300">
-              Descubre a los oradores principales del congreso: especialistas en cirugía robótica, oncología urológica, andrología y urología funcional.
-            </p>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {speakers.map((speaker) => (
-              <article key={speaker.name} className="rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10 transition duration-300 hover:-translate-y-1 hover:border-gold/40">
-                <div className="overflow-hidden rounded-3xl bg-slate-800">
-                  {speaker.image ? (
-                    <img
-                      src={speaker.image}
-                      alt={`Foto de ${speaker.name}`}
-                      loading="lazy"
-                      className="h-44 w-full object-cover object-center transition duration-500 hover:scale-105"
-                    />
-                  ) : (
-                    <div className="h-44" />
-                  )}
-                </div>
-                <div className="mt-5 space-y-3">
-                  <p className="text-sm uppercase tracking-[0.35em] text-gold">{speaker.country}</p>
-                  <h3 className="text-xl font-semibold text-white">{speaker.name}</h3>
-                  <p className="text-sm text-slate-300">{speaker.specialty}</p>
-                  <ul className="space-y-1 text-sm text-slate-400">
-                    {speaker.sessions.map((session) => (
-                      <li key={session}>• {session}</li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
+        <SpeakersSection />
 
         {programLoading ? (
           <section id="programa" className="scroll-mt-24 border-t border-white/10 py-16">
