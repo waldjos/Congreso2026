@@ -464,11 +464,11 @@ function App() {
           </div>
           <div className="grid gap-8 lg:grid-cols-2">
             <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-xl shadow-black/10">
-              <div className="aspect-[4/3] overflow-hidden rounded-t-[2rem]">
+              <div className="overflow-hidden rounded-t-[2rem]">
                 <img
                   src="/fiesta.png.png"
                   alt="White Party - Fiesta de Clausura del XXXVI Congreso Venezolano de Urología"
-                  className="h-full w-full object-cover transition duration-500 hover:scale-105"
+                  className="h-auto w-full object-contain transition duration-500 hover:scale-105"
                 />
               </div>
               <div className="p-8">
