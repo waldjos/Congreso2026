@@ -1,28 +1,8 @@
 import { motion } from 'framer-motion';
-import { sponsors } from '../data/sponsors';
-
-const REAL_LOGO_IDS = new Set([
-  'adium',
-  'calox',
-  'eurofarma',
-  'leti',
-  'lasermed',
-  'clinicalar',
-  'dermaskin',
-  'gurve',
-  'urolatam',
-  'nirvalab',
-  'valmorca',
-  'quirutex',
-  'herbaplant',
-  'lasante',
-  'tiares',
-]);
-
-const LIGHT_LOGO_IDS = new Set(['adium']);
+import { isOfficialSponsorLogo, LIGHT_LOGO_IDS, sponsors } from '../data/sponsors';
 
 function SponsorLogo({ sponsor }: { sponsor: (typeof sponsors)[0] }) {
-  const isRealLogo = REAL_LOGO_IDS.has(sponsor.id);
+  const official = isOfficialSponsorLogo(sponsor.logo);
   const needsDarkBg = LIGHT_LOGO_IDS.has(sponsor.id);
 
   const image = (
@@ -32,8 +12,8 @@ function SponsorLogo({ sponsor }: { sponsor: (typeof sponsors)[0] }) {
       loading="lazy"
       decoding="async"
       className={
-        isRealLogo
-          ? 'max-h-14 w-full max-w-[9.5rem] object-contain object-center'
+        official
+          ? 'max-h-[3.75rem] w-full max-w-[10.5rem] object-contain object-center'
           : 'h-full w-full object-contain'
       }
     />
@@ -41,7 +21,7 @@ function SponsorLogo({ sponsor }: { sponsor: (typeof sponsors)[0] }) {
 
   if (needsDarkBg) {
     return (
-      <div className="flex h-full w-full items-center justify-center rounded-xl bg-deep px-4 py-3">
+      <div className="flex h-full w-full items-center justify-center rounded-xl bg-deep px-3 py-2.5">
         {image}
       </div>
     );
@@ -51,6 +31,8 @@ function SponsorLogo({ sponsor }: { sponsor: (typeof sponsors)[0] }) {
 }
 
 export function SponsorsSection() {
+  const officialCount = sponsors.filter((s) => isOfficialSponsorLogo(s.logo)).length;
+
   return (
     <section id="patrocinadores" className="scroll-mt-24 space-y-10 border-t border-white/10 py-16">
       <div className="space-y-4">
@@ -75,7 +57,7 @@ export function SponsorsSection() {
               viewport={{ once: true, margin: '-20px' }}
               transition={{ duration: 0.3, delay: Math.min(index * 0.02, 0.4) }}
               title={sponsor.name}
-              className="group flex aspect-[5/3] items-center justify-center rounded-2xl border border-white/10 bg-white p-4 shadow-lg shadow-black/10 transition duration-300 hover:-translate-y-0.5 hover:border-gold/40 hover:shadow-gold/10"
+              className="group flex aspect-[5/3] items-center justify-center rounded-2xl border border-white/10 bg-white p-3 shadow-lg shadow-black/10 transition duration-300 hover:-translate-y-0.5 hover:border-gold/40 hover:shadow-gold/10 sm:p-4"
             >
               <SponsorLogo sponsor={sponsor} />
             </motion.div>
@@ -84,7 +66,8 @@ export function SponsorsSection() {
       </div>
 
       <p className="text-center text-sm text-slate-500">
-        {sponsors.length} aliados comerciales · Gracias por su confianza y respaldo al congreso
+        {sponsors.length} aliados comerciales · {officialCount} con logo oficial · Gracias por su confianza y respaldo
+        al congreso
       </p>
     </section>
   );
