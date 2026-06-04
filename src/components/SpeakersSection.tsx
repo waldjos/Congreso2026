@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { CountryFlag } from './CountryFlag';
-import { featuredSpeakers, internationalFaculty } from '../data/speakers';
+import { featuredSpeakers, internationalFaculty, speakerCountries } from '../data/speakers';
 
 function initials(name: string): string {
   const parts = name.replace(/^(Dr\.|Dra\.)\s*/i, '').split(/\s+/);
@@ -11,14 +11,19 @@ function initials(name: string): string {
     .toUpperCase();
 }
 
-function CountryBadge({ country, size = 'sm' }: { country: string; size?: 'sm' | 'md' }) {
+function CountryBadge({ countries, size = 'sm' }: { countries: string[]; size?: 'sm' | 'md' }) {
   return (
     <span
-      className={`inline-flex items-center rounded-full border border-white/10 bg-white/5 font-medium text-gold ${
+      className={`inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-white/10 bg-white/5 font-medium text-gold ${
         size === 'md' ? 'px-3 py-1.5 text-sm tracking-wide' : 'px-2.5 py-1 text-xs tracking-wide'
       }`}
     >
-      <CountryFlag country={country} size={size} />
+      {countries.map((country, index) => (
+        <span key={country} className="inline-flex items-center gap-2">
+          {index > 0 ? <span className="text-white/25" aria-hidden="true">·</span> : null}
+          <CountryFlag country={country} size={size} />
+        </span>
+      ))}
     </span>
   );
 }
@@ -46,7 +51,7 @@ function FeaturedCard({ speaker, index }: { speaker: (typeof featuredSpeakers)[0
           </div>
         )}
         <div className="absolute bottom-3 left-3">
-          <CountryBadge country={speaker.country} />
+          <CountryBadge countries={speakerCountries(speaker)} />
         </div>
       </div>
       <div className="flex flex-1 flex-col gap-3 p-6">
@@ -80,7 +85,7 @@ function FacultyCard({ speaker, index }: { speaker: (typeof internationalFaculty
       <div className="min-w-0 flex-1 space-y-2">
         <div className="flex flex-wrap items-start justify-between gap-2">
           <h4 className="font-semibold text-white">{speaker.name}</h4>
-          <CountryBadge country={speaker.country} />
+          <CountryBadge countries={speakerCountries(speaker)} />
         </div>
         <p className="text-xs font-medium uppercase tracking-[0.15em] text-slate-500">{speaker.role}</p>
         <p className="text-sm leading-relaxed text-slate-400">{speaker.topics.join(' · ')}</p>
@@ -92,7 +97,7 @@ function FacultyCard({ speaker, index }: { speaker: (typeof internationalFaculty
 export function SpeakersSection() {
   const countriesRepresented = [
     ...new Set([
-      ...featuredSpeakers.map((s) => s.country),
+      ...featuredSpeakers.flatMap((s) => speakerCountries(s)),
       ...internationalFaculty.map((s) => s.country),
     ]),
   ].sort();

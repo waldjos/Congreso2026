@@ -9,6 +9,8 @@ export const COUNTRY_NAMES: Record<string, string> = {
   MEX: 'México',
   Mex: 'México',
   BRA: 'Brasil',
+  VEN: 'Venezuela',
+  VZLA: 'Venezuela',
 };
 
 /** Nombre en español → código ISO 3166-1 alpha-2 (minúsculas) */
@@ -21,6 +23,7 @@ export const COUNTRY_ISO: Record<string, string> = {
   Argentina: 'ar',
   México: 'mx',
   Brasil: 'br',
+  Venezuela: 've',
 };
 
 export function getCountryFlagUrl(country: string, width = 40): string {

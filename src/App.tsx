@@ -2,15 +2,9 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { ProgramSchedule } from './components/ProgramSchedule';
 import { SpeakersSection } from './components/SpeakersSection';
+import { SponsorsSection } from './components/SponsorsSection';
 import { SvuLogo } from './components/SvuLogo';
 import type { ProgramDay } from './lib/programUtils';
-
-const sponsors = [
-  { tier: 'Diamante', name: 'Instituto Médico Avanzado' },
-  { tier: 'Oro', name: 'Laboratorios UroCare' },
-  { tier: 'Plata', name: 'Equipos Quirúrgicos Plus' },
-  { tier: 'Bronce', name: 'Soluciones Médicas 360' },
-];
 
 const locations = [
   {
@@ -238,24 +232,22 @@ function App() {
             <div className="grid gap-8 lg:grid-cols-[1fr_minmax(220px,280px)] lg:items-start lg:gap-12">
               <div className="order-2 space-y-5 lg:order-1">
                 <div className="inline-flex items-center gap-2 rounded-full border border-gold/25 bg-gold/10 px-4 py-1.5">
-                  <span className="text-xs font-semibold uppercase tracking-[0.3em] text-gold">Epónimo 2026</span>
+                  <span className="text-xs font-semibold uppercase tracking-[0.3em] text-gold">Homenaje 2026</span>
                 </div>
                 <h3 className="text-2xl font-semibold text-white sm:text-3xl">Dr. Nelson Argenis Medero Parrilla</h3>
-                <p className="text-sm leading-relaxed text-slate-400">
-                  El epónimo es el médico al que la Sociedad Venezolana de Urología dedica el nombre de una edición del
-                  congreso, como reconocimiento a su trayectoria. No dirige la organización del evento; su figura honra el
-                  legado profesional que inspira esta edición.
-                </p>
+                <p className="text-sm font-medium text-gold">Expresidente de la Sociedad Venezolana de Urología</p>
                 <div className="space-y-4 text-base leading-7 text-slate-300">
                   <p>
-                    El Dr. Medero Parrilla es cirujano urólogo venezolano con amplia labor académica y publicaciones en la{' '}
-                    <em className="text-slate-200 not-italic">Revista Venezolana de Urología</em>, entre ellas trabajos sobre
-                    patología prostática, trauma renal, amiloidosis vesical y casos clínicos de alta complejidad.
+                    Al dedicarle el nombre al XXXVI Congreso Venezolano de Urología, la Sociedad Venezolana de Urología
+                    rinde homenaje a quien ha contribuido de forma sostenida al desarrollo de la especialidad en el país.
                   </p>
                   <p>
-                    Al distinguirlo como epónimo del XXXVI Congreso, la SVU rinde homenaje a quien ha contribuido de forma
-                    sostenida al desarrollo de la especialidad en el país. Su nombre identifica esta edición; la organización
-                    académica y logística del congreso está a cargo del comité organizador de la sociedad.
+                    Como expresidente de la SVU, el Dr. Medero Parrilla orientó su gestión al fortalecimiento académico
+                    de la urología venezolana, la participación activa de los miembros y el impulso de la vida científica
+                    de la sociedad. Durante su mandato promovió congresos, formación continua y publicaciones en la{' '}
+                    <em className="text-slate-200 not-italic">Revista Venezolana de Urología</em>, dejando aportes
+                    duraderos en la institucionalidad de la especialidad que la sociedad reconoce al honrarlo en esta
+                    edición.
                   </p>
                 </div>
               </div>
@@ -263,13 +255,13 @@ function App() {
                 <div className="overflow-hidden rounded-3xl border border-white/10 bg-slate-800/80 shadow-lg shadow-black/20">
                   <img
                     src="/dr-medero-eponimo.png"
-                    alt="Dr. Nelson Argenis Medero Parrilla, epónimo del XXXVI Congreso Venezolano de Urología"
+                    alt="Dr. Nelson Argenis Medero Parrilla, expresidente de la Sociedad Venezolana de Urología"
                     loading="lazy"
                     className="aspect-[4/5] w-full object-cover object-[center_15%]"
                   />
                 </div>
                 <p className="mt-4 text-center text-xs uppercase tracking-[0.25em] text-slate-500">
-                  Epónimo · XXXVI Congreso Venezolano de Urología
+                  Expresidente SVU · XXXVI Congreso Venezolano de Urología
                 </p>
               </div>
             </div>
@@ -317,7 +309,7 @@ function App() {
                 />
               </div>
               <div className="p-8">
-                <p className="text-sm uppercase tracking-[0.35em] text-gold">Sábado 11 de Julio · 8:00 PM</p>
+                <p className="text-sm uppercase tracking-[0.35em] text-gold">Sábado 11 de Julio · 8:00 PM – 5:00 AM</p>
                 <h3 className="mt-2 text-2xl font-semibold text-white">White Party Downtown Beach</h3>
                 <p className="mt-4 text-slate-300">
                   Cierra el congreso con una noche unforgettable en nuestra fiesta de clausura. 
@@ -347,7 +339,7 @@ function App() {
                   </div>
                   <div>
                     <p className="font-semibold text-white">Horario</p>
-                    <p className="text-sm text-slate-400">8:00 PM - 2:00 AM</p>
+                    <p className="text-sm text-slate-400">8:00 PM – 5:00 AM</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -389,20 +381,7 @@ function App() {
           </div>
         </section>
 
-        <section id="patrocinadores" className="space-y-8 border-t border-white/10 py-16">
-          <div className="space-y-4">
-            <p className="text-sm uppercase tracking-[0.35em] text-gold">Patrocinadores</p>
-            <h2 className="text-3xl font-semibold text-white sm:text-4xl">Aliados estratégicos del congreso</h2>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {sponsors.map((sponsor) => (
-              <div key={sponsor.name} className="rounded-3xl border border-white/10 bg-white/5 p-6 text-center shadow-xl shadow-black/10 transition duration-300 hover:-translate-y-1 hover:border-gold/40">
-                <p className="text-sm uppercase tracking-[0.35em] text-gold">{sponsor.tier}</p>
-                <p className="mt-4 text-xl font-semibold text-white">{sponsor.name}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+        <SponsorsSection />
 
         <section id="sedes" className="space-y-8 border-t border-white/10 py-16">
           <div className="space-y-4">

@@ -1,10 +1,16 @@
 export type FeaturedSpeaker = {
   name: string;
   country: string;
+  /** Países adicionales cuando el ponente representa más de una nacionalidad */
+  countries?: string[];
   specialty: string;
   sessions: string[];
   image?: string;
 };
+
+export function speakerCountries(speaker: { country: string; countries?: string[] }): string[] {
+  return speaker.countries ?? [speaker.country];
+}
 
 export type FacultySpeaker = {
   name: string;
@@ -17,8 +23,9 @@ export type FacultySpeaker = {
 export const featuredSpeakers: FeaturedSpeaker[] = [
   {
     name: 'Dr. René Sotelo',
-    country: 'Estados Unidos',
-    specialty: 'Cirugía robótica y uro-oncología',
+    country: 'Venezuela',
+    countries: ['Venezuela', 'Estados Unidos'],
+    specialty: 'Cirugía robótica y uro-oncología · pionero venezolano',
     sessions: ['Cirugía robótica postradioterapia', 'Cáncer de próstata de alto riesgo'],
     image: 'https://doctorsotelo.com/profile/dr-rene-sotelo.jpg',
   },
@@ -157,7 +164,7 @@ export const internationalFaculty: FacultySpeaker[] = [
   },
   {
     name: 'Dr. Alvaro Ochoa',
-    country: 'México',
+    country: 'Colombia',
     role: 'Ponente · ALAPP',
     topics: ['Simposio de piso pélvico'],
   },
