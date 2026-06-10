@@ -5,29 +5,21 @@ function SponsorLogo({ sponsor }: { sponsor: (typeof sponsors)[0] }) {
   const official = isOfficialSponsorLogo(sponsor.logo);
   const needsDarkBg = LIGHT_LOGO_IDS.has(sponsor.id);
 
-  const image = (
-    <img
-      src={sponsor.logo}
-      alt={sponsor.name}
-      loading="lazy"
-      decoding="async"
-      className={
-        official
-          ? 'max-h-[3.75rem] w-full max-w-[10.5rem] object-contain object-center'
-          : 'h-full w-full object-contain'
-      }
-    />
+  return (
+    <div
+      className={`flex h-full w-full items-center justify-center rounded-xl px-3 py-2.5 ${
+        needsDarkBg ? 'bg-deep' : ''
+      }`}
+    >
+      <img
+        src={sponsor.logo}
+        alt={sponsor.name}
+        loading="lazy"
+        decoding="async"
+        className="max-h-14 w-full max-w-full object-contain object-center"
+      />
+    </div>
   );
-
-  if (needsDarkBg) {
-    return (
-      <div className="flex h-full w-full items-center justify-center rounded-xl bg-deep px-3 py-2.5">
-        {image}
-      </div>
-    );
-  }
-
-  return image;
 }
 
 export function SponsorsSection() {
@@ -48,7 +40,7 @@ export function SponsorsSection() {
         <div className="pointer-events-none absolute -right-24 top-0 h-56 w-56 rounded-full bg-gold/10 blur-3xl" />
         <div className="pointer-events-none absolute -left-16 bottom-0 h-48 w-48 rounded-full bg-sky-500/10 blur-3xl" />
 
-        <div className="relative grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4 xl:grid-cols-5">
+        <div className="relative grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
           {sponsors.map((sponsor, index) => (
             <motion.div
               key={sponsor.id}
@@ -57,7 +49,7 @@ export function SponsorsSection() {
               viewport={{ once: true, margin: '-20px' }}
               transition={{ duration: 0.3, delay: Math.min(index * 0.02, 0.4) }}
               title={sponsor.name}
-              className="group flex aspect-[5/3] items-center justify-center rounded-2xl border border-white/10 bg-white p-3 shadow-lg shadow-black/10 transition duration-300 hover:-translate-y-0.5 hover:border-gold/40 hover:shadow-gold/10 sm:p-4"
+              className="group flex h-full min-h-[6.5rem] items-center justify-center rounded-2xl border border-white/10 bg-white p-3 shadow-lg shadow-black/10 transition duration-300 hover:-translate-y-0.5 hover:border-gold/40 hover:shadow-gold/10 sm:p-4"
             >
               <SponsorLogo sponsor={sponsor} />
             </motion.div>
