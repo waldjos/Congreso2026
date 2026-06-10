@@ -164,7 +164,7 @@
           },
           {
             "time": "2:00 pm - 3:30 pm",
-            "title": "SIMPOSIO DE UROLOGIA FUNCIONAL Fundación Puigvert",
+            "title": "SIMPOSIO DE UROLOGIA FUNCIONAL",
             "details": "Coordinador: Dr. Julian Azuero (COL)\nModeradora: Dr. Josemar Jimenez (VEN)",
             "venue": "Hotel Tibisay"
           },
@@ -222,13 +222,13 @@
           },
           {
             "time": "9:00 am - 11:00 am",
-            "title": "SIMPOSIO DE ONCOLOGIA: Cancer de Próstata",
-            "details": "Sociedad Venezolana de Urologia",
+            "title": "SIMPOSIO DE ONCOLOGIA: Cáncer de Próstata",
+            "details": "Sociedad Venezolana de Urología",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "",
-            "title": "Seccion de Uroconcología de la Sociedad Venezolana de Oncologia",
+            "title": "Sección de Urooncología de la Sociedad Venezolana de Urología",
             "details": "Coordinador – Moderador: Dr. Simón Paz (VEN)",
             "venue": "Hotel Tibisay"
           },
@@ -276,7 +276,7 @@
           },
           {
             "time": "",
-            "title": "Sección de Uroconcología de la Sociedad Venezolana de Oncología",
+            "title": "Sección de Urooncología de la Sociedad Venezolana de Urología",
             "details": "Coordinador – Moderador: Dr. Erick Moreira",
             "venue": "Hotel Tibisay"
           },
@@ -319,7 +319,7 @@
           {
             "time": "2:30 pm - 4:30 pm",
             "title": "SIMPOSIO DE CIRUGIA LAPAROSCOPICA Y ROBOTICA",
-            "details": "Asociación Española de Urología\nCoordinadora: Dra Carmen Gonzalez (ESP)\nModerador: Dr Alberto Budia (ESP)",
+            "details": "Asociación Española de Urología (AEU)\nCoordinadora: Dra Carmen Gonzalez (ESP)\nModerador: Dr Alberto Budia (ESP)",
             "venue": "Hotel Tibisay"
           },
           {
@@ -514,8 +514,8 @@
           },
           {
             "time": "9:00 am - 11:00 am",
-            "title": "SIMPOSIO de PATOLOGIA BENIGNA DE PROSTATA",
-            "details": "SOCIEDAD COLOMBIANA DE UROLOGIA\nCoordinador y Moderador Dr. Jackson Briones",
+            "title": "SIMPOSIO de PATOLOGIA BENIGNA DE PROSTATA · SCU",
+            "details": "SCU · Sociedad Colombiana de Urología (Colombia)\nCoordinador y Moderador Dr. Jackson Briones",
             "venue": "Hotel Tibisay"
           },
           {

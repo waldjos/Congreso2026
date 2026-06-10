@@ -9,12 +9,12 @@ import type { ProgramDay } from './lib/programUtils';
 const locations = [
   {
     name: 'Hotel Tibisay',
-    description: 'Sede de acreditación, cursos y eventos sociales.',
+    description: 'Sede de acreditaciÃ³n, cursos y eventos sociales.',
     mapUrl: 'https://www.google.com/maps/search/?api=1&query=Hotel+Tibisay,+Margarita+Venezuela',
   },
   {
-    name: 'Hospital de Clínicas del Este',
-    description: 'Sede principal para sesiones científicas y talleres prácticos.',
+    name: 'Hospital de ClÃ­nicas del Este',
+    description: 'Sede principal para sesiones cientÃ­ficas y talleres prÃ¡cticos.',
     mapUrl: 'https://www.google.com/maps/search/?api=1&query=Hospital+de+Cl%C3%ADnicas+del+Este,+Margarita+Venezuela',
   },
   {
@@ -141,7 +141,7 @@ function App() {
               Integrando innovaciÃ³n, ciencia y excelencia quirÃºrgica
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-slate-200 sm:text-xl">
-              8 al 11 de julio de 2026 Â· Hospital de Clínicas del Este · Hotel Tibisay · Hotel Margarita Real
+              8 al 11 de julio de 2026 Â· Sede Hotel Tibisay Margarita
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <a href="#inscripciones" className="inline-flex items-center justify-center rounded-full bg-gold px-8 py-3 text-sm font-semibold uppercase text-deep shadow-lg shadow-gold/20 transition hover:-translate-y-0.5">

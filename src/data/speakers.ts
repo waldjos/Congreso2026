@@ -15,6 +15,7 @@ export function speakerCountries(speaker: { country: string; countries?: string[
 export type FacultySpeaker = {
   name: string;
   country: string;
+  countries?: string[];
   role: string;
   topics: string[];
 };
@@ -47,8 +48,15 @@ export const featuredSpeakers: FeaturedSpeaker[] = [
     name: 'Dr. Carlos Errando',
     country: 'España',
     specialty: 'Urología funcional',
-    sessions: ['Incontinencia post-prostatectomía', 'Vejiga hiperactiva', 'Simposio Fundación Puigvert'],
+    sessions: ['Incontinencia post-prostatectomía', 'Vejiga hiperactiva', 'Simposio de urología funcional'],
     image: 'https://objects-es.cdn-topdoctors.com/provider/1084885/image/profile/medium/prof_10221_20210719162910.png?width=648&format=png',
+  },
+  {
+    name: 'Dr. Paul Ernesto Escovar',
+    country: 'Venezuela',
+    countries: ['Venezuela', 'Chile'],
+    specialty: 'Uro-oncología',
+    sessions: ['Conferencia desayuno ADIUM'],
   },
   {
     name: 'Dr. Gustavo Villoldo',
@@ -122,7 +130,8 @@ export const internationalFaculty: FacultySpeaker[] = [
   },
   {
     name: 'Dr. Miguel Cancini',
-    country: 'España',
+    country: 'Venezuela',
+    countries: ['Venezuela', 'España'],
     role: 'Ponente',
     topics: ['RIRS · Estenosis uretral', 'Almuerzo-conferencia ELUTAX'],
   },
