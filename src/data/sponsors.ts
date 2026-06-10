@@ -32,7 +32,6 @@ export const sponsors: Sponsor[] = [
   { id: 'dolder', name: 'Dolder C.A.', logo: '/sponsors/dollder.png' },
   { id: 'global-care', name: 'Global Care Pharma C.A.', logo: '/sponsors/Globalcare.png' },
   { id: 'las-mercedes', name: 'Las Mercedes', logo: '/sponsors/lasmercedes.png' },
-  { id: 'turmero', name: 'Especialidades Médicas Turmero', logo: '/sponsors/turmero.png' },
   { id: 'badam', name: 'Badam', logo: '/sponsors/badan.png' },
   { id: 'imaye', name: 'Imayé', logo: '/sponsors/imaye.png' },
   { id: 'fc-pharma', name: 'FC Pharma Laboratorios', logo: '/sponsors/fc-pharma.png' },
