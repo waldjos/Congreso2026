@@ -7,7 +7,7 @@ function SponsorLogo({ sponsor }: { sponsor: (typeof sponsors)[0] }) {
 
   return (
     <div
-      className={`flex h-full w-full items-center justify-center rounded-xl px-3 py-2.5 ${
+      className={`flex h-full w-full items-center justify-center rounded-xl px-3 py-3 ${
         needsDarkBg ? 'bg-deep' : ''
       }`}
     >
@@ -16,7 +16,7 @@ function SponsorLogo({ sponsor }: { sponsor: (typeof sponsors)[0] }) {
         alt={sponsor.name}
         loading="lazy"
         decoding="async"
-        className="h-16 w-auto max-w-full object-contain object-center"
+        className="h-20 w-auto max-w-full object-contain object-center"
       />
     </div>
   );
@@ -49,7 +49,7 @@ export function SponsorsSection() {
               viewport={{ once: true, margin: '-20px' }}
               transition={{ duration: 0.3, delay: Math.min(index * 0.02, 0.4) }}
               title={sponsor.name}
-              className="group flex h-full min-h-[7rem] items-center justify-center rounded-2xl border border-white/10 bg-white p-3 shadow-lg shadow-black/10 transition duration-300 hover:-translate-y-0.5 hover:border-gold/40 hover:shadow-gold/10 sm:p-4"
+              className="group flex h-full min-h-[8rem] items-center justify-center rounded-2xl border border-white/10 bg-white p-3 shadow-lg shadow-black/10 transition duration-300 hover:-translate-y-0.5 hover:border-gold/40 hover:shadow-gold/10 sm:p-4"
             >
               <SponsorLogo sponsor={sponsor} />
             </motion.div>
