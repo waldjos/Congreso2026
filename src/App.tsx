@@ -192,7 +192,7 @@ function App() {
                   <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-deep via-deep/60 to-transparent" />
                   <img
                     src="/dr-mazen-presidente.png"
-                    alt="Dr. Mazen El Eysami Makled, Presidente de la Sociedad Venezolana de Urología"
+                    alt="Dr. Mazen El Eysami Maklad, Presidente de la Sociedad Venezolana de Urología"
                     loading="lazy"
                     className="relative z-10 aspect-[4/5] w-full object-cover object-top mix-blend-lighten brightness-110 contrast-[1.08]"
                   />
@@ -206,7 +206,7 @@ function App() {
                   </h2>
                 </div>
                 <div className="space-y-1 border-l-2 border-gold/50 pl-5">
-                  <p className="text-xl font-semibold text-white">Dr. Mazen El Eysami Makled</p>
+                  <p className="text-xl font-semibold text-white">Dr. Mazen El Eysami Maklad</p>
                   <p className="text-sm text-gold">Cirujano Urólogo · Presidente de la Sociedad Venezolana de Urología</p>
                 </div>
                 <div className="space-y-4 text-lg leading-8 text-slate-200">
