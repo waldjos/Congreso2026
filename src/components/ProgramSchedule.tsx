@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useMemo, useState } from 'react';
+import { CountryFlag } from './CountryFlag';
 import {
   type ProgramDay,
   type ProgramItem,
@@ -131,13 +132,26 @@ function ProgramEventCard({
               <span className={`rounded-full px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider ${styles.badge}`}>
                 {styles.label}
               </span>
+              {item.country && (
+                <CountryFlag country={item.country} size="sm" showName={false} className="shrink-0" />
+              )}
               {item.price && (
                 <span className="rounded-full bg-gold/15 px-2.5 py-0.5 text-[10px] font-semibold text-gold">
                   {item.price}
                 </span>
               )}
             </div>
-            <h4 className="text-base font-semibold leading-snug text-white sm:text-[1.05rem]">{title}</h4>
+            <div className="flex flex-wrap items-center gap-3">
+              <h4 className="text-base font-semibold leading-snug text-white sm:text-[1.05rem]">{title}</h4>
+              {item.logo ? (
+                <img
+                  src={item.logo}
+                  alt="Logo del simposio"
+                  className="h-10 w-auto rounded-2xl border border-white/10 bg-slate-950/80 p-2 object-contain"
+                  loading="lazy"
+                />
+              ) : null}
+            </div>
             <AnimatePresence initial={false}>
               {(expanded || !hasDetails) && hasDetails && (
                 <motion.div

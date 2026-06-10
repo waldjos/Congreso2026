@@ -320,6 +320,8 @@
             "time": "2:30 pm - 4:30 pm",
             "title": "SIMPOSIO DE CIRUGIA LAPAROSCOPICA Y ROBOTICA",
             "details": "Asociación Española de Urología (AEU)\nCoordinadora: Dra Carmen Gonzalez (ESP)\nModerador: Dr Alberto Budia (ESP)",
+            "country": "España",
+            "logo": "/sponsors/AEU-Logo.png",
             "venue": "Hotel Tibisay"
           },
           {
@@ -379,7 +381,7 @@
           {
             "time": "8:30 am",
             "title": "Palabras de bienvenida y apertura",
-            "details": "Dr. Mazen El Eysami Makled",
+            "details": "Dr. Mazen El Eysami Maklad",
             "venue": "Hospital de Clínicas del Este"
           },
           {

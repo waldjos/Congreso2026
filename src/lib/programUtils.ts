@@ -4,6 +4,8 @@ export type ProgramItem = {
   details?: string;
   venue?: string;
   price?: string;
+  logo?: string;
+  country?: string;
   kind?: string;
 };
 
