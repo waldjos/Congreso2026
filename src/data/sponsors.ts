@@ -18,6 +18,7 @@ export const sponsors: Sponsor[] = [
   { id: 'clinicalar', name: 'Clinicalar', logo: '/sponsors/clinicalar.png' },
   { id: 'dermaskin', name: 'Dermaskin', logo: '/sponsors/dermaskin.png' },
   { id: 'gurve', name: 'Gurve', logo: '/sponsors/gurve.png' },
+  { id: 'agpr', name: 'AGPR', logo: '/sponsors/agp.png' },
   { id: 'urolatam', name: 'Urolatam', logo: '/sponsors/urolatam.png' },
   { id: 'plusandex', name: 'Plusandex', logo: '/sponsors/plusandex.png' },
   { id: 'exxux', name: 'Exxux', logo: '/sponsors/exuss.png' },

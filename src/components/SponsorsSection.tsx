@@ -16,7 +16,7 @@ function SponsorLogo({ sponsor }: { sponsor: (typeof sponsors)[0] }) {
         alt={sponsor.name}
         loading="lazy"
         decoding="async"
-        className="h-20 w-auto max-w-full object-contain object-center"
+        className="max-h-24 w-auto max-w-[85%] object-contain object-center"
       />
     </div>
   );
