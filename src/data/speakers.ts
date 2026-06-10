@@ -57,6 +57,7 @@ export const featuredSpeakers: FeaturedSpeaker[] = [
     countries: ['Venezuela', 'Chile'],
     specialty: 'Uro-oncología',
     sessions: ['Conferencia desayuno ADIUM'],
+    image: '/speakers/paul-ernesto-escovar.jpg',
   },
   {
     name: 'Dr. Gustavo Villoldo',
