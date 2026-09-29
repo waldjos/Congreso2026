@@ -1,30 +1,30 @@
 [
   {
-    "day": "MIERCOLES 08/07/2026",
+    "day": "MIERCOLES 04/11/2026",
     "venues": [
       {
         "name": "Hospital de Clínicas del Este",
         "items": [
           {
             "time": "",
-            "title": "Curso Internacional Master en HoLEP: Ciencia, Técnica y Cirugia en Vivo",
-            "details": "Coordinador: Dr Carlos Pedron (VEN)\nPonente: Dr. Hugo de La Rosa (Mex)\nSede Hospital de Clinicas del Este\nValor 150$",
+            "title": "Curso Internacional Master en HoLEP: Ciencia, Técnica y Cirugía en Vivo",
+            "details": "Coordinador: Dr Carlos Pedron (VEN)\nPonente: Dr. Hugo de La Rosa (MEX)\nSede Hospital de Clínicas del Este\nValor 150$",
             "venue": "Hospital de Clínicas del Este",
-            "price": "150$"
+            "price": "150 $"
           },
           {
             "time": "11:00 am",
-            "title": "MASTERCLASS CANCER DE VEJIGA Lo que el urologo debe saber, decidir y dominar",
-            "details": "Coordinador: Dr. Javier Hernández (ESP – VEN)\nSede: Hospital de Clinicas del Este 11:00 am\nValor: 100 $",
+            "title": "MASTERCLASS CÁNCER DE VEJIGA Lo que el urólogo debe saber, decidir y dominar",
+            "details": "Coordinador: Dr. Javier Hernández (ESP – VEN)\nSede: Hospital de Clínicas del Este 11:00 am\nValor: 100 $",
             "venue": "Hospital de Clínicas del Este",
             "price": "100 $"
           },
           {
             "time": "",
-            "title": "Taller de Instrumentación Quirúrgica: EL Rol de Enfermería como pilar del proceso quirúrgico en urología.",
-            "details": "Coordinadora: Dra. Maria Beatriz Prieto (VEN)\nSede: Hospital de Clinicas Del Este\nValor: 30$",
+            "title": "Taller de Instrumentación Quirúrgica: El rol de Enfermería como pilar del proceso quirúrgico en urología.",
+            "details": "Coordinadora: Dra. María Beatriz Prieto (VEN)\nSede: Hospital de Clínicas Del Este\nValor: 30$",
             "venue": "Hospital de Clínicas del Este",
-            "price": "30$"
+            "price": "30 $"
           }
         ]
       },
@@ -33,21 +33,21 @@
         "items": [
           {
             "time": "",
-            "title": "Taller Interactivo de Urodinamia y Urologia Funcional",
-            "details": "Coordinadores: Dra. Vanda Lopez (VEN) Dr. Julian Azuero (COL)\nSede Hotel Tibisay\nValor: 50$",
+            "title": "Taller Interactivo de Urodinamia y Urología Funcional",
+            "details": "Coordinadores: Dra. Vanda López (VEN) Dr. Julián Azuero (COL)\nSede Hotel Tibisay\nValor: 50$",
             "venue": "Hotel Tibisay",
-            "price": "50$"
+            "price": "50 $"
           }
         ]
       },
       {
-        "name": "Hotel Margarita Real",
+        "name": "Sede no indicada en el documento",
         "items": [
           {
             "time": "",
             "title": "Manejo de la Disfunción Sexual del Varón. Hablando con los Expertos",
-            "details": "Coordinador: Dr. Eliezer Melean (VEN)\nPonentes: Dr. Gabrielle Antonini (ITA), Dr. Alejandro Carvajal (COL), Dr. Edwin Reyes (PER)\nSede: Hotel Margarita Real\nValor: 100 $",
-            "venue": "Hotel Margarita Real",
+            "details": "Coordinador: Dr. Eliecer Melean (VEN)\nPonentes: Dr. Gabriele Antonini (ITA), Dr. Alejandro Carvajal (COL), Dr. Edwin Reyes (PER)\nValor: 100 $",
+            "venue": "Sede no indicada en el documento",
             "price": "100 $"
           }
         ]
@@ -55,26 +55,26 @@
     ]
   },
   {
-    "day": "JUEVES 09/07/2026",
+    "day": "JUEVES 05/11/2026",
     "venues": [
       {
         "name": "Hotel Tibisay",
         "items": [
           {
             "time": "7:00 am - 8:45 am",
-            "title": "Presentación de Trabajos de Incorporación ,Trabajos Libres, Poster y Videos (Salones:)",
+            "title": "Presentación de Trabajos de Incorporación, Trabajos Libres, Póster y Videos (Salones:)",
             "details": "",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "8:45 am - 9:00 am",
-            "title": "Conferencia para optar a Miembro Emerito Dr. Antonio León",
+            "title": "Conferencia para optar a Miembro Emérito Dr. Antonio León",
             "details": "",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "9:00 am - 10:00 am",
-            "title": "Simposio de la Sociedad Venezolana De Urología UROLOGIA GENERAL",
+            "title": "Simposio de la Sociedad Venezolana de Urología: Urología General",
             "details": "Coordinador: Dr. Luis Alvarez (VEN)\nModerador: Dr Carlos Martinez (VEN)",
             "venue": "Hotel Tibisay"
           },
@@ -85,15 +85,15 @@
             "venue": "Hotel Tibisay"
           },
           {
-            "time": "9:15am - 9:27am",
-            "title": "Urología de Transición: Del pediatrico al adulto",
-            "details": "Dr. Wendy Serrano (VEN)",
+            "time": "9:15 am - 9:27 am",
+            "title": "Urología de Transición: Del pediátrico al adulto",
+            "details": "Dra. Wendy Serrano (VEN)",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "9:30 am - 9:42 am",
-            "title": "Prostatitis Dos Visiones, una misma enfermedad",
-            "details": "Moderador: Dr. Luis Alvarez (VEN)\nParticipantes:Dr. Villaroel (Infectologo) (VEN)\nDr. Leonardo Borregales (Urologo) (VEN)",
+            "title": "Prostatitis: Dos visiones, una misma enfermedad",
+            "details": "Moderador: Dr. Luis Alvarez (VEN)\nParticipantes:Dr. Villaroel (Infectólogo) (VEN)\nDr. Leonardo Borregales (Urólogo) (VEN)",
             "venue": "Hotel Tibisay"
           },
           {
@@ -104,19 +104,19 @@
           },
           {
             "time": "10:00 am - 10:30 am",
-            "title": "RECESO: Inauguración del Area Comercial",
+            "title": "RECESO: Inauguración del Área Comercial",
             "details": "",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "10:30 am - 12:30 pm",
-            "title": "SIMPOSIO DE ANDROLOGIA Y ESTETICA GENITAL MASCULINA SLAMS-SOVEURO-AVEMERE",
-            "details": "Coordinador: Dr. Eliezer Melean (VEN)\nModeradora: Dra. Victoria de los Rios (VEN)",
+            "title": "SIMPOSIO DE ANDROLOGÍA Y ESTÉTICA GENITAL MASCULINA SLAMS-SOVEURO-AVEMERE",
+            "details": "Coordinador: Dr. Eliecer Melean (VEN)\nModeradora: Dra. Victoria de los Ríos (VEN)",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "10:35 am - 10:50 am",
-            "title": "Disfunción de Piso Pelvico y Función Sexual el eslabon olvidado de la Andrología",
+            "title": "Disfunción de Piso Pélvico y Función Sexual el eslabón olvidado de la Andrología",
             "details": "Dra. Jhorbelis Rojas (VEN)",
             "venue": "Hotel Tibisay"
           },
@@ -128,56 +128,56 @@
           },
           {
             "time": "11:15 am - 11:30 am",
-            "title": "Fertilidad Masculino: ¿Biomarcador integral de Salud? Cambios de Paradigma",
-            "details": "Dr. Eliezer Melean (VEN)",
+            "title": "Fertilidad Masculina: ¿Biomarcador integral de Salud? Cambios de paradigma",
+            "details": "Dr. Eliecer Melean (VEN)",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "11:35 am - 11:50 am",
-            "title": "Implantes peneanos: abordaje suprapúbico vs penoescrotal",
+            "title": "Implantes peneanos: abordaje suprapúbico vs. penoescrotal",
             "details": "Dr. Gabriele Antonini (ITA)",
             "venue": "Hotel Tibisay"
           },
           {
-            "time": "11:55 pm - 12:10 pm",
+            "time": "11:55 am - 12:10 pm",
             "title": "Cirugía de la enfermedad de Peyronie: plicatura, injertos e implantes ¿Cuándo cada uno?",
             "details": "Dr. Alejandro Carvajal (COL)",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "12:10 pm - 12:30 pm",
-            "title": "Escenarios complejos en ANDROLOGIA",
-            "details": "Moderador: Dr. Eliezer Melean\nDra. Jhorbelis Rojas, Dr Edwin Reyes, Dr. Eliezer Melean, Dr. Alejandro Carvajal, Dr. Gabriele Antonini",
+            "title": "Escenarios complejos en ANDROLOGÍA",
+            "details": "Moderador: Dr. Eliecer Melean\nDra. Jhorbelis Rojas, Dr Edwin Reyes, Dr. Eliecer Melean, Dr. Alejandro Carvajal, Dr. Gabriele Antonini",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "12:30 pm - 1:30 pm",
             "title": "ALMUERZO CONFERENCIA: Terapia de Reemplazo Hormonal",
-            "details": "Dr. Edwin Reyes (PER)\nPatrocinadono por Nirvalab",
+            "details": "Dr. Edwin Reyes (PER)\nPatrocinado por Nirvalab",
             "venue": "Hotel Tibisay"
           },
           {
-            "time": "1:30 pm - 2:00pm",
+            "time": "1:30 pm - 2:00 pm",
             "title": "RECESO",
             "details": "",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "2:00 pm - 3:30 pm",
-            "title": "SIMPOSIO DE UROLOGIA FUNCIONAL",
-            "details": "Coordinador: Dr. Julian Azuero (COL)\nModeradora: Dr. Josemar Jimenez (VEN)",
+            "title": "SIMPOSIO DE UROLOGÍA FUNCIONAL · Fundación Puigvert",
+            "details": "Coordinador: Dr. Julián Azuero (COL)\nModeradora: Dr. Josemar Jimenez (VEN)",
             "venue": "Hotel Tibisay"
           },
           {
-            "time": "2:00pm - 2:45 pm",
-            "title": "Más Alla del Esfínter Artificial: Opciones quirúrgicas reales en la incontinencia post-prostectomia",
-            "details": "Dr. Carlos Errando (ESP), Dr. Julian Azuero (COL), Dra. Carmen Gonzalez (ESP)",
+            "time": "2:00 pm - 2:45 pm",
+            "title": "Más allá del Esfínter Artificial: Opciones quirúrgicas reales en la incontinencia post-prostatectomía",
+            "details": "Dr. Carlos Errando (ESP), Dr. Julián Azuero (COL), Dra. Carmen Gonzalez (ESP)",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "2:45 pm - 3:30 pm",
-            "title": "¿Qué Harias tú? Casos Desafiantes de Vejiga Hiperactiva",
-            "details": "Dr. Carlos Errando (ESP), Dr. Julian Azuero (COL), Dra. Carmen Gonzalez (ESP)",
+            "title": "¿Qué harías tú? Casos Desafiantes de Vejiga Hiperactiva",
+            "details": "Dr. Carlos Errando (ESP), Dr. Julián Azuero (COL), Dra. Carmen Gonzalez (ESP)",
             "venue": "Hotel Tibisay"
           },
           {
@@ -188,13 +188,13 @@
           },
           {
             "time": "4:00 pm - 5:30 pm",
-            "title": "SIMPOSIO DE PISO PELVICO ALAPP",
-            "details": "Coordinador: Dr. Luis Caricote (VEN)\nModerador: Dr Luis Caricote (VEN)\nPonentes: Drs. Paulo Palma (BRA), Dr. Alvaro Ochoa (COL) Lic. Angela Gómez (MEX)",
+            "title": "SIMPOSIO DE PISO PÉLVICO ALAPP",
+            "details": "Coordinador: Dr. Luis Caricote (VEN)\nModerador: Dr Luis Caricote (VEN)\nPonentes: Drs. Paulo Palma (BRA), Dr. Carlos Diaz Tamara (COL) Lic. Angela Gómez (MEX)",
             "venue": "Hotel Tibisay"
           },
           {
-            "time": "7:00 PM",
-            "title": "ACTO INAUGURAL y BRINDIS DE BIENVENIDA",
+            "time": "7:00 pm",
+            "title": "ACTO INAUGURAL Y BRINDIS DE BIENVENIDA",
             "details": "",
             "venue": "Hotel Tibisay"
           }
@@ -203,63 +203,59 @@
     ]
   },
   {
-    "day": "VIERNES 10/07/2026",
+    "day": "VIERNES 06/11/2026",
     "venues": [
       {
         "name": "Hotel Tibisay",
         "items": [
           {
             "time": "7:00 am - 8:45 am",
-            "title": "Presentación de Trabajos de Incorporación, Trabajos Libres, Poster, Videos (Salones:)",
+            "title": "Presentación de Trabajos de Incorporación, Trabajos Libres, Póster y Videos (Salones:)",
             "details": "",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "8:45 am - 9:00 am",
-            "title": "Conferencia para optar a Miembro Emerito Dr. Fernando Giordano",
+            "title": "Conferencia para optar a Miembro Emérito Dr. Fernando Giordano",
             "details": "",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "9:00 am - 11:00 am",
-            "title": "SIMPOSIO DE ONCOLOGIA: Cáncer de Próstata",
-            "details": "Sociedad Venezolana de Urología",
+            "title": "SIMPOSIO DE CIRUGÍA LAPAROSCÓPICA Y ROBÓTICA",
+            "details": "Asociación Española de Urología\nCoordinadora: Dra. Carmen Gonzalez (ESP)",
+            "country": "España",
+            "logo": "/sponsors/AEU-Logo.png",
             "venue": "Hotel Tibisay"
           },
           {
-            "time": "",
-            "title": "Sección de Urooncología de la Sociedad Venezolana de Urología",
-            "details": "Coordinador – Moderador: Dr. Simón Paz (VEN)",
+            "time": "9:05 am - 9:20 am",
+            "title": "Introducción",
+            "details": "Dra. Carmen Gonzalez",
             "venue": "Hotel Tibisay"
           },
           {
-            "time": "09:05am - 09:20 am",
-            "title": "Neoadyuvancia en Cancer de Pstata: Resultados del Estudio PROTEUS",
-            "details": "Dr. Gustavo Villoldo (ARG)",
+            "time": "9:25 am - 9:40 am",
+            "title": "Cirugía Pélvica: Cistectomía y Prostatectomía Radical mínimamente invasiva",
+            "details": "Dr. Roberto Ballesteros (ESP)",
             "venue": "Hotel Tibisay"
           },
           {
-            "time": "09:25 am - 09:40 am",
-            "title": "Linfadenectomía extendida en Cáncer de Próstata de Alto riesgo: Indicaciones, límites anatómicos y estandarización quirúrgica.",
-            "details": "Dr Leonardo Borregales (HIJO) (USA – VEN)",
-            "venue": "Hotel Tibisay"
-          },
-          {
-            "time": "09:45 am - 10:00 am",
-            "title": "Cirugia Robotica para complicaciones postradioterapia y cirugia de rescate",
-            "details": "Dr. René Sotelo (USA – VEN).",
+            "time": "9:45 am - 10:00 am",
+            "title": "Nefrectomía Parcial: ¿Hemos alcanzado el límite de la precisión?",
+            "details": "Dr. José Luis Alvarez Ossorio (ESP)",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "10:10 am - 10:25 am",
-            "title": "Manejo de la recidiva bioquímica: ¿Cuándo y cómo rescatar al paciente tras fallo del tratamiento primario?",
-            "details": "Dr. Carlos Sucre (VEN).",
+            "title": "De Cirujanos a Estrategas: La Cirugía Urológica del Futuro",
+            "details": "Dr. Roberto Ballesteros (ESP)",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "10:35 am - 11:00 am",
-            "title": "Mesa Redonda: Controversias en el Cáncer de Próstata de Alto Riesgo",
-            "details": "Participan: Dres. Sucre, Sotelo, Borregales, Vera",
+            "title": "Debate Cruzado y Conclusiones",
+            "details": "",
             "venue": "Hotel Tibisay"
           },
           {
@@ -270,38 +266,32 @@
           },
           {
             "time": "11:30 am - 1:00 pm",
-            "title": "SIMPOSIO CANCER DE VEJIGA Estamos viviendo un cambio de paradigmas",
-            "details": "Sociedad Venezolana de Urología",
-            "venue": "Hotel Tibisay"
-          },
-          {
-            "time": "",
-            "title": "Sección de Urooncología de la Sociedad Venezolana de Urología",
-            "details": "Coordinador – Moderador: Dr. Erick Moreira",
+            "title": "SIMPOSIO CÁNCER DE VEJIGA: Estamos viviendo un cambio de paradigmas",
+            "details": "Sociedad Venezolana de Urología\nSección de Urooncología\nCoordinador – Moderador: Dr. Erick Moreira",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "11:30 am - 11:45 am",
-            "title": "NMIBC resistente a BCG: Manejo Actual y perspectivas futuras",
-            "details": "Ponente: Dr Joan Palou (ESP – Fundación Puigvert)",
+            "title": "NMIBC resistente a BCG: Manejo actual y perspectivas futuras",
+            "details": "Ponente: Dr. José Luis Alvarez (ESP)",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "11:50 am - 12:05 pm",
-            "title": "MIBC: Respuesta Completa post tratamiento Neoadyuvante: ¿Es Necesaria la Cistectomia?",
-            "details": "Ponente: Dr. Gustavo Villoldo (ARG).",
+            "title": "MIBC: Respuesta completa post tratamiento neoadyuvante: ¿Es necesaria la cistectomía?",
+            "details": "Ponente: Dr. Gustavo Villoldo (ARG)",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "12:10 pm - 12:25 pm",
-            "title": "Terapia Trimodal en Cancer Vejiga: Como y a Quien?",
-            "details": "Ponente: Dr. Javier Hernandez (ESP-IVO)",
+            "title": "Terapia Trimodal en Cáncer de Vejiga: ¿Cómo y a quién?",
+            "details": "Ponente: Dr. Javier Hernández (ESP-IVO)",
             "venue": "Hotel Tibisay"
           },
           {
-            "time": "12:30 - 1:00 pm",
-            "title": "Mesa Redonda: Cancer Vejiga MIBC",
-            "details": "Drs.Palou Villodo, Hernandez, Sucre",
+            "time": "12:30 pm - 1:00 pm",
+            "title": "Mesa Redonda: Cáncer de Vejiga MIBC",
+            "details": "Drs. José Luis Alvarez, Gustavo Villoldo, Javier Hernández y Carlos Sucre",
             "venue": "Hotel Tibisay"
           },
           {
@@ -318,51 +308,43 @@
           },
           {
             "time": "2:30 pm - 4:30 pm",
-            "title": "SIMPOSIO DE CIRUGIA LAPAROSCOPICA Y ROBOTICA",
-            "details": "Asociación Española de Urología (AEU)\nCoordinadora: Dra Carmen Gonzalez (ESP)\nModerador: Dr Alberto Budia (ESP)",
-            "country": "España",
-            "logo": "/sponsors/AEU-Logo.png",
+            "title": "SIMPOSIO DE ONCOLOGÍA: Cáncer de Próstata",
+            "details": "Sociedad Venezolana de Urología\nSección de Urooncología\nCoordinador – Moderador: Dr. Simón Paz (VEN)",
             "venue": "Hotel Tibisay"
           },
           {
-            "time": "2:30pm - 2:50 pm",
-            "title": "Introducción. Dra. Carmen Gonzalez",
-            "details": "",
+            "time": "2:30 pm - 2:50 pm",
+            "title": "Neoadyuvancia en Cáncer de Próstata: Resultados del Estudio PROTEUS",
+            "details": "Dr. Gustavo Villoldo (ARG)",
             "venue": "Hotel Tibisay"
           },
           {
-            "time": "2 - 50 pm - 3:10 pm",
-            "title": "Nefrectomia Parcial ¿Hemos llegado al limite?",
-            "details": "Dr. José Luis Alvarez Ossorio (ESP)",
+            "time": "2:50 pm - 3:10 pm",
+            "title": "Linfadenectomía extendida en Cáncer de Próstata de Alto Riesgo: Indicaciones, límites anatómicos y estandarización quirúrgica",
+            "details": "Dr. Martin Arias (VEN)",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "3:10 pm - 3:30 pm",
-            "title": "Prostatectomia radical en 2025 ¿Técnica unica o cirugía a la medida",
-            "details": "Dr. Mario Alvarez Maestro (ESP)",
+            "title": "Cirugía Robótica para complicaciones postradioterapia y cirugía de rescate",
+            "details": "Dr. René Sotelo (USA – VEN)",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "3:30 pm - 3:50 pm",
-            "title": "Cistectomia radical minimamente invasiva ¿Realidad o Promesa?",
-            "details": "Dr. Joan Palou (ESP)",
+            "title": "Manejo de la recidiva bioquímica: ¿Cuándo y cómo rescatar al paciente tras fallo del tratamiento primario?",
+            "details": "Dr. Carlos Sucre (VEN)",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "3:50 pm - 4:10 pm",
-            "title": "De Cirujanos a Estrategas: La Cirugia Urologica del Futuro",
-            "details": "Dr. Joan Palao (ESP)",
+            "title": "Mesa Redonda: Controversias en el Cáncer de Próstata de Alto Riesgo",
+            "details": "Participan: Dres. Sucre, Sotelo, Borregales y Vera",
             "venue": "Hotel Tibisay"
           },
           {
-            "time": "4:10 pm - 4:30 pm",
-            "title": "Debate Cruzado y Conclusiones",
-            "details": "",
-            "venue": "Hotel Tibisay"
-          },
-          {
-            "time": "5:00 PM",
-            "title": "ASAMBLEA GENERAL SOCIEDAD VENEZOLANA DE UROLOGIA",
+            "time": "5:00 pm",
+            "title": "ASAMBLEA GENERAL SOCIEDAD VENEZOLANA DE UROLOGÍA",
             "details": "",
             "venue": "Hotel Tibisay"
           }
@@ -373,8 +355,8 @@
         "items": [
           {
             "time": "",
-            "title": "Programa de Urología Pediátrica",
-            "details": "SEDE: Hospital de Clinicas del Este",
+            "title": "Programa de Urología Pediátrica Congreso 2026",
+            "details": "SEDE: Hospital de Clínicas del Este",
             "venue": "Hospital de Clínicas del Este",
             "kind": "section"
           },
@@ -385,111 +367,87 @@
             "venue": "Hospital de Clínicas del Este"
           },
           {
-            "time": "8:45am",
-            "title": "Cómo estudio urológicamente al paciente pediátrico?",
+            "time": "8:45 am",
+            "title": "¿Cómo estudio urológicamente al paciente pediátrico?",
             "details": "Dra. Marling Brito",
             "venue": "Hospital de Clínicas del Este"
           },
           {
-            "time": "9:10am",
+            "time": "9:10 am",
             "title": "¿Qué debo saber de nefrología en Urología Pediátrica?",
             "details": "Dr. Andrés Casanova",
             "venue": "Hospital de Clínicas del Este"
           },
           {
-            "time": "9:30am",
+            "time": "9:30 am",
             "title": "Un portal en Urología Pediátrica: Infección Urinaria",
             "details": "Dra. Jenny Coa",
             "venue": "Hospital de Clínicas del Este"
           },
           {
-            "time": "9:50am",
+            "time": "9:50 am",
             "title": "¿Qué tenemos nuevo en Reflujo Vesico Renal?",
             "details": "Dra. Wendy Serrano",
             "venue": "Hospital de Clínicas del Este"
           },
           {
-            "time": "10:10 - 10:40 am",
-            "title": "Sección de Preguntas y respuestas",
+            "time": "10:10 am - 10:40 am",
+            "title": "Sección de Preguntas y Respuestas",
             "details": "Moderador: Dr. Hermes Pérez",
             "venue": "Hospital de Clínicas del Este"
           },
           {
-            "time": "10:40 - 11am",
+            "time": "10:40 am - 11:00 am",
             "title": "Vejiga Neurogénica no neurogénica",
             "details": "Dra. Florangélica González",
             "venue": "Hospital de Clínicas del Este"
           },
           {
-            "time": "11:00 - 11:20am",
+            "time": "11:00 am - 11:20 am",
             "title": "Lesiones congénitas del uréter: doble lesión",
             "details": "Dra. Shileyne Daló",
             "venue": "Hospital de Clínicas del Este"
           },
           {
-            "time": "11:20 - 11:40am",
+            "time": "11:20 am - 11:40 am",
             "title": "Dilatación endoscópica del tracto urinario: retos, mitos y experiencia",
             "details": "Dr. Abelardo Yepez",
             "venue": "Hospital de Clínicas del Este"
           },
           {
-            "time": "11:40 - 12m",
-            "title": "Ausencia de testículos: conducta ¿Cómo descarto un DDS?",
+            "time": "11:40 am - 12:00 m",
+            "title": "Ausencia de testículos: conducta. ¿Cómo descarto un DDS?",
             "details": "Dra. Robersy Pérez",
             "venue": "Hospital de Clínicas del Este"
           },
           {
-            "time": "12 - 12:20 pm",
+            "time": "12:00 m - 12:20 pm",
             "title": "Tratamiento quirúrgico del hipospadias: novedades",
             "details": "Dr. Servio Tulio Rivero",
             "venue": "Hospital de Clínicas del Este"
           },
           {
-            "time": "12:20 - 12:40 pm",
+            "time": "12:20 pm - 12:40 pm",
             "title": "Uretroplastia en Hipospadias: ¿Cómo derivo? ¿Cuál derivación uso?",
             "details": "Dr. Carlos De La Fuente",
             "venue": "Hospital de Clínicas del Este"
           },
           {
-            "time": "12:40 - 1:10pm",
+            "time": "12:40 pm - 1:10 pm",
             "title": "Sesión de Preguntas y respuestas",
             "details": "Moderador: Dr. Francisco Chang",
             "venue": "Hospital de Clínicas del Este"
           },
           {
-            "time": "1:10 - 1:30 pm",
-            "title": "Tratamiento de la urolitiasis en pediatría: experiencia del servicio de Urología Pediátrica del Hospital de Niños Dr. José Manuel de los Rios",
+            "time": "1:10 pm - 1:30 pm",
+            "title": "Tratamiento de la urolitiasis en pediatría: experiencia del servicio de Urología Pediátrica del Hospital de Niños Dr. José Manuel de los Ríos",
             "details": "Dr. Jesús Fernández",
             "venue": "Hospital de Clínicas del Este"
           },
           {
             "time": "1:30 pm",
             "title": "Presentación de casos de Malformaciones Congénitas en Urología Pediátrica",
-            "details": "Litiasis uretral migrada a escroto: a propósito de un caso\nDr. Jesús Fernández",
-            "venue": "Hospital de Clínicas del Este"
-          },
-          {
-            "time": "4",
-            "title": "Afalia congénita: reporte de casos",
-            "details": "Dra. Grecia Lara",
-            "venue": "Hospital de Clínicas del Este"
-          },
-          {
-            "time": "",
-            "title": "Síndrome de Prunne Belly: revisión de la literatura y serie de casos",
-            "details": "Dr. Jesús Fernández",
-            "venue": "Hospital de Clínicas del Este"
-          },
-          {
-            "time": "",
-            "title": "Síndrome de Himman",
-            "details": "Dra. Melissa Méndez",
-            "venue": "Hospital de Clínicas del Este"
-          },
-          {
-            "time": "",
-            "title": "Síndrome de Zinner: reporte de un caso",
-            "details": "Dra. Grecia Lara\nExtrofia Vesical\nDra. Yufrancis Caraballo",
+            "details": "Litiasis uretral migrada a escroto: a propósito de un caso — Dr. Jesús Fernández\nAfalia congénita: reporte de 4 casos — Dra. Grecia Lara\nSíndrome de Prunne Belly: revisión de la literatura y serie de casos — Dr. Jesús Fernández\nSíndrome de Himman — Dra. Melissa Méndez\nSíndrome de Zinner: reporte de un caso — Dra. Grecia Lara\nExtrofia Vesical — Dra. Yufrancis Caraballo",
             "venue": "Hospital de Clínicas del Este"
           }
         ]
@@ -497,81 +455,75 @@
     ]
   },
   {
-    "day": "SABADO 11/07/2026",
+    "day": "SABADO 07/11/2026",
     "venues": [
       {
         "name": "Hotel Tibisay",
         "items": [
           {
             "time": "7:00 am - 8:45 am",
-            "title": "Presentación de Trabajos de Incorporación Trabajos Libres, Poster Videos (Salones:)",
-            "details": "",
+            "title": "Presentación de Trabajos de Incorporación, Trabajos Libres, Póster y Videos (Salones:)",
+            "details": "Desayuno Conferencia ADIUM · Tratamiento Farmacológico",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "8:45 am - 9:00 am",
-            "title": "Conferencia para optar a Miembro Emerito Dr. Ricardo Montiel",
+            "title": "Conferencia para optar a Miembro Emérito Dr. Ricardo Montiel",
             "details": "",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "9:00 am - 11:00 am",
-            "title": "SIMPOSIO de PATOLOGIA BENIGNA DE PROSTATA · SCU",
-            "details": "SCU · Sociedad Colombiana de Urología (Colombia)\nCoordinador y Moderador Dr. Jackson Briones",
+            "title": "SIMPOSIO DE PATOLOGÍA BENIGNA DE PRÓSTATA",
+            "details": "SOCIEDAD COLOMBIANA DE UROLOGÍA\nCoordinador y Moderador: Dr. Jackson Briones",
             "venue": "Hotel Tibisay"
           },
           {
-            "time": "9:00 AM - 9:05 AM",
+            "time": "9:00 am - 9:05 am",
             "title": "BIENVENIDA",
             "details": "",
             "venue": "Hotel Tibisay"
           },
           {
-            "time": "9:05 AM - 9:15 AM",
-            "title": "La era de la Enucleación: HoLEP, ThuLEP y Thulium Fiber Laser ¿Nuevo estándar en HPB?",
+            "time": "9:05 am - 9:15 am",
+            "title": "La era de la Enucleación: HoLEP, ThuLEP y Thulium Fiber Laser. ¿Nuevo estándar en HPB?",
             "details": "Dr. Andrés Diaz (COL)",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "9:15 am - 9:30 am",
-            "title": "No solo el volumen importa. Toma de decisiones en el manejo quirurgico de la HPB",
+            "title": "No solo el volumen importa. Toma de decisiones en el manejo quirúrgico de la HPB",
             "details": "Dra. Verónica Tobar (COL)",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "9:30 am - 9:50 am",
-            "title": "DEBATE: Tratamiento médico vs intervención temprana en HPB: ¿Estamos llegando tarde?",
-            "details": "Moderador: Dr. Carlos Andrade (COL)\nParticipantes: Dra. Veronica Tovar (COL) Dr. Andres Diáz (COL)",
+            "title": "DEBATE: Tratamiento médico vs. intervención temprana en HPB: ¿Estamos llegando tarde?",
+            "details": "Moderador: Dr. Hugo Lopez (COL)\nParticipantes: Dra. Verónica Tobar (COL), Dr. Andrés Diaz (COL)",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "9:50 am - 10:05 am",
-            "title": "En la era de la Enucleación: ¿Tiene aún espacio las terapias minimamente invasivas (Rezum, Urolift, ITIND)",
-            "details": "Dr. Carlos Andrade (COL)",
+            "title": "En la era de la Enucleación: ¿Tienen aún espacio las terapias mínimamente invasivas (Rezum, Urolift, ITIND)?",
+            "details": "Dr. Hugo López (COL)",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "10:05 am - 10:20 am",
-            "title": "RTUP vs Enucleación: ¿Sigue vigente el estándar clásico?",
+            "title": "RTUP vs. Enucleación: ¿Sigue vigente el estándar clásico?",
             "details": "Dra. Verónica Tobar (COL)",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "10:20 am - 10:35 am",
-            "title": "Cirugía de la HPB con preservación de la eyaculación: ¿Hasta donde podemos llegar sin comprometer resultados?",
-            "details": "Dr. Luis Wadskier (COL- VEN)",
+            "title": "Cirugía de la HPB con preservación de la eyaculación: ¿Hasta dónde podemos llegar sin comprometer resultados?",
+            "details": "Dr. Luis Wadskier (COL – VEN)",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "10:35 am - 11:00 am",
-            "title": "Cirugia de HPB en Latinoamerica: Enucleación vs Abierta vs laparoscopica vs Robotica: ¿Qué debemos defender hoy ¿",
-            "details": "Moderador: Dr. Luis Wadskier",
-            "venue": "Hotel Tibisay"
-          },
-          {
-            "time": "",
-            "title": "Panelistas: Dr. Carlos Andrade Dr. Andres Diaz Dr. Veronica Tobar",
-            "details": "",
+            "title": "Cirugía de HPB en Latinoamérica: Enucleación vs. abierta vs. laparoscópica vs. robótica. ¿Qué debemos defender hoy?",
+            "details": "Moderador: Dr. Luis Wadskier\nPanelistas: Dr. Hugo Lopez, Dr. Andrés Diaz, Dra. Verónica Tobar",
             "venue": "Hotel Tibisay"
           },
           {
@@ -588,7 +540,7 @@
           },
           {
             "time": "11:45 am - 2:00 pm",
-            "title": "CAU/EAU SIMPOSIO DE ENDOUROLOGIA Y LITIASIS",
+            "title": "SIMPOSIO DE ENDOUROLOGÍA Y LITIASIS",
             "details": "Confederación Americana de Urología\nEuropean Association of Urology (EAU)\nCoordinador – Moderador: Dr. Víctor Gomez",
             "venue": "Hotel Tibisay"
           },
@@ -600,49 +552,49 @@
           },
           {
             "time": "12:00 m - 12:15 pm",
-            "title": "Acceso Percútaneo: ¿Ecografía, Fluoroscopía, Ambas?",
+            "title": "Acceso Percutáneo: ¿Ecografía, Fluoroscopía, ambas?",
             "details": "Dr. Edgar Beltran (MEX)",
             "venue": "Hotel Tibisay"
           },
           {
-            "time": "12:20",
-            "title": "-pm 12:35 pm Miniaturización en 2026 ¿Tiene Algún espacio la NLPC Estandar?",
-            "details": "Dra. Begoña Balletas (ESP)",
+            "time": "12:20 pm - 12:35 pm",
+            "title": "Miniaturización en 2026: ¿Tiene algún espacio la NLPC Estándar?",
+            "details": "Dr. Hugo Lopez (COL)",
             "venue": "Hotel Tibisay"
           },
           {
-            "time": "12:40 pm - 12:55",
-            "title": "Pm TFL vs Holmio de Alta Potencia ¿Cuál y para qué?",
-            "details": "Dr. Giovanni Scala Marchini (BRA)",
+            "time": "12:40 pm - 12:55 pm",
+            "title": "TFL vs. Holmio de Alta Potencia: ¿Cuál y para qué?",
+            "details": "Dra. Catalina Solano (COL)",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "1:00 pm - 1:15 pm",
-            "title": "RIRS: Tips & Tricks, para manejo litiasis en el caliz inferior",
-            "details": "Dr. Miguel Cancini (ESP – VEN)",
+            "title": "RIRS: Tips & Tricks para manejo de litiasis en el cáliz inferior",
+            "details": "Dr. Miguel Cancini (VEN – ESP)",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "1:20 pm - 2:00 pm",
-            "title": "Debate: Litiasis de 2 cm RIRS vs Miniperc",
+            "title": "Debate: Litiasis de 2 cm, RIRS vs. Miniperc",
             "details": "",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "2:00 pm - 3:00 pm",
-            "title": "ALMUERZO CONFERENCIA: El Cambio de Paradigma en la estenosis uretral masculina. Dr. Miguel Cancini (ESP – VEN)",
-            "details": "Patrocinado por ELUTAX",
+            "title": "ALMUERZO CONFERENCIA: El cambio de paradigma en la estenosis uretral masculina",
+            "details": "Dr. Miguel Cancini (ESP – VEN)\nPatrocinado por ELUTAX",
             "venue": "Hotel Tibisay"
           },
           {
             "time": "4:00 pm",
-            "title": "ACTO DE PREMIACION Y JURAMENTACIÓN",
+            "title": "ACTO DE PREMIACIÓN Y JURAMENTACIÓN",
             "details": "",
             "venue": "Hotel Tibisay"
           },
           {
-            "time": "8:00 PM",
-            "title": "FIESTA DE CLAUSURA White Party Downtown Beach",
+            "time": "8:00 pm",
+            "title": "FIESTA DE CLAUSURA · White Party Downtown Beach",
             "details": "",
             "venue": "Hotel Tibisay"
           }
