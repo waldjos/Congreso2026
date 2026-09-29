@@ -9,24 +9,24 @@ import type { ProgramDay } from './lib/programUtils';
 const locations = [
   {
     name: 'Hotel Tibisay',
-    description: 'Sede de acreditación, cursos y eventos sociales.',
+    description: 'Sede principal del congreso, área comercial, sesiones científicas y actos institucionales.',
     mapUrl: 'https://www.google.com/maps/search/?api=1&query=Hotel+Tibisay,+Margarita+Venezuela',
   },
   {
     name: 'Hospital de Clínicas del Este',
-    description: 'Sede principal para sesiones científicas y talleres prácticos.',
+    description: 'Sede de cursos precongreso y del programa de Urología Pediátrica.',
     mapUrl: 'https://www.google.com/maps/search/?api=1&query=Hospital+de+Cl%C3%ADnicas+del+Este,+Margarita+Venezuela',
   },
   {
-    name: 'Hotel Margarita Real',
-    description: 'Sede adicional para cursos pre-congreso y eventos especiales.',
-    mapUrl: 'https://maps.app.goo.gl/xKcMNP8yf129vkFX8',
+    name: 'Downtown Beach',
+    description: 'Sede de la White Party y fiesta de clausura del sábado 7 de noviembre.',
+    mapUrl: 'https://www.google.com/maps/search/?api=1&query=Downtown+Beach,+Margarita+Venezuela',
   },
 ];
 
-const PROGRAM_PDF = '/PROGRAMA CIENTIFICO 2026. UROLOGIA.pdf';
+const PROGRAM_PDF = ''; // PDF anterior retirado: programa reprogramado en actualización
 
-const eventDate = new Date('2026-07-08T09:00:00');
+const eventDate = new Date('2026-11-04T09:00:00-04:00');
 
 const formatValue = (value: number) => String(value).padStart(2, '0');
 
@@ -134,14 +134,17 @@ function App() {
             <div className="mb-8 inline-flex rounded-2xl border border-white/10 bg-white/5 px-4 py-3 ring-1 ring-gold/20">
               <SvuLogo variant="hero" />
             </div>
+            <div className="mb-4 inline-flex items-center rounded-full border border-amber-300/30 bg-amber-300/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-amber-200">
+              Programa actualizado · Nuevas fechas: 4–7 noviembre 2026
+            </div>
             <p className="inline-flex rounded-full border border-gold bg-white/5 px-4 py-1 text-sm uppercase tracking-[0.35em] text-gold">
-              XXXVI Congreso Venezolano de Urología
+              XXXVI Congreso Nacional de Urología
             </p>
             <h1 className="mt-8 max-w-3xl text-5xl font-semibold leading-tight tracking-tight text-white sm:text-6xl">
               Integrando innovación, ciencia y excelencia quirúrgica
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-slate-200 sm:text-xl">
-              8 al 11 de julio de 2026 · Sede Hotel Tibisay Margarita
+              4 al 7 de noviembre de 2026 · Hotel Tibisay · Isla de Margarita
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <a href="#inscripciones" className="inline-flex items-center justify-center rounded-full bg-gold px-8 py-3 text-sm font-semibold uppercase text-deep shadow-lg shadow-gold/20 transition hover:-translate-y-0.5">
@@ -150,9 +153,11 @@ function App() {
               <a href="#programa" className="inline-flex items-center justify-center rounded-full bg-gold/90 px-8 py-3 text-sm font-semibold uppercase text-deep shadow-lg shadow-gold/25 transition hover:scale-105">
                 Ver Programa
               </a>
-              <a href={encodeURI(PROGRAM_PDF)} download className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-8 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
-                Descargar PDF
-              </a>
+              {PROGRAM_PDF ? (
+                <a href={encodeURI(PROGRAM_PDF)} download className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-8 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+                  Descargar PDF actualizado
+                </a>
+              ) : null}
             </div>
             <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {[
@@ -212,7 +217,7 @@ function App() {
                 <div className="space-y-4 text-lg leading-8 text-slate-200">
                   <p>
                     En mi calidad de Presidente de la <span className="font-medium text-white">Sociedad Venezolana de Urología</span>,
-                    es un honor darles la bienvenida al <span className="font-medium text-white">XXXVI Congreso Venezolano de Urología</span>:
+                    es un honor darles la bienvenida al <span className="font-medium text-white">XXXVI Congreso Nacional de Urología</span>:
                     un encuentro de la especialidad pensado para la actualización científica, el intercambio entre colegas y el
                     fortalecimiento de la urología en Venezuela y Latinoamérica.
                   </p>
@@ -243,7 +248,7 @@ function App() {
                 <p className="text-sm font-medium text-gold">Expresidente de la Sociedad Venezolana de Urología</p>
                 <div className="space-y-4 text-base leading-7 text-slate-300">
                   <p>
-                    Al dedicarle el nombre al XXXVI Congreso Venezolano de Urología, la Sociedad Venezolana de Urología
+                    Al dedicarle el nombre al XXXVI Congreso Nacional de Urología, la Sociedad Venezolana de Urología
                     rinde homenaje a quien ha contribuido de forma sostenida al desarrollo de la especialidad en el país.
                   </p>
                   <p>
@@ -266,7 +271,7 @@ function App() {
                   />
                 </div>
                 <p className="mt-4 text-center text-xs uppercase tracking-[0.25em] text-slate-500">
-                  Expresidente SVU · XXXVI Congreso Venezolano de Urología
+                  Expresidente SVU · XXXVI Congreso Nacional de Urología
                 </p>
               </div>
             </div>
@@ -293,9 +298,11 @@ function App() {
         ) : (
           <section id="programa" className="scroll-mt-24 border-t border-white/10 py-16 text-center text-slate-400">
             <p>No se pudo cargar el programa. Descarga el PDF oficial desde el inicio.</p>
-            <a href={encodeURI(PROGRAM_PDF)} download className="mt-4 inline-flex rounded-full bg-gold px-6 py-3 text-sm font-semibold text-deep">
-              Descargar PDF
-            </a>
+            {PROGRAM_PDF ? (
+              <a href={encodeURI(PROGRAM_PDF)} download className="mt-4 inline-flex rounded-full bg-gold px-6 py-3 text-sm font-semibold text-deep">
+                Descargar PDF actualizado
+              </a>
+            ) : null}
           </section>
         )}
 
@@ -309,24 +316,24 @@ function App() {
               <div className="overflow-hidden rounded-t-[2rem]">
                 <img
                   src="/fiesta.png.png"
-                  alt="White Party - Fiesta de Clausura del XXXVI Congreso Venezolano de Urología"
+                  alt="White Party - Fiesta de Clausura del XXXVI Congreso Nacional de Urología"
                   className="h-auto w-full object-contain transition duration-500 hover:scale-105"
                 />
               </div>
               <div className="p-8">
-                <p className="text-sm uppercase tracking-[0.35em] text-gold">Sábado 11 de Julio · 8:00 PM – 5:00 AM</p>
+                <p className="text-sm uppercase tracking-[0.35em] text-gold">Sábado 7 de Noviembre · 8:00 PM</p>
                 <h3 className="mt-2 text-2xl font-semibold text-white">White Party Downtown Beach</h3>
                 <p className="mt-4 text-slate-300">
-                  Cierra el congreso con una noche unforgettable en nuestra fiesta de clausura. 
-                  Vive la elegancia en blanco mientras celebramos los logros de la urología venezolana 
-                  en un ambiente exclusivo con música, cócteles y networking entre colegas.
+                  Cierra el congreso con la White Party en Downtown Beach, el evento social de clausura
+                  del XXXVI Congreso Nacional de Urología. Un espacio para compartir entre colegas y
+                  celebrar el cierre de la programación científica.
                 </p>
                 <div className="mt-6 flex flex-wrap gap-4">
                   <a
                     href="#inscripciones"
                     className="inline-flex items-center rounded-full bg-gold px-6 py-3 text-sm font-semibold text-deep shadow-lg shadow-gold/20 transition hover:-translate-y-0.5"
                   >
-                    Reserve su Lugar
+                    Ver inscripciones
                   </a>
                   <span className="inline-flex items-center rounded-full border border-white/20 bg-white/5 px-4 py-3 text-sm text-slate-300">
                     Dress Code: White
@@ -344,7 +351,7 @@ function App() {
                   </div>
                   <div>
                     <p className="font-semibold text-white">Horario</p>
-                    <p className="text-sm text-slate-400">8:00 PM – 5:00 AM</p>
+                    <p className="text-sm text-slate-400">8:00 PM</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -366,8 +373,8 @@ function App() {
                     </svg>
                   </div>
                   <div>
-                    <p className="font-semibold text-white">Dress Code</p>
-                    <p className="text-sm text-slate-400">Vestido Blanco Obligatorio</p>
+                    <p className="font-semibold text-white">Evento</p>
+                    <p className="text-sm text-slate-400">White Party · Fiesta de Clausura</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -377,8 +384,8 @@ function App() {
                     </svg>
                   </div>
                   <div>
-                    <p className="font-semibold text-white">Incluye</p>
-                    <p className="text-sm text-slate-400">Cócteles, Cena y Noche de Baile</p>
+                    <p className="font-semibold text-white">Fecha</p>
+                    <p className="text-sm text-slate-400">Sábado 7 de noviembre de 2026</p>
                   </div>
                 </div>
               </div>
@@ -480,7 +487,7 @@ function App() {
           <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
             <SvuLogo variant="footer" className="mx-auto sm:mx-0" />
             <p className="max-w-md text-sm text-slate-400">
-              XXXVI Congreso Venezolano de Urología · 8–11 de julio de 2026 · Margarita, Venezuela
+              XXXVI Congreso Nacional de Urología · 4–7 de noviembre de 2026 · Isla de Margarita, Venezuela
               <br />
               <span className="text-slate-500">Organizado por la Sociedad Venezolana de Urología</span>
             </p>
