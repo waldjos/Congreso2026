@@ -4,29 +4,42 @@
 
 :root {
   color-scheme: dark;
+  font-synthesis: none;
 }
 
 html {
   scroll-behavior: smooth;
+  background: #071a38;
 }
 
 body {
-  @apply min-h-screen bg-deep text-white antialiased;
+  @apply min-h-screen text-white antialiased;
+  margin: 0;
+  background:
+    radial-gradient(circle at 80% 0%, rgba(24, 72, 120, 0.22), transparent 28rem),
+    linear-gradient(180deg, #071a38 0%, #0a1f44 44%, #071a38 100%);
   font-family: 'Poppins', system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
 }
 
 * {
+  box-sizing: border-box;
   scrollbar-width: thin;
-  scrollbar-color: rgba(201, 163, 78, 0.7) transparent;
+  scrollbar-color: rgba(201, 163, 78, 0.62) transparent;
 }
 
 *::-webkit-scrollbar {
-  width: 10px;
+  width: 9px;
+  height: 9px;
 }
 
 *::-webkit-scrollbar-thumb {
-  background: rgba(201, 163, 78, 0.7);
+  background: rgba(201, 163, 78, 0.62);
   border-radius: 9999px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 ::selection {
@@ -34,15 +47,36 @@ body {
 }
 
 .hero-bg {
-  background: linear-gradient(180deg, rgba(10, 31, 68, 0.88) 0%, rgba(10, 31, 68, 0.96) 100%);
+  background:
+    linear-gradient(135deg, rgba(7, 26, 56, 0.98) 0%, rgba(10, 31, 68, 0.96) 54%, rgba(12, 45, 79, 0.94) 100%);
 }
 
 button,
 a {
-  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
-button:hover,
-a:hover {
-  transform: translateY(-1px);
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid rgba(201, 163, 78, 0.95);
+  outline-offset: 3px;
+}
+
+img {
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
