@@ -24,7 +24,7 @@ const locations = [
   },
 ];
 
-const PROGRAM_PDF = ''; // PDF anterior retirado: programa reprogramado en actualización
+const PROGRAM_PDF = '/Programa_Cientifico_Congreso_Urologia_Noviembre_2026.pdf';
 
 const eventDate = new Date('2026-11-04T09:00:00-04:00');
 
