@@ -183,9 +183,9 @@ function VenueTimeline({ venue, dayKey }: { venue: ProgramVenue; dayKey: string 
 export function ProgramSchedule({ program, pdfUrl }: Props) {
   const [dayIndex, setDayIndex] = useState(0);
   const [search, setSearch] = useState('');
-  const [venueFilter, setVenueFilter] = useState('Todas');
-  const [specialtyFilter, setSpecialtyFilter] = useState('Todas');
-  const [speakerFilter, setSpeakerFilter] = useState('Todos');
+  const [venueFilter, setVenueFilter] = useState('Todas las sedes');
+  const [specialtyFilter, setSpecialtyFilter] = useState('Todas las subespecialidades');
+  const [speakerFilter, setSpeakerFilter] = useState('Todos los ponentes');
 
   const days = useMemo(() => program.filter((day) => day.day), [program]);
   const currentDay = days[dayIndex];
@@ -212,10 +212,10 @@ export function ProgramSchedule({ program, pdfUrl }: Props) {
 
   const speakerOptions = useMemo(() => {
     const matchingItems = (currentDay?.venues ?? [])
-      .filter((venue) => venueFilter === 'Todas' || venue.name === venueFilter)
+      .filter((venue) => venueFilter === 'Todas las sedes' || venue.name === venueFilter)
       .flatMap((venue) =>
         venue.items.filter(
-          (item) => specialtyFilter === 'Todas' || classifySpecialty(item.title, item.details) === specialtyFilter,
+          (item) => specialtyFilter === 'Todas las subespecialidades' || classifySpecialty(item.title, item.details) === specialtyFilter,
         ),
       );
 
@@ -240,8 +240,8 @@ export function ProgramSchedule({ program, pdfUrl }: Props) {
       if (matchingDay >= 0) setDayIndex(matchingDay);
       setSpeakerFilter(detail);
       setSearch('');
-      setVenueFilter('Todas');
-      setSpecialtyFilter('Todas');
+      setVenueFilter('Todas las sedes');
+      setSpecialtyFilter('Todas las subespecialidades');
     };
     window.addEventListener('congress:filter-speaker', onSpeakerFilter);
     return () => window.removeEventListener('congress:filter-speaker', onSpeakerFilter);
@@ -255,26 +255,34 @@ export function ProgramSchedule({ program, pdfUrl }: Props) {
 
   useEffect(() => {
     if (speakerFilter !== 'Todos' && !speakerOptions.includes(speakerFilter)) {
-      setSpeakerFilter('Todos');
+      setSpeakerFilter('Todos los ponentes');
     }
   }, [speakerOptions, speakerFilter]);
 
   useEffect(() => {
-    setVenueFilter('Todas');
-    setSpecialtyFilter('Todas');
-    if (speakerFilter !== 'Todos') {
-      const speaker = stripDoctorPrefix(speakerFilter).toLowerCase();
-      const exists = (currentDay?.venues ?? []).some((venue) =>
-        venue.items.some((item) => `${item.title} ${item.details || ''}`.toLowerCase().includes(speaker)),
-      );
-      if (!exists) setSpeakerFilter('Todos');
-    }
+    setVenueFilter('Todas las sedes');
+    setSpecialtyFilter('Todas las subespecialidades');
+    setSpeakerFilter('Todos los ponentes');
+    setSearch('');
   }, [dayIndex]);
+
+  useEffect(() => {
+    if (!specialtyOptions.includes(specialtyFilter)) {
+      setSpecialtyFilter('Todas las subespecialidades');
+      setSpeakerFilter('Todos los ponentes');
+    }
+  }, [specialtyOptions, specialtyFilter]);
+
+  useEffect(() => {
+    if (!speakerOptions.includes(speakerFilter)) {
+      setSpeakerFilter('Todos los ponentes');
+    }
+  }, [speakerOptions, speakerFilter]);
 
   const venues = useMemo(() => {
     if (!currentDay?.venues) return [];
     const query = search.trim().toLowerCase();
-    const selectedSpeaker = speakerFilter === 'Todos' ? '' : stripDoctorPrefix(speakerFilter).toLowerCase();
+    const selectedSpeaker = speakerFilter === 'Todos los ponentes' ? '' : stripDoctorPrefix(speakerFilter).toLowerCase();
 
     return currentDay.venues
       .filter((venue) => venueFilter === 'Todas' || venue.name === venueFilter)
@@ -292,13 +300,24 @@ export function ProgramSchedule({ program, pdfUrl }: Props) {
   }, [currentDay, search, venueFilter, specialtyFilter, speakerFilter]);
 
   const totalEvents = venues.reduce((total, venue) => total + venue.items.length, 0);
-  const hasActiveFilters = Boolean(search) || venueFilter !== 'Todas' || specialtyFilter !== 'Todas' || speakerFilter !== 'Todos';
+  const hasActiveFilters =
+    Boolean(search) ||
+    venueFilter !== 'Todas las sedes' ||
+    specialtyFilter !== 'Todas las subespecialidades' ||
+    speakerFilter !== 'Todos los ponentes';
+
+  const activeFilterLabels = [
+    venueFilter !== 'Todas las sedes' ? venueFilter : null,
+    specialtyFilter !== 'Todas las subespecialidades' ? specialtyFilter : null,
+    speakerFilter !== 'Todos los ponentes' ? speakerFilter : null,
+    search ? `“${search}”` : null,
+  ].filter(Boolean) as string[];
 
   const clearFilters = () => {
     setSearch('');
-    setVenueFilter('Todas');
-    setSpecialtyFilter('Todas');
-    setSpeakerFilter('Todos');
+    setVenueFilter('Todas las sedes');
+    setSpecialtyFilter('Todas las subespecialidades');
+    setSpeakerFilter('Todos los ponentes');
   };
 
   return (
@@ -362,14 +381,29 @@ export function ProgramSchedule({ program, pdfUrl }: Props) {
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           <label className="block">
             <span className="mb-1.5 block text-[10px] font-semibold uppercase tracking-wider text-slate-500">Sede</span>
-            <select value={venueFilter} onChange={(event) => setVenueFilter(event.target.value)} className="w-full rounded-xl border border-white/10 bg-[#071a38] px-3 py-3 text-sm text-white focus:border-gold/40 focus:outline-none">
+            <select
+              value={venueFilter}
+              onChange={(event) => {
+                setVenueFilter(event.target.value);
+                setSpecialtyFilter('Todas las subespecialidades');
+                setSpeakerFilter('Todos los ponentes');
+              }}
+              className="w-full rounded-xl border border-white/10 bg-[#071a38] px-3 py-3 text-sm text-white focus:border-gold/40 focus:outline-none"
+            >
               <option value="Todas">Todas las sedes</option>
               {venueOptions.filter((option) => option !== 'Todas').map((option) => <option key={option} value={option}>{option}</option>)}
             </select>
           </label>
           <label className="block">
             <span className="mb-1.5 block text-[10px] font-semibold uppercase tracking-wider text-slate-500">Subespecialidad</span>
-            <select value={specialtyFilter} onChange={(event) => setSpecialtyFilter(event.target.value)} className="w-full rounded-xl border border-white/10 bg-[#071a38] px-3 py-3 text-sm text-white focus:border-gold/40 focus:outline-none">
+            <select
+              value={specialtyFilter}
+              onChange={(event) => {
+                setSpecialtyFilter(event.target.value);
+                setSpeakerFilter('Todos los ponentes');
+              }}
+              className="w-full rounded-xl border border-white/10 bg-[#071a38] px-3 py-3 text-sm text-white focus:border-gold/40 focus:outline-none"
+            >
               <option value="Todas">Todas las subespecialidades</option>
               {specialtyOptions.filter((option) => option !== 'Todas').map((option) => <option key={option} value={option}>{option}</option>)}
             </select>
@@ -386,6 +420,21 @@ export function ProgramSchedule({ program, pdfUrl }: Props) {
             <input type="search" value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Tema, sesión, hora…" className="w-full rounded-xl border border-white/10 bg-[#071a38] px-3 py-3 text-sm text-white placeholder:text-slate-600 focus:border-gold/40 focus:outline-none" />
           </label>
         </div>
+
+        <div className="mt-4 rounded-xl border border-white/10 bg-slate-950/25 px-3.5 py-3">
+          <p className="text-xs leading-5 text-slate-400">
+            Los filtros se combinan entre sí. Al elegir una sede, solo mostramos las subespecialidades y ponentes disponibles en esa sede.
+          </p>
+          {activeFilterLabels.length > 0 ? (
+            <div className="mt-2 flex flex-wrap gap-2">
+              {activeFilterLabels.map((label) => (
+                <span key={label} className="rounded-full border border-gold/20 bg-gold/10 px-2.5 py-1 text-[10px] font-medium text-gold">
+                  {label}
+                </span>
+              ))}
+            </div>
+          ) : null}
+        </div>
       </div>
 
       <div className="mt-4 flex flex-wrap items-center justify-between gap-2">
@@ -393,7 +442,7 @@ export function ProgramSchedule({ program, pdfUrl }: Props) {
           {dayMeta ? <p className="text-sm font-semibold text-white">{dayMeta.full}</p> : null}
           <p className="text-xs text-slate-500">{totalEvents} {totalEvents === 1 ? 'actividad' : 'actividades'} {hasActiveFilters ? 'coinciden con los filtros' : 'programadas'}</p>
         </div>
-        {speakerFilter !== 'Todos' ? <span className="rounded-full border border-gold/20 bg-gold/10 px-3 py-1.5 text-xs font-medium text-gold">{speakerFilter}</span> : null}
+        {speakerFilter !== 'Todos los ponentes' ? <span className="rounded-full border border-gold/20 bg-gold/10 px-3 py-1.5 text-xs font-medium text-gold">{speakerFilter}</span> : null}
       </div>
 
       <AnimatePresence mode="wait">
