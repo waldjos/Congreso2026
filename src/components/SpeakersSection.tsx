@@ -2,6 +2,11 @@ import { motion } from 'framer-motion';
 import { CountryFlag } from './CountryFlag';
 import { featuredSpeakers, internationalFaculty, speakerCountries } from '../data/speakers';
 
+function viewSpeakerSessions(name: string) {
+  window.dispatchEvent(new CustomEvent('congress:filter-speaker', { detail: name }));
+  window.setTimeout(() => document.getElementById('programa')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 0);
+}
+
 function initials(name: string): string {
   const parts = name.replace(/^(Dr\.|Dra\.)\s*/i, '').split(/\s+/);
   return parts.slice(0, 2).map((part) => part[0]).join('').toUpperCase();
@@ -58,6 +63,13 @@ function FeaturedCard({ speaker, index }: { speaker: (typeof featuredSpeakers)[0
             </li>
           ))}
         </ul>
+        <button
+          type="button"
+          onClick={() => viewSpeakerSessions(speaker.name)}
+          className="mt-5 inline-flex w-full items-center justify-center rounded-xl border border-gold/25 bg-gold/10 px-4 py-2.5 text-sm font-semibold text-gold transition hover:bg-gold hover:text-deep"
+        >
+          Ver conferencias
+        </button>
       </div>
     </motion.article>
   );
@@ -82,6 +94,9 @@ function FacultyCard({ speaker, index }: { speaker: (typeof internationalFaculty
         </div>
         <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-500">{speaker.role}</p>
         <p className="mt-2 text-sm leading-5 text-slate-400">{speaker.topics.join(' · ')}</p>
+        <button type="button" onClick={() => viewSpeakerSessions(speaker.name)} className="mt-3 text-xs font-semibold text-gold hover:text-white">
+          Ver en el programa →
+        </button>
       </div>
     </motion.article>
   );
