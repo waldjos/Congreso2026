@@ -15,7 +15,7 @@ import {
 
 type Props = {
   program: ProgramDay[];
-  pdfUrl: string;
+  pdfUrl?: string;
 };
 
 function VenueIcon({ icon }: { icon: 'hospital' | 'hotel' | 'beach' | 'hall' }) {
@@ -253,19 +253,25 @@ export function ProgramSchedule({ program, pdfUrl }: Props) {
       <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div className="max-w-2xl space-y-3">
           <p className="text-sm uppercase tracking-[0.35em] text-gold">Programa Científico</p>
-          <h2 className="text-3xl font-semibold text-white sm:text-4xl">Cronograma oficial 2026</h2>
+          <h2 className="text-3xl font-semibold text-white sm:text-4xl">Cronograma actualizado · Noviembre 2026</h2>
           <p className="text-slate-300">
-            Agenda alineada con el documento oficial del congreso. Navega por día, filtra actividades y consulta horarios y sedes.
+            Programa reprogramado para el 4 al 7 de noviembre de 2026. Navega por día, filtra actividades y consulta horarios y sedes.
           </p>
         </div>
-        <a
-          href={encodeURI(pdfUrl)}
-          download
-          className="inline-flex shrink-0 items-center justify-center gap-2 rounded-2xl bg-gold px-6 py-3 text-sm font-semibold text-deep shadow-lg shadow-gold/25 transition hover:-translate-y-0.5"
-        >
-          <span aria-hidden>↓</span>
-          Descargar PDF oficial
-        </a>
+        {pdfUrl ? (
+          <a
+            href={encodeURI(pdfUrl)}
+            download
+            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-2xl bg-gold px-6 py-3 text-sm font-semibold text-deep shadow-lg shadow-gold/25 transition hover:-translate-y-0.5"
+          >
+            <span aria-hidden>↓</span>
+            Descargar PDF actualizado
+          </a>
+        ) : (
+          <span className="inline-flex shrink-0 items-center justify-center rounded-2xl border border-gold/30 bg-gold/10 px-5 py-3 text-sm font-semibold text-gold">
+            Programa actualizado · 4–7 Nov
+          </span>
+        )}
       </div>
 
       <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -362,7 +368,7 @@ export function ProgramSchedule({ program, pdfUrl }: Props) {
 
             {dayIndex === 0 && !search && (
               <p className="mt-6 text-center text-sm text-slate-400">
-                Miércoles 8 julio: cursos y talleres precongreso en Hospital de Clínicas del Este, Hotel Tibisay y Hotel Margarita Real.
+                Miércoles 4 de noviembre: cursos y talleres precongreso en Hospital de Clínicas del Este y Hotel Tibisay; el documento no indica sede para el curso de Disfunción Sexual.
               </p>
             )}
           </motion.div>
