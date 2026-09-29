@@ -71,8 +71,8 @@ function App() {
 
   return (
     <div className="min-h-screen bg-deep text-white">
-      <nav className="sticky top-0 z-50 border-b border-white/10 bg-deep/95 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-10 lg:px-12">
+      <nav className="sticky top-0 z-50 border-b border-white/10 bg-[#071a38]/95 shadow-[0_8px_30px_rgba(0,0,0,0.16)] backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 sm:px-8 lg:px-10">
           <a href="#" className="flex items-center gap-3 text-white">
             <div className="flex shrink-0 items-center rounded-xl px-1 py-0.5">
               <SvuLogo variant="nav" />
@@ -82,21 +82,22 @@ function App() {
               <p className="text-[11px] tracking-wide text-slate-300">Sociedad Venezolana de Urología</p>
             </div>
           </a>
-          <div className="hidden items-center gap-8 md:flex">
+          <div className="hidden items-center gap-6 lg:flex">
             <a href="#bienvenida" className="text-sm font-medium text-slate-200 transition hover:text-white">Bienvenida</a>
 <a href="#ponentes" className="text-sm font-medium text-slate-200 transition hover:text-white">Ponentes</a>
             <a href="#programa" className="text-sm font-medium text-slate-200 transition hover:text-white">Programa</a>
-            <a href="#evento-social" className="text-sm font-medium text-slate-200 transition hover:text-white">White Party</a>
+            <a href="#sedes" className="text-sm font-medium text-slate-200 transition hover:text-white">Sedes</a>
+            <a href="#patrocinadores" className="text-sm font-medium text-slate-200 transition hover:text-white">Aliados</a>
             <a href="#inscripciones" className="text-sm font-medium text-slate-200 transition hover:text-white">Inscripciones</a>
           </div>
           <div className="flex items-center gap-3">
-            <a href="#inscripciones" className="hidden rounded-full bg-gold px-4 py-2 text-sm font-semibold text-deep transition hover:-translate-y-0.5 md:inline-flex">
+            <a href="#inscripciones" className="hidden rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-deep shadow-lg shadow-gold/15 transition hover:-translate-y-0.5 lg:inline-flex">
               Inscríbete
             </a>
             <button
               type="button"
               onClick={() => setMenuOpen((current) => !current)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-white/10 text-white md:hidden"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 bg-white/5 text-white lg:hidden"
               aria-label="Abrir menú"
             >
               {menuOpen ? '✕' : '☰'}
@@ -104,7 +105,7 @@ function App() {
           </div>
         </div>
         {menuOpen && (
-          <div className="md:hidden border-t border-white/10 bg-deep/95 px-6 py-4">
+          <div className="lg:hidden border-t border-white/10 bg-deep/95 px-6 py-4">
             <div className="flex flex-col gap-3">
               <a href="#bienvenida" onClick={() => setMenuOpen(false)} className="rounded-3xl bg-white/5 px-4 py-3 text-sm font-medium text-slate-200 transition hover:bg-white/10 hover:text-white">
                 Bienvenida
@@ -115,8 +116,14 @@ function App() {
 <a href="#programa" onClick={() => setMenuOpen(false)} className="rounded-3xl bg-white/5 px-4 py-3 text-sm font-medium text-slate-200 transition hover:bg-white/10 hover:text-white">
                 Programa
               </a>
-              <a href="#evento-social" onClick={() => setMenuOpen(false)} className="rounded-3xl bg-white/5 px-4 py-3 text-sm font-medium text-slate-200 transition hover:bg-white/10 hover:text-white">
+              <a href="#evento-social" onClick={() => setMenuOpen(false)} className="rounded-2xl bg-white/5 px-4 py-3 text-sm font-medium text-slate-200 transition hover:bg-white/10 hover:text-white">
                 White Party
+              </a>
+              <a href="#sedes" onClick={() => setMenuOpen(false)} className="rounded-2xl bg-white/5 px-4 py-3 text-sm font-medium text-slate-200 transition hover:bg-white/10 hover:text-white">
+                Sedes
+              </a>
+              <a href="#patrocinadores" onClick={() => setMenuOpen(false)} className="rounded-2xl bg-white/5 px-4 py-3 text-sm font-medium text-slate-200 transition hover:bg-white/10 hover:text-white">
+                Aliados
               </a>
               <a href="#inscripciones" onClick={() => setMenuOpen(false)} className="rounded-3xl bg-gold px-4 py-3 text-sm font-semibold text-deep transition hover:-translate-y-0.5">
                 Inscríbete
@@ -128,47 +135,51 @@ function App() {
 
       <header className="hero-bg relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(201,163,78,0.18),_transparent_25%)]" />
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581092337525-3abfbb8b13a1?auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center opacity-30" />
-        <div className="relative mx-auto max-w-7xl px-6 py-24 sm:px-10 lg:px-12">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_22%,rgba(59,130,246,0.18),transparent_28%),radial-gradient(circle_at_18%_78%,rgba(201,163,78,0.12),transparent_30%)]" />
+        <div className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,.5)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.5)_1px,transparent_1px)] [background-size:42px_42px]" />
+        <div className="relative mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-20 lg:px-10 lg:py-24">
           <motion.div initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9 }}>
             <div className="mb-8 inline-flex rounded-2xl border border-white/10 bg-white/5 px-4 py-3 ring-1 ring-gold/20">
               <SvuLogo variant="hero" />
             </div>
-            <div className="mb-4 inline-flex items-center rounded-full border border-amber-300/30 bg-amber-300/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-amber-200">
-              Programa actualizado · Nuevas fechas: 4–7 noviembre 2026
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="inline-flex items-center gap-2 rounded-full border border-amber-300/30 bg-amber-300/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-amber-100">
+                <span className="h-2 w-2 rounded-full bg-amber-300 shadow-[0_0_12px_rgba(252,211,77,.7)]" />
+                Programa actualizado · 4–7 noviembre 2026
+              </div>
+              <p className="inline-flex rounded-full border border-gold/50 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-gold">
+                XXXVI Congreso Nacional de Urología
+              </p>
             </div>
-            <p className="inline-flex rounded-full border border-gold bg-white/5 px-4 py-1 text-sm uppercase tracking-[0.35em] text-gold">
-              XXXVI Congreso Nacional de Urología
-            </p>
-            <h1 className="mt-8 max-w-3xl text-5xl font-semibold leading-tight tracking-tight text-white sm:text-6xl">
+            <h1 className="mt-7 max-w-4xl text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl">
               Integrando innovación, ciencia y excelencia quirúrgica
             </h1>
-            <p className="mt-6 max-w-2xl text-lg text-slate-200 sm:text-xl">
+            <p className="mt-5 max-w-2xl text-base leading-7 text-slate-200 sm:text-lg">
               4 al 7 de noviembre de 2026 · Hotel Tibisay · Isla de Margarita
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <a href="#inscripciones" className="inline-flex items-center justify-center rounded-full bg-gold px-8 py-3 text-sm font-semibold uppercase text-deep shadow-lg shadow-gold/20 transition hover:-translate-y-0.5">
+              <a href="#programa" className="inline-flex items-center justify-center rounded-full bg-gold px-7 py-3 text-sm font-semibold uppercase tracking-wide text-deep shadow-lg shadow-gold/20 transition hover:-translate-y-0.5">
+                Ver programa actualizado
+              </a>
+              <a href="#inscripciones" className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-7 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-white/15">
                 Inscríbete
               </a>
-              <a href="#programa" className="inline-flex items-center justify-center rounded-full bg-gold/90 px-8 py-3 text-sm font-semibold uppercase text-deep shadow-lg shadow-gold/25 transition hover:scale-105">
-                Ver Programa
-              </a>
               {PROGRAM_PDF ? (
-                <a href={encodeURI(PROGRAM_PDF)} download className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-8 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+                <a href={encodeURI(PROGRAM_PDF)} download className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-7 py-3 text-sm font-semibold text-slate-100 transition hover:bg-white/10">
                   Descargar PDF actualizado
                 </a>
               ) : null}
             </div>
-            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-10 grid grid-cols-4 gap-2 sm:gap-4">
               {[
                 { label: 'Días', value: countdown.days },
                 { label: 'Horas', value: countdown.hours },
                 { label: 'Minutos', value: countdown.minutes },
                 { label: 'Segundos', value: countdown.seconds },
               ].map((item) => (
-                <div key={item.label} className="rounded-3xl bg-white/5 px-5 py-4 text-center ring-1 ring-white/10 backdrop-blur-xl">
-                  <p className="text-sm uppercase tracking-[0.35em] text-slate-300">{item.label}</p>
-                  <p className="mt-2 text-3xl font-semibold text-white">{item.value}</p>
+                <div key={item.label} className="rounded-2xl bg-white/[0.06] px-2 py-3 text-center ring-1 ring-white/10 backdrop-blur-xl sm:px-5 sm:py-4">
+                  <p className="text-[9px] uppercase tracking-[0.16em] text-slate-400 sm:text-xs sm:tracking-[0.28em]">{item.label}</p>
+                  <p className="mt-1 text-xl font-semibold tabular-nums text-white sm:mt-2 sm:text-3xl">{item.value}</p>
                 </div>
               ))}
             </div>
@@ -176,7 +187,7 @@ function App() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-7xl px-6 py-16 sm:px-10 lg:px-12">
+      <main className="mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-16 lg:px-10">
         <section id="bienvenida" className="space-y-16 pb-16">
           <motion.article
             initial={{ opacity: 0, y: 20 }}
@@ -309,7 +320,7 @@ function App() {
 <section id="evento-social" className="space-y-8 border-t border-white/10 py-16">
           <div className="space-y-4">
             <p className="text-sm uppercase tracking-[0.35em] text-gold">Evento Social</p>
-            <h2 className="text-3xl font-semibold text-white sm:text-4xl">White Party - Fiesta de Clausura</h2>
+            <h2 className="text-3xl font-semibold text-white sm:text-4xl">White Party · Fiesta de Clausura</h2>
           </div>
           <div className="grid gap-8 lg:grid-cols-2">
             <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-xl shadow-black/10">
