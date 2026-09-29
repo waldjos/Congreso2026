@@ -59,10 +59,25 @@ export function formatDayLabel(day: string): { short: string; full: string; date
   const key = match[1].toUpperCase().replace('Á', 'A').replace('É', 'E');
   const name = names[key] || match[1];
   const date = `${match[2]}/${match[3]}/${match[4]}`;
+  const months: Record<string, string> = {
+    '01': 'enero',
+    '02': 'febrero',
+    '03': 'marzo',
+    '04': 'abril',
+    '05': 'mayo',
+    '06': 'junio',
+    '07': 'julio',
+    '08': 'agosto',
+    '09': 'septiembre',
+    '10': 'octubre',
+    '11': 'noviembre',
+    '12': 'diciembre',
+  };
+  const month = months[match[3].padStart(2, '0')] || '';
 
   return {
     short: name,
-    full: `${name} ${match[2]} de julio`,
+    full: month ? `${name} ${match[2]} de ${month}` : `${name} ${match[2]}`,
     date,
   };
 }
