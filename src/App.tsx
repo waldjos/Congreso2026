@@ -84,11 +84,11 @@ function App() {
           </a>
           <div className="hidden items-center gap-6 lg:flex">
             <a href="#bienvenida" className="text-sm font-medium text-slate-200 transition hover:text-white">Bienvenida</a>
-<a href="#ponentes" className="text-sm font-medium text-slate-200 transition hover:text-white">Ponentes</a>
+            <a href="#ponentes" className="text-sm font-medium text-slate-200 transition hover:text-white">Invitados</a>
             <a href="#programa" className="text-sm font-medium text-slate-200 transition hover:text-white">Programa</a>
-            <a href="#sedes" className="text-sm font-medium text-slate-200 transition hover:text-white">Sedes</a>
-            <a href="#patrocinadores" className="text-sm font-medium text-slate-200 transition hover:text-white">Aliados</a>
+            <a href="#sedes" className="text-sm font-medium text-slate-200 transition hover:text-white">Margarita</a>
             <a href="#inscripciones" className="text-sm font-medium text-slate-200 transition hover:text-white">Inscripciones</a>
+            <a href="#patrocinadores" className="text-sm font-medium text-slate-200 transition hover:text-white">Aliados</a>
           </div>
           <div className="flex items-center gap-3">
             <a href="#inscripciones" className="hidden rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-deep shadow-lg shadow-gold/15 transition hover:-translate-y-0.5 lg:inline-flex">
@@ -157,6 +157,9 @@ function App() {
             <p className="mt-5 max-w-2xl text-base leading-7 text-slate-200 sm:text-lg">
               4 al 7 de noviembre de 2026 · Hotel Tibisay · Isla de Margarita
             </p>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-400">
+              Programa académico, invitados internacionales, sedes, inscripción y actividades del congreso en un solo lugar.
+            </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <a href="#programa" className="inline-flex items-center justify-center rounded-full bg-gold px-7 py-3 text-sm font-semibold uppercase tracking-wide text-deep shadow-lg shadow-gold/20 transition hover:-translate-y-0.5">
                 Ver programa actualizado
@@ -187,7 +190,7 @@ function App() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-16 lg:px-10">
+      <main className="mx-auto max-w-7xl px-5 py-12 pb-28 sm:px-8 sm:py-16 sm:pb-28 lg:px-10 lg:pb-16">
         <section id="bienvenida" className="space-y-16 pb-16">
           <motion.article
             initial={{ opacity: 0, y: 20 }}
@@ -406,56 +409,81 @@ function App() {
 
         <SponsorsSection />
 
-        <section id="sedes" className="space-y-8 border-t border-white/10 py-16">
-          <div className="space-y-4">
-            <p className="text-sm uppercase tracking-[0.35em] text-gold">Sedes</p>
-            <h2 className="text-3xl font-semibold text-white sm:text-4xl">Ubicaciones del evento</h2>
+        <section id="sedes" className="border-t border-white/10 py-14 sm:py-16">
+          <div className="grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-end">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-gold">Ciudad anfitriona</p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Isla de Margarita te espera</h2>
+              <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-300 sm:text-base">
+                El Congreso reúne su actividad principal en Hotel Tibisay y complementa su programación en Hospital de Clínicas del Este y Downtown Beach.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-gold/20 bg-gold/[0.07] px-5 py-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">Puntos clave del congreso</p>
+              <p className="mt-2 text-sm leading-6 text-slate-300">Consulta cada ubicación y abre la ruta directamente desde tu teléfono.</p>
+            </div>
           </div>
-          <div className="grid gap-6 xl:grid-cols-2">
-            {locations.map((location) => (
-              <div key={location.name} className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-xl shadow-black/10 transition duration-300 hover:-translate-y-1 hover:border-gold/40">
-                <h3 className="text-2xl font-semibold text-white">{location.name}</h3>
-                <p className="mt-4 text-slate-300">{location.description}</p>
-                <a
-                  href={location.mapUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-6 inline-flex items-center rounded-full border border-white/20 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-                >
-                  Cómo llegar
-                </a>
-              </div>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {locations.map((location, index) => (
+              <article key={location.name} className="group overflow-hidden rounded-[1.75rem] border border-white/10 bg-gradient-to-b from-white/[0.065] to-white/[0.02] shadow-xl shadow-black/10">
+                <div className="border-b border-white/10 bg-slate-950/20 px-5 py-4">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gold">{index === 0 ? 'Sede principal' : index === 1 ? 'Sede académica' : 'Evento social'}</span>
+                  <h3 className="mt-1 text-xl font-semibold text-white">{location.name}</h3>
+                </div>
+                <div className="p-5">
+                  <p className="min-h-[4.5rem] text-sm leading-6 text-slate-300">{location.description}</p>
+                  <a href={location.mapUrl} target="_blank" rel="noreferrer" className="mt-5 inline-flex w-full items-center justify-center rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-sm font-semibold text-white transition hover:border-gold/30 hover:bg-gold/10 hover:text-gold">
+                    Ver ubicación
+                  </a>
+                </div>
+              </article>
             ))}
           </div>
         </section>
 
-        <section id="inscripciones" className="space-y-8 border-t border-white/10 py-16">
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-            <div className="space-y-4">
-              <p className="text-sm uppercase tracking-[0.35em] text-gold">Inscripciones</p>
-              <h2 className="text-3xl font-semibold text-white sm:text-4xl">Planes y acceso</h2>
-            </div>
-            <div className="inline-flex rounded-2xl border border-white/10 bg-white/5 px-4 py-3 ring-1 ring-white/10">
-              <SvuLogo variant="card" />
-            </div>
-          </div>
-          <div className="grid gap-6 lg:grid-cols-4">
-            {['Médicos Especialistas', 'Residentes', 'Estudiantes', 'Cursos Precongreso'].map((plan) => (
-              <div key={plan} className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-xl shadow-black/10 transition duration-300 hover:-translate-y-1 hover:border-gold/40">
-                <p className="text-lg font-semibold text-white">{plan}</p>
-                <p className="mt-4 text-slate-300">Tarifas y acceso especial según categoría.</p>
-                <div className="mt-6">
-                  <a
-                    href="https://www.soveuroapp.com/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex w-full items-center justify-center rounded-full bg-gold px-5 py-3 text-sm font-semibold text-deep transition hover:-translate-y-0.5"
-                  >
-                    Pagar Ahora
-                  </a>
-                </div>
+        <section id="inscripciones" className="border-t border-white/10 py-14 sm:py-16">
+          <div className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/[0.06] to-transparent p-5 sm:p-7 lg:p-8">
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-gold">Inscripciones</p>
+                <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Elige tu categoría</h2>
+                <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-300 sm:text-base">
+                  Accede al portal oficial de la Sociedad Venezolana de Urología para consultar la tarifa vigente y completar tu inscripción.
+                </p>
               </div>
-            ))}
+              <div className="inline-flex self-start rounded-2xl border border-white/10 bg-white/5 px-4 py-3 lg:self-auto">
+                <SvuLogo variant="card" />
+              </div>
+            </div>
+
+            <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                { name: 'Médicos Especialistas', detail: 'Urólogos y especialistas participantes.' },
+                { name: 'Residentes', detail: 'Categoría para residentes de Urología.' },
+                { name: 'Estudiantes', detail: 'Estudiantes e internos según condiciones vigentes.' },
+                { name: 'Cursos Precongreso', detail: 'Inscripción a talleres y cursos del miércoles 4.' },
+              ].map((plan, index) => (
+                <article key={plan.name} className={`rounded-2xl border p-5 ${index === 0 ? 'border-gold/35 bg-gold/[0.08]' : 'border-white/10 bg-slate-950/25'}`}>
+                  {index === 0 ? <span className="rounded-full bg-gold px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider text-deep">Principal</span> : null}
+                  <h3 className="mt-3 text-lg font-semibold text-white">{plan.name}</h3>
+                  <p className="mt-2 min-h-[3rem] text-sm leading-5 text-slate-400">{plan.detail}</p>
+                  <a href="https://www.soveuroapp.com/" target="_blank" rel="noreferrer" className="mt-5 inline-flex w-full items-center justify-center rounded-xl bg-gold px-4 py-2.5 text-sm font-semibold text-deep transition hover:-translate-y-0.5">
+                    Inscripción oficial
+                  </a>
+                </article>
+              ))}
+            </div>
+
+            <div className="mt-5 flex flex-col gap-3 rounded-2xl border border-white/10 bg-slate-950/25 px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-sm font-semibold text-white">¿Necesitas ayuda con tu inscripción?</p>
+                <p className="mt-1 text-xs text-slate-500">Soporte directo por WhatsApp.</p>
+              </div>
+              <a href="https://wa.me/584127065848" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-xl border border-gold/25 bg-gold/10 px-4 py-2.5 text-sm font-semibold text-gold hover:bg-gold hover:text-deep">
+                Escribir por WhatsApp
+              </a>
+            </div>
           </div>
         </section>
 
@@ -505,6 +533,20 @@ function App() {
           </div>
         </footer>
       </main>
+
+      <nav aria-label="Navegación rápida del congreso" className="fixed inset-x-3 bottom-3 z-50 grid grid-cols-4 rounded-2xl border border-white/10 bg-[#071a38]/95 p-1.5 shadow-2xl shadow-black/40 backdrop-blur-xl lg:hidden">
+        {[
+          { href: '#programa', label: 'Programa', icon: '▦' },
+          { href: '#ponentes', label: 'Invitados', icon: '◎' },
+          { href: '#sedes', label: 'Margarita', icon: '⌖' },
+          { href: '#inscripciones', label: 'Inscripción', icon: '✓' },
+        ].map((item) => (
+          <a key={item.href} href={item.href} className="flex flex-col items-center justify-center rounded-xl px-1 py-2 text-[10px] font-medium text-slate-400 hover:bg-white/5 hover:text-gold">
+            <span className="text-base leading-none text-gold" aria-hidden>{item.icon}</span>
+            <span className="mt-1">{item.label}</span>
+          </a>
+        ))}
+      </nav>
     </div>
   );
 }
