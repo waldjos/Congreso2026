@@ -1,49 +1,49 @@
 # Congreso Urología 2026
 
-Micrositio premium para el XXXVI Congreso Venezolano de Urología 2026, construido con React, Vite y TailwindCSS.
+Micrositio del **XXXVI Congreso Nacional de Urología - Dr. Nelson Medero**, organizado por la Sociedad Venezolana de Urología.
 
-## Instalación
+## Fechas actualizadas
 
-1. Abre la carpeta del proyecto:
-   ```bash
-   cd "c:\Users\Usuario\OneDrive\Desktop\Congreso2026"
-   ```
-2. Instala dependencias:
-   ```bash
-   npm install
-   ```
-3. Ejecuta el sitio en desarrollo:
-   ```bash
-   npm run dev
-   ```
+**4 al 7 de noviembre de 2026 · Hotel Tibisay · Isla de Margarita**
+
+El evento fue reprogramado y el sitio utiliza el programa científico actualizado de noviembre de 2026.
+
+## Stack
+
+- React 18
+- TypeScript
+- Vite
+- TailwindCSS
+- Framer Motion
+
+## Estructura principal
+
+- `src/App.tsx` — página principal, información del evento, sedes, inscripciones y evento social.
+- `src/components/ProgramSchedule.tsx` — agenda interactiva por día y sede.
+- `public/program.json` — fuente estructurada del programa científico actualizado.
+- `src/data/speakers.ts` — ponentes destacados y facultad internacional.
+- `src/components/SponsorsSection.tsx` — patrocinadores.
+- `src/lib/programUtils.ts` — normalización de fechas, sedes y tipos de actividad.
+
+## Desarrollo
+
+```bash
+npm install
+npm run dev
+```
 
 ## Producción
 
-Para generar el sitio listo para deploy:
 ```bash
 npm run build
 ```
 
-## Despliegue en Vercel
+Vercel despliega automáticamente la rama `main`.
 
-1. Conecta el repositorio `https://github.com/waldjos/Congreso2026` en Vercel.
-2. Selecciona la rama `main`.
-3. Vercel detectará automáticamente el framework y usará `npm run build`.
-4. Si prefieres deploy manual, puedes usar:
-   ```bash
-   npx vercel --prod
-   ```
+## Estado
 
-## Estructura principal
-
-- `src/App.tsx` — Página principal y todas las secciones del micrositio
-- `src/index.css` — Estilos globales y configuración Tailwind
-- `vite.config.ts` — Configuración de Vite
-- `tailwind.config.js` — Configuración de TailwindCSS
-
-## Siguiente paso sugerido
-
-1. Ajustar copy y fotos reales para cada ponente.
-2. Añadir formulario de inscripción y pagos.
-3. Integrar PDF descargable desde la sección de programa.
-4. Desplegar en Vercel con dominio personalizado.
+- Programa científico interactivo: actualizado a noviembre 2026.
+- Contador: actualizado al 4 de noviembre de 2026.
+- White Party: sábado 7 de noviembre de 2026.
+- SEO y datos estructurados del evento: actualizados.
+- El PDF anterior de julio debe permanecer fuera de circulación; la descarga se habilita únicamente con el documento actualizado.
