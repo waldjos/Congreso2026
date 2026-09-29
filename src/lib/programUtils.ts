@@ -42,6 +42,39 @@ export function classifyEvent(title: string, details = ''): EventKind {
   return 'talk';
 }
 
+export type Specialty =
+  | 'Oncología'
+  | 'Andrología'
+  | 'Urología funcional'
+  | 'Piso pélvico'
+  | 'Urología pediátrica'
+  | 'HPB'
+  | 'Endourología y litiasis'
+  | 'Cirugía laparoscópica y robótica'
+  | 'Urología general'
+  | 'Académico / institucional';
+
+const SPECIALTY_RULES: { specialty: Specialty; pattern: RegExp }[] = [
+  { specialty: 'Urología pediátrica', pattern: /pedi[aá]tric|hipospad|reflujo vesico|vejiga neurog[eé]nica|malformaciones cong[eé]nitas|test[ií]culos|ureter/i },
+  { specialty: 'Andrología', pattern: /androlog|peyronie|implante peneano|disfunci[oó]n sexual|fertilidad|reemplazo hormonal/i },
+  { specialty: 'Piso pélvico', pattern: /piso p[eé]lvico|incontinencia|esf[ií]nter artificial/i },
+  { specialty: 'Urología funcional', pattern: /urodinamia|urolog[ií]a funcional|vejiga hiperactiva/i },
+  { specialty: 'HPB', pattern: /\bhpb\b|hiperplasia|holep|thulep|enucleaci[oó]n|rtup|rezum|urolift|itind/i },
+  { specialty: 'Endourología y litiasis', pattern: /endourolog|litiasis|rirs|miniperc|nlpc|holmio|tfl|percut[aá]neo/i },
+  { specialty: 'Cirugía laparoscópica y robótica', pattern: /laparosc[oó]p|rob[oó]tic|nefrectom[ií]a parcial|cirug[ií]a p[eé]lvica/i },
+  { specialty: 'Oncología', pattern: /c[aá]ncer|oncol|mibc|nmibc|bcg|prostatectom[ií]a radical|cistectom[ií]a|deprivaci[oó]n androg[eé]nica|proteus/i },
+  { specialty: 'Urología general', pattern: /infecciones urinarias|prostatitis|urolog[ií]a de transici[oó]n/i },
+  { specialty: 'Académico / institucional', pattern: /trabajos libres|miembro em[eé]rito|acto inaugural|asamblea|premiaci[oó]n|juramentaci[oó]n|receso|almuerzo|white party/i },
+];
+
+export function classifySpecialty(title: string, details = ''): Specialty {
+  const blob = `${title} ${details}`;
+  for (const rule of SPECIALTY_RULES) {
+    if (rule.pattern.test(blob)) return rule.specialty;
+  }
+  return 'Urología general';
+}
+
 export function formatDayLabel(day: string): { short: string; full: string; date: string } {
   const match = day.match(
     /(MI[EÉ]RCOLES|JUEVES|VIERNES|S[AÁ]BADO|DOMINGO|LUNES|MARTES)\s*(\d{1,2})\/(\d{1,2})\/(\d{4})/i,
