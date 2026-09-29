@@ -20,7 +20,7 @@ type Props = {
   pdfUrl?: string;
 };
 
-const speakerOptions = [
+const allSpeakerOptions = [
   ...new Set([...featuredSpeakers.map((speaker) => speaker.name), ...internationalFaculty.map((speaker) => speaker.name)]),
 ].sort((a, b) => a.localeCompare(b, 'es'));
 
@@ -204,10 +204,28 @@ export function ProgramSchedule({ program, pdfUrl }: Props) {
   const specialtyOptions = useMemo(() => {
     const values = new Set<string>();
     for (const venue of currentDay?.venues ?? []) {
+      if (venueFilter !== 'Todas' && venue.name !== venueFilter) continue;
       for (const item of venue.items) values.add(classifySpecialty(item.title, item.details));
     }
     return ['Todas', ...Array.from(values).sort((a, b) => a.localeCompare(b, 'es'))];
-  }, [currentDay]);
+  }, [currentDay, venueFilter]);
+
+  const speakerOptions = useMemo(() => {
+    const matchingItems = (currentDay?.venues ?? [])
+      .filter((venue) => venueFilter === 'Todas' || venue.name === venueFilter)
+      .flatMap((venue) =>
+        venue.items.filter(
+          (item) => specialtyFilter === 'Todas' || classifySpecialty(item.title, item.details) === specialtyFilter,
+        ),
+      );
+
+    return allSpeakerOptions.filter((speaker) => {
+      const name = stripDoctorPrefix(speaker).toLowerCase();
+      return matchingItems.some((item) =>
+        `${item.title} ${item.details || ''}`.toLowerCase().includes(name),
+      );
+    });
+  }, [currentDay, venueFilter, specialtyFilter]);
 
   useEffect(() => {
     const onSpeakerFilter = (event: Event) => {
@@ -228,6 +246,18 @@ export function ProgramSchedule({ program, pdfUrl }: Props) {
     window.addEventListener('congress:filter-speaker', onSpeakerFilter);
     return () => window.removeEventListener('congress:filter-speaker', onSpeakerFilter);
   }, [days]);
+
+  useEffect(() => {
+    if (specialtyFilter !== 'Todas' && !specialtyOptions.includes(specialtyFilter)) {
+      setSpecialtyFilter('Todas');
+    }
+  }, [specialtyOptions, specialtyFilter]);
+
+  useEffect(() => {
+    if (speakerFilter !== 'Todos' && !speakerOptions.includes(speakerFilter)) {
+      setSpeakerFilter('Todos');
+    }
+  }, [speakerOptions, speakerFilter]);
 
   useEffect(() => {
     setVenueFilter('Todas');
@@ -320,7 +350,9 @@ export function ProgramSchedule({ program, pdfUrl }: Props) {
         <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Filtra el programa</p>
-            <p className="mt-1 text-sm text-slate-400">Sede, subespecialidad, ponente o palabra clave.</p>
+            <p className="mt-1 text-sm leading-6 text-slate-400">
+              Usa uno o varios filtros. No es necesario completar todos; las opciones se ajustan automáticamente.
+            </p>
           </div>
           {hasActiveFilters ? (
             <button type="button" onClick={clearFilters} className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs font-medium text-slate-300 hover:bg-white/10 hover:text-white">Limpiar filtros</button>
@@ -331,20 +363,22 @@ export function ProgramSchedule({ program, pdfUrl }: Props) {
           <label className="block">
             <span className="mb-1.5 block text-[10px] font-semibold uppercase tracking-wider text-slate-500">Sede</span>
             <select value={venueFilter} onChange={(event) => setVenueFilter(event.target.value)} className="w-full rounded-xl border border-white/10 bg-[#071a38] px-3 py-3 text-sm text-white focus:border-gold/40 focus:outline-none">
-              {venueOptions.map((option) => <option key={option}>{option}</option>)}
+              <option value="Todas">Todas las sedes</option>
+              {venueOptions.filter((option) => option !== 'Todas').map((option) => <option key={option} value={option}>{option}</option>)}
             </select>
           </label>
           <label className="block">
             <span className="mb-1.5 block text-[10px] font-semibold uppercase tracking-wider text-slate-500">Subespecialidad</span>
             <select value={specialtyFilter} onChange={(event) => setSpecialtyFilter(event.target.value)} className="w-full rounded-xl border border-white/10 bg-[#071a38] px-3 py-3 text-sm text-white focus:border-gold/40 focus:outline-none">
-              {specialtyOptions.map((option) => <option key={option}>{option}</option>)}
+              <option value="Todas">Todas las subespecialidades</option>
+              {specialtyOptions.filter((option) => option !== 'Todas').map((option) => <option key={option} value={option}>{option}</option>)}
             </select>
           </label>
           <label className="block">
             <span className="mb-1.5 block text-[10px] font-semibold uppercase tracking-wider text-slate-500">Ponente</span>
             <select value={speakerFilter} onChange={(event) => setSpeakerFilter(event.target.value)} className="w-full rounded-xl border border-white/10 bg-[#071a38] px-3 py-3 text-sm text-white focus:border-gold/40 focus:outline-none">
-              <option>Todos</option>
-              {speakerOptions.map((speaker) => <option key={speaker}>{speaker}</option>)}
+              <option value="Todos">Todos los ponentes</option>
+              {speakerOptions.map((speaker) => <option key={speaker} value={speaker}>{speaker}</option>)}
             </select>
           </label>
           <label className="block">
@@ -367,9 +401,11 @@ export function ProgramSchedule({ program, pdfUrl }: Props) {
           <motion.div key={currentDay.day} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.2 }} className="mt-5">
             {venues.length === 0 ? (
               <div className="rounded-[1.75rem] border border-white/10 bg-white/5 px-6 py-12 text-center">
-                <p className="font-medium text-white">Sin resultados</p>
-                <p className="mt-1 text-sm text-slate-500">Prueba otro día o elimina alguno de los filtros.</p>
-                <button type="button" onClick={clearFilters} className="mt-4 rounded-full bg-gold px-4 py-2 text-xs font-semibold text-deep">Ver todo el día</button>
+                <p className="font-medium text-white">No encontramos actividades con esos criterios</p>
+                <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-slate-500">
+                  Los filtros de sede, subespecialidad y ponente solo muestran combinaciones que existen realmente en este día. Si usaste el buscador, prueba otra palabra.
+                </p>
+                <button type="button" onClick={clearFilters} className="mt-4 rounded-full bg-gold px-4 py-2 text-xs font-semibold text-deep">Mostrar todo el día</button>
               </div>
             ) : (
               <div className={`grid gap-5 ${venues.length > 1 ? 'xl:grid-cols-2' : 'mx-auto max-w-4xl'}`}>
