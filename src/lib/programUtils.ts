@@ -91,7 +91,8 @@ export function formatDayLabel(day: string): { short: string; full: string; date
   };
   const key = match[1].toUpperCase().replace('Á', 'A').replace('É', 'E');
   const name = names[key] || match[1];
-  const date = `${match[2]}/${match[3]}/${match[4]}`;
+  const dayNumber = String(Number(match[2]));
+  const date = `${dayNumber}/${match[3]}/${match[4]}`;
   const months: Record<string, string> = {
     '01': 'enero',
     '02': 'febrero',
@@ -110,7 +111,7 @@ export function formatDayLabel(day: string): { short: string; full: string; date
 
   return {
     short: name,
-    full: month ? `${name} ${match[2]} de ${month}` : `${name} ${match[2]}`,
+    full: month ? `${name} ${dayNumber} de ${month}` : `${name} ${dayNumber}`,
     date,
   };
 }
