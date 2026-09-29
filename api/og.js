@@ -118,27 +118,12 @@ function makeImage() {
     }
   };
 
-  for(let y=0;y<H;y++){
-    for(let x=0;x<W;x++){
-      const tx=x/W, ty=y/H;
-      let r=7 + Math.floor(7*tx);
-      let g=26 + Math.floor(25*tx) + Math.floor(4*ty);
-      let b=56 + Math.floor(35*tx) + Math.floor(5*ty);
-      const dx=x-1000, dy=y-110, d=Math.sqrt(dx*dx+dy*dy);
-      if(d<380){
-        const a=(380-d)/380;
-        r+=Math.floor(10*a); g+=Math.floor(24*a); b+=Math.floor(38*a);
-      }
-      put(x,y,Math.min(255,r),Math.min(255,g),Math.min(255,b));
-    }
-  }
+  rect(0, 0, W, H, [7, 26, 56]);
+  rect(820, 0, 380, H, [9, 42, 78]);
+  rect(815, 0, 5, H, [217, 182, 95]);
 
-  for(let x=0;x<W;x+=48) for(let y=0;y<H;y++) {
-    const i=(y*W+x)*3; rgb[i]+=3; rgb[i+1]+=3; rgb[i+2]+=4;
-  }
-  for(let y=0;y<H;y+=48) for(let x=0;x<W;x++) {
-    const i=(y*W+x)*3; rgb[i]+=3; rgb[i+1]+=3; rgb[i+2]+=4;
-  }
+  for (let x = 0; x < W; x += 60) rect(x, 0, 1, H, [9, 29, 61]);
+  for (let y = 0; y < H; y += 60) rect(0, y, W, 1, [9, 29, 61]);
 
   const GOLD=[217,182,95], WHITE=[246,248,252], MUTED=[167,183,205], PANEL=[11,37,76];
 
