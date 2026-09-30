@@ -9,5 +9,20 @@
   ],
   "rewrites": [
     { "source": "/compartir", "destination": "/compartir.html" }
+  ],
+  "headers": [
+    {
+      "source": "/compartir",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, s-maxage=0, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/og-congreso-2026-v14.png",
+      "headers": [
+        { "key": "Content-Type", "value": "image/png" },
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
   ]
 }
