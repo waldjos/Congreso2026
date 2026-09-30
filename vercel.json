@@ -8,11 +8,18 @@
     }
   ],
   "rewrites": [
-    { "source": "/compartir", "destination": "/compartir.html" }
+    { "source": "/compartir", "destination": "/compartir.html" },
+    { "source": "/compartir-v14", "destination": "/compartir-v14.html" }
   ],
   "headers": [
     {
       "source": "/compartir",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, s-maxage=0, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/compartir-v14",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=0, s-maxage=0, must-revalidate" }
       ]
