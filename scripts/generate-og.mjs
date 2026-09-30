@@ -1,31 +1,103 @@
 import fs from 'node:fs';
-import { deflateSync } from 'node:zlib';
+import sharp from 'sharp';
 
-const W=1200,H=630,rgb=Buffer.alloc(W*H*3);
-const C={navy:[5,24,52],navy3:[11,53,94],gold:[217,182,95],gold2:[242,210,126],white:[246,248,252],muted:[170,187,210],blue:[73,151,209],glow:[116,200,235],panel:[10,38,76]};
-function put(x,y,c){if(x<0||y<0||x>=W||y>=H)return;const i=(y*W+x)*3;rgb[i]=c[0];rgb[i+1]=c[1];rgb[i+2]=c[2]}
-function blend(x,y,c,a){if(x<0||y<0||x>=W||y>=H)return;const i=(y*W+x)*3;rgb[i]=Math.round(rgb[i]*(1-a)+c[0]*a);rgb[i+1]=Math.round(rgb[i+1]*(1-a)+c[1]*a);rgb[i+2]=Math.round(rgb[i+2]*(1-a)+c[2]*a)}
-function rect(x,y,w,h,c,a=1){for(let yy=y;yy<y+h;yy++)for(let xx=x;xx<x+w;xx++)a===1?put(xx,yy,c):blend(xx,yy,c,a)}
-function line(x0,y0,x1,y1,c,t=1,a=1){const dx=Math.abs(x1-x0),sx=x0<x1?1:-1,dy=-Math.abs(y1-y0),sy=y0<y1?1:-1;let e=dx+dy;while(true){for(let oy=-t;oy<=t;oy++)for(let ox=-t;ox<=t;ox++)a===1?put(x0+ox,y0+oy,c):blend(x0+ox,y0+oy,c,a);if(x0===x1&&y0===y1)break;const e2=2*e;if(e2>=dy){e+=dy;x0+=sx}if(e2<=dx){e+=dx;y0+=sy}}}
-function ellipse(cx,cy,rx,ry,c,a=1){for(let y=cy-ry;y<=cy+ry;y++){const yy=(y-cy)/ry,span=Math.floor(rx*Math.sqrt(Math.max(0,1-yy*yy)));for(let x=cx-span;x<=cx+span;x++)a===1?put(x,y,c):blend(x,y,c,a)}}
-function ellipseOutline(cx,cy,rx,ry,c,t=2,a=1){ellipse(cx,cy,rx,ry,c,a);ellipse(cx,cy,Math.max(1,rx-t),Math.max(1,ry-t),[8,41,78],1)}
-function roundRect(x,y,w,h,r,c,a=1){rect(x+r,y,w-2*r,h,c,a);rect(x,y+r,w,h-2*r,c,a);ellipse(x+r,y+r,r,r,c,a);ellipse(x+w-r-1,y+r,r,r,c,a);ellipse(x+r,y+h-r-1,r,r,c,a);ellipse(x+w-r-1,y+h-r-1,r,r,c,a)}
-const F={A:['01110','10001','10001','11111','10001','10001','10001'],B:['11110','10001','10001','11110','10001','10001','11110'],C:['01111','10000','10000','10000','10000','10000','01111'],D:['11110','10001','10001','10001','10001','10001','11110'],E:['11111','10000','10000','11110','10000','10000','11111'],F:['11111','10000','10000','11110','10000','10000','10000'],G:['01111','10000','10000','10111','10001','10001','01111'],H:['10001','10001','10001','11111','10001','10001','10001'],I:['11111','00100','00100','00100','00100','00100','11111'],J:['00111','00010','00010','00010','10010','10010','01100'],K:['10001','10010','10100','11000','10100','10010','10001'],L:['10000','10000','10000','10000','10000','10000','11111'],M:['10001','11011','10101','10101','10001','10001','10001'],N:['10001','11001','10101','10011','10001','10001','10001'],O:['01110','10001','10001','10001','10001','10001','01110'],P:['11110','10001','10001','11110','10000','10000','10000'],Q:['01110','10001','10001','10001','10101','10010','01101'],R:['11110','10001','10001','11110','10100','10010','10001'],S:['01111','10000','10000','01110','00001','00001','11110'],T:['11111','00100','00100','00100','00100','00100','00100'],U:['10001','10001','10001','10001','10001','10001','01110'],V:['10001','10001','10001','10001','10001','01010','00100'],W:['10001','10001','10001','10101','10101','11011','10001'],X:['10001','10001','01010','00100','01010','10001','10001'],Y:['10001','10001','01010','00100','00100','00100','00100'],Z:['11111','00001','00010','00100','01000','10000','11111'],'0':['01110','10001','10011','10101','11001','10001','01110'],'1':['00100','01100','00100','00100','00100','00100','01110'],'2':['01110','10001','00001','00010','00100','01000','11111'],'3':['11110','00001','00001','01110','00001','00001','11110'],'4':['00010','00110','01010','10010','11111','00010','00010'],'5':['11111','10000','10000','11110','00001','00001','11110'],'6':['01110','10000','10000','11110','10001','10001','01110'],'7':['11111','00001','00010','00100','01000','01000','01000'],'8':['01110','10001','10001','01110','10001','10001','01110'],'9':['01110','10001','10001','01111','00001','00001','01110'],'-':['00000','00000','00000','11111','00000','00000','00000'],' ':['00000','00000','00000','00000','00000','00000','00000']};
-function norm(s){return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase()}
-function text(s,x,y,scale,c,spacing=1){let ox=x;for(const ch of norm(s)){const g=F[ch]||F[' '];for(let r=0;r<7;r++)for(let col=0;col<5;col++)if(g[r][col]==='1')rect(ox+col*scale,y+r*scale,scale,scale,c);ox+=(5+spacing)*scale}}
-for(let y=0;y<H;y++)for(let x=0;x<W;x++){const t=x/W,u=y/H;put(x,y,[Math.round(C.navy[0]*(1-t)+C.navy3[0]*t),Math.round(C.navy[1]*(1-t)+C.navy3[1]*t+4*u),Math.round(C.navy[2]*(1-t)+C.navy3[2]*t+6*u)])}
-for(let x=0;x<W;x+=60)rect(x,0,1,H,[40,77,113],.2);for(let y=0;y<H;y+=60)rect(0,y,W,1,[40,77,113],.2);
-ellipseOutline(1140,40,330,330,C.gold,4,.45);ellipseOutline(1140,40,285,285,C.gold,2,.22);line(820,0,690,630,C.gold,3,.7);line(845,0,715,630,C.gold2,1,.35);
-ellipseOutline(94,78,48,48,C.gold,4,1);ellipse(80,76,11,19,C.gold2);ellipse(108,76,11,19,C.gold2);line(84,86,94,107,C.gold2,3);line(104,86,94,107,C.gold2,3);ellipse(94,112,11,8,C.gold2);
-text('SOCIEDAD',165,45,4,C.white);text('VENEZOLANA',165,78,4,C.white);text('DE UROLOGIA',165,111,4,C.white);
-roundRect(55,165,360,48,22,C.panel);rect(78,187,10,10,C.gold);text('PROGRAMA ACTUALIZADO',105,179,3,C.gold2);
-text('XXXVI CONGRESO',55,245,8,C.white);text('NACIONAL DE',55,315,7,C.white);text('UROLOGIA 2026',55,375,8,C.gold2);
-roundRect(55,485,615,72,18,[8,34,70],.95);text('4-7 NOVIEMBRE 2026',82,500,5,C.white);text('HOTEL TIBISAY - ISLA DE MARGARITA',82,548,3,C.muted);
-ellipse(930,220,58,92,[12,56,100]);ellipse(948,218,40,77,C.blue,.65);ellipse(963,220,24,55,[8,41,78]);ellipse(1080,220,58,92,[12,56,100]);ellipse(1062,218,40,77,C.blue,.65);ellipse(1047,220,24,55,[8,41,78]);ellipseOutline(930,220,58,92,C.glow,2,.65);ellipseOutline(1080,220,58,92,C.glow,2,.65);line(944,286,978,370,C.gold2,3,.85);line(1066,286,1032,370,C.gold2,3,.85);ellipse(1005,403,55,43,[14,68,116]);ellipseOutline(1005,403,55,43,C.glow,2,.7);line(1005,444,1005,478,C.gold2,3,.85);text('CIENCIA',915,505,4,C.gold2);text('INNOVACION',880,543,4,C.white);text('UROLOGIA',910,581,4,C.white);
-function crc32(buf){let c=0xffffffff;for(const v of buf){c^=v;for(let k=0;k<8;k++)c=(c>>>1)^(0xedb88320&-(c&1))}return(c^0xffffffff)>>>0}
-function chunk(type,data){const t=Buffer.from(type),out=Buffer.alloc(12+data.length);out.writeUInt32BE(data.length,0);t.copy(out,4);data.copy(out,8);out.writeUInt32BE(crc32(Buffer.concat([t,data])),8+data.length);return out}
-const stride=W*3,raw=Buffer.alloc((stride+1)*H);for(let y=0;y<H;y++){const o=y*(stride+1);raw[o]=0;rgb.copy(raw,o+1,y*stride,(y+1)*stride)}
-const ihdr=Buffer.alloc(13);ihdr.writeUInt32BE(W,0);ihdr.writeUInt32BE(H,4);ihdr[8]=8;ihdr[9]=2;
-const png=Buffer.concat([Buffer.from([137,80,78,71,13,10,26,10]),chunk('IHDR',ihdr),chunk('IDAT',deflateSync(raw,{level:9})),chunk('IEND',Buffer.alloc(0))]);
-fs.writeFileSync(new URL('../public/og-congreso-2026-v14.png',import.meta.url),png);
-console.log('Generated social preview:',png.length,'bytes');
+const W = 1200;
+const H = 630;
+const logoPath = new URL('../public/logo-svu.png', import.meta.url);
+const outputPath = new URL('../public/og-congreso-2026-v14.png', import.meta.url);
+const logoBase64 = fs.readFileSync(logoPath).toString('base64');
+
+const svg = `
+<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#061A38"/>
+      <stop offset="0.56" stop-color="#0A2851"/>
+      <stop offset="1" stop-color="#0B4771"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="75%" cy="35%" r="55%">
+      <stop offset="0" stop-color="#43A8DE" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#43A8DE" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F2D27E"/>
+      <stop offset="1" stop-color="#CFA94C"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0A2346" stop-opacity="0.92"/>
+      <stop offset="1" stop-color="#0B315A" stop-opacity="0.80"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="22" flood-color="#020A17" flood-opacity="0.34"/>
+    </filter>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+    <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse">
+      <path d="M 56 0 L 0 0 0 56" fill="none" stroke="#8BB6D9" stroke-width="1" opacity="0.08"/>
+    </pattern>
+  </defs>
+
+  <rect width="${W}" height="${H}" fill="url(#bg)"/>
+  <rect width="${W}" height="${H}" fill="url(#glow)"/>
+  <rect width="${W}" height="${H}" fill="url(#grid)"/>
+
+  <circle cx="1135" cy="62" r="295" fill="none" stroke="#D9B65F" stroke-width="2" opacity="0.38"/>
+  <circle cx="1135" cy="62" r="250" fill="none" stroke="#D9B65F" stroke-width="1" opacity="0.18"/>
+  <path d="M815 -20 L680 650" stroke="#D9B65F" stroke-width="3" opacity="0.75"/>
+  <path d="M842 -20 L707 650" stroke="#F2D27E" stroke-width="1" opacity="0.35"/>
+
+  <g opacity="0.22" filter="url(#soft)">
+    <ellipse cx="995" cy="290" rx="180" ry="220" fill="#2D94C7"/>
+  </g>
+
+  <g transform="translate(72 58)">
+    <image href="data:image/png;base64,${logoBase64}" width="255" height="88" preserveAspectRatio="xMinYMid meet"/>
+  </g>
+
+  <g transform="translate(72 174)">
+    <rect x="0" y="0" width="344" height="42" rx="21" fill="#0C294E" stroke="#D9B65F" stroke-opacity="0.35"/>
+    <circle cx="24" cy="21" r="5" fill="#F2D27E"/>
+    <text x="42" y="27" fill="#F2D27E" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" letter-spacing="1.3">PROGRAMA ACTUALIZADO</text>
+  </g>
+
+  <g transform="translate(72 252)">
+    <text x="0" y="0" fill="#F8FAFD" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="800" letter-spacing="-1.2">
+      <tspan x="0" dy="0">XXXVI Congreso</tspan>
+      <tspan x="0" dy="70">Nacional de Urología</tspan>
+    </text>
+    <text x="0" y="154" fill="url(#gold)" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="800">2026</text>
+    <text x="0" y="196" fill="#B9C7DA" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="500" letter-spacing="0.2">Encuentro científico nacional · Sociedad Venezolana de Urología</text>
+  </g>
+
+  <g transform="translate(72 510)" filter="url(#shadow)">
+    <rect x="0" y="0" width="650" height="78" rx="18" fill="url(#panel)" stroke="#FFFFFF" stroke-opacity="0.10"/>
+    <text x="28" y="33" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">4–7 de noviembre de 2026</text>
+    <text x="28" y="61" fill="#B9C7DA" font-family="Arial, Helvetica, sans-serif" font-size="17">Hotel Tibisay · Isla de Margarita</text>
+  </g>
+
+  <g transform="translate(860 168)">
+    <rect x="0" y="0" width="270" height="310" rx="34" fill="#082244" fill-opacity="0.55" stroke="#FFFFFF" stroke-opacity="0.08"/>
+
+    <!-- Anatomical-inspired kidneys, kept abstract and clean -->
+    <path d="M82 60 C44 60 30 94 36 128 C42 160 61 179 88 175 C109 172 117 153 110 133 C103 112 108 89 101 74 C97 66 91 61 82 60Z"
+      fill="none" stroke="#75C2E8" stroke-width="3" opacity="0.78"/>
+    <path d="M188 60 C226 60 240 94 234 128 C228 160 209 179 182 175 C161 172 153 153 160 133 C167 112 162 89 169 74 C173 66 179 61 188 60Z"
+      fill="none" stroke="#75C2E8" stroke-width="3" opacity="0.78"/>
+    <path d="M108 142 C115 177 124 201 135 222" fill="none" stroke="#D9B65F" stroke-width="4" stroke-linecap="round"/>
+    <path d="M162 142 C155 177 146 201 135 222" fill="none" stroke="#D9B65F" stroke-width="4" stroke-linecap="round"/>
+    <ellipse cx="135" cy="238" rx="30" ry="23" fill="none" stroke="#75C2E8" stroke-width="3" opacity="0.78"/>
+    <path d="M135 261 L135 280" stroke="#D9B65F" stroke-width="4" stroke-linecap="round"/>
+
+    <text x="135" y="298" text-anchor="middle" fill="#F2D27E" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" letter-spacing="1.8">CIENCIA · INNOVACIÓN</text>
+  </g>
+
+  <text x="1128" y="584" text-anchor="end" fill="#AFC1D4" font-family="Arial, Helvetica, sans-serif" font-size="15">congreso2026-azure.vercel.app</text>
+</svg>`;
+
+await sharp(Buffer.from(svg))
+  .png({ compressionLevel: 9, adaptiveFiltering: true, palette: false })
+  .toFile(outputPath);
+
+const { size } = fs.statSync(outputPath);
+console.log('Generated premium social preview:', size, 'bytes');
