@@ -27,5 +27,5 @@ function chunk(type,data){const t=Buffer.from(type),out=Buffer.alloc(12+data.len
 const stride=W*3,raw=Buffer.alloc((stride+1)*H);for(let y=0;y<H;y++){const o=y*(stride+1);raw[o]=0;rgb.copy(raw,o+1,y*stride,(y+1)*stride)}
 const ihdr=Buffer.alloc(13);ihdr.writeUInt32BE(W,0);ihdr.writeUInt32BE(H,4);ihdr[8]=8;ihdr[9]=2;
 const png=Buffer.concat([Buffer.from([137,80,78,71,13,10,26,10]),chunk('IHDR',ihdr),chunk('IDAT',deflateSync(raw,{level:9})),chunk('IEND',Buffer.alloc(0))]);
-fs.writeFileSync(new URL('../public/og-congreso-2026-v8.png',import.meta.url),png);
+fs.writeFileSync(new URL('../public/og-congreso-2026-v14.png',import.meta.url),png);
 console.log('Generated social preview:',png.length,'bytes');
