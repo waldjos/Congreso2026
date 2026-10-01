@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
 <meta name="theme-color" content="#071c3b"/>
-<meta name="soveuro-program-version" content="2026-10-01-v8" />
+<meta name="soveuro-program-version" content="2026-10-01-v9-pediatria" />
 <title>XXXVI Congreso Nacional de Urología 2026 · SOVEURO</title>
 <meta name="description" content="Programa interactivo oficial del XXXVI Congreso Nacional de Urología 2026 · 4 al 7 de noviembre · Hotel Tibisay, Isla de Margarita."/>
 <style>
@@ -140,6 +140,43 @@ a{color:inherit}
 .count-box{min-width:68px;padding:10px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--line);text-align:center}
 .count-box b{font-size:20px;display:block;color:var(--gold2)}
 .count-box small{color:var(--muted)}
+
+/* === Diferenciación visual · Programa de Urología Pediátrica === */
+.program-legend{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  margin:0 0 14px;padding:12px 14px;
+  border:1px solid rgba(248,224,72,.38);
+  border-radius:16px;
+  background:linear-gradient(135deg,rgba(248,224,72,.13),rgba(8,32,65,.88));
+}
+.program-legend .legend-swatch{
+  width:18px;height:18px;border-radius:6px;flex:none;
+  background:#f4df36;box-shadow:0 0 0 4px rgba(244,223,54,.12);
+}
+.program-legend strong{color:#fff4a8;font-size:13px}
+.program-legend span{color:var(--muted);font-size:12px}
+.event.pediatric{
+  border-color:rgba(244,223,54,.46);
+  background:linear-gradient(135deg,rgba(87,78,16,.42),rgba(8,31,62,.97) 62%);
+  box-shadow:0 10px 28px rgba(244,223,54,.08);
+}
+.event.pediatric:before{
+  width:6px;background:#f4df36;
+  box-shadow:0 0 18px rgba(244,223,54,.42);
+}
+.event.pediatric .time{color:#fff59b}
+.event.pediatric h3{color:#fffbe0}
+.event.pediatric .meta .pill:first-child{
+  color:#071c3b;background:#f4df36;border-color:#f4df36;font-weight:900;
+}
+.event.pediatric.block{
+  background:linear-gradient(135deg,rgba(113,99,18,.48),rgba(8,31,62,.97) 70%);
+  border-color:rgba(244,223,54,.62);
+}
+@media(max-width:640px){
+  .program-legend{padding:11px 12px}
+}
+
 @media(max-width:860px){
   .quick-grid{grid-template-columns:repeat(2,1fr)}
   .people{grid-template-columns:repeat(2,1fr)}
@@ -437,6 +474,10 @@ a{color:inherit}
       <div><h2>Programa científico</h2><p>Filtra por día, sede, área, ponente o palabra clave.</p></div>
       <button class="btn ghost" id="clearFilters">Limpiar filtros</button>
     </div>
+    <div class="program-legend" aria-label="Identificación del programa de Urología Pediátrica">
+      <span class="legend-swatch" aria-hidden="true"></span>
+      <div><strong>Amarillo · Programa de Urología Pediátrica</strong><br><span>Las actividades resaltadas en amarillo corresponden al programa pediátrico · Hospital de Clínicas del Este.</span></div>
+    </div>
     <div class="filters">
       <div class="search-row">
         <input id="search" class="input" placeholder="Buscar tema, ponente, moderador, patrocinante…"/>
@@ -596,7 +637,15 @@ function sponsorHtml(e){
   return `<div class="sponsor-inline">${url?`<img src="${esc(url)}" alt="${esc(e.sponsor)}" onerror="this.style.display='none'"/>`:""}<span>Patrocinado por ${esc(e.sponsor)}</span></div>`;
 }
 function isSaved(id){return saved.has(id)}
-function kindClass(e){return e.kind==="block"?"block":e.kind==="break"?"break":e.kind==="social"?"social":""}
+function isPediatric(e){return String(e.track||"").toLowerCase().includes("pediátrica")||String(e.track||"").toLowerCase().includes("pediatrica")}
+function kindClass(e){
+  const classes=[];
+  if(e.kind==="block")classes.push("block");
+  else if(e.kind==="break")classes.push("break");
+  else if(e.kind==="social")classes.push("social");
+  if(isPediatric(e))classes.push("pediatric");
+  return classes.join(" ");
+}
 
 function eventPhase(e,now=caracasNow()){
   if(!e.start)return "scheduled";
